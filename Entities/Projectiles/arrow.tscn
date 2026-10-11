@@ -8,9 +8,9 @@ size = Vector2(162, 20)
 
 [node name="Arrow" type="Area2D" unique_id=807208911]
 collision_layer = 8
-collision_mask = 0
+collision_mask = 4
 script = ExtResource("1_lwbsb")
-speed = 2000
+speed = 1000
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1044981045]
 position = Vector2(0, 4.705)

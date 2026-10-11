@@ -3,25 +3,30 @@
 [ext_resource type="Script" uid="uid://dat88m4fykyni" path="res://Entities/Towers/arrow_tower.gd" id="1_au2ll"]
 [ext_resource type="PackedScene" uid="uid://buqy3xwut4xhr" path="res://Entities/Projectiles/arrow.tscn" id="2_0mj8a"]
 [ext_resource type="Texture2D" uid="uid://dsnn26r711x8h" path="res://Entities/Towers/Art/Arrow Tower Base.svg" id="3_au2ll"]
+[ext_resource type="Texture2D" uid="uid://bcx1m15rts1j" path="res://Entities/Towers/Art/Arrow Tower Turret.svg" id="4_0mj8a"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_t1yug"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("3_au2ll")
+"texture": ExtResource("4_0mj8a")
 }],
 "loop": 1,
 "name": &"default",
 "speed": 5.0
 }]
 
-[node name="Arrow Tower" type="Node2D" unique_id=664368618 node_paths=PackedStringArray("fireRateTimer")]
-scale = Vector2(0.5, 0.5)
+[node name="Arrow Tower" type="Node2D" unique_id=664368618 node_paths=PackedStringArray("towerTop", "fireRateTimer")]
+scale = Vector2(0.3, 0.3)
 script = ExtResource("1_au2ll")
 projectileScene = ExtResource("2_0mj8a")
+towerTop = NodePath("Tower Top")
 fireRateTimer = NodePath("FireRateTimer")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1172487934]
+[node name="Base" type="Sprite2D" parent="." unique_id=1738475557]
+texture = ExtResource("3_au2ll")
+
+[node name="Tower Top" type="AnimatedSprite2D" parent="." unique_id=1172487934]
 sprite_frames = SubResource("SpriteFrames_t1yug")
 
 [node name="FireRateTimer" type="Timer" parent="." unique_id=1645054394]

@@ -19,6 +19,10 @@ config/icon="res://icon.svg"
 
 buses/default_bus_layout="uid://br4wajxtntide"
 
+[autoload]
+
+GameManager="*uid://jjpy7lsa75x7"
+
 [display]
 
 window/size/viewport_width=1920
@@ -38,6 +42,10 @@ folder_colors={
 "res://Systems/": "blue",
 "res://Testing/": "purple"
 }
+
+[global_group]
+
+Enemy=""
 
 [input]
 

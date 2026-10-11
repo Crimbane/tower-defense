@@ -2,8 +2,15 @@
 
 [ext_resource type="Texture2D" uid="uid://p60xj8mo8k88" path="res://icon.svg" id="1_qkhfn"]
 [ext_resource type="PackedScene" uid="uid://bghlwrvg8h01x" path="res://Entities/Towers/arrow_tower.tscn" id="2_d5etc"]
+[ext_resource type="PackedScene" uid="uid://o6uso5ija8u8" path="res://Testing/olem50/enemy_test.tscn" id="3_fs1by"]
 
-[node name="Node2D" type="Node2D" unique_id=1083687686]
+[sub_resource type="Curve2D" id="Curve2D_fs1by"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0)
+}
+point_count = 1
+
+[node name="Testing scene" type="Node2D" unique_id=1083687686]
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=440324959]
 position = Vector2(974, 542)
@@ -12,3 +19,9 @@ texture = ExtResource("1_qkhfn")
 
 [node name="Arrow Tower" parent="." unique_id=664368618 instance=ExtResource("2_d5etc")]
 position = Vector2(299, 412)
+
+[node name="EnemyTest" parent="." unique_id=1776093051 instance=ExtResource("3_fs1by")]
+position = Vector2(31, 202)
+
+[node name="Path2D" type="Path2D" parent="." unique_id=1158346799]
+curve = SubResource("Curve2D_fs1by")
