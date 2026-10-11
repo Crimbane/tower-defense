@@ -2,9 +2,9 @@
 <!-- Created with Inkscape (http://www.inkscape.org/) -->
 
 <svg
-   width="92.95327mm"
-   height="76.000328mm"
-   viewBox="0 0 92.95327 76.000328"
+   width="100mm"
+   height="100mm"
+   viewBox="0 0 100 100"
    version="1.1"
    id="svg1"
    xmlns="http://www.w3.org/2000/svg"
@@ -13,8 +13,7 @@
      id="defs1" />
   <g
      id="layer1"
-     style="display:none"
-     transform="translate(-3.5470539,-9.9996699)">
+     style="display:none">
     <circle
        style="fill:#4d4d4d;stroke:#000000;stroke-width:1;stroke-dasharray:none"
        id="path1"
@@ -145,8 +144,7 @@
   </g>
   <g
      id="layer2"
-     style="display:inline"
-     transform="translate(-3.5470539,-9.9996699)">
+     style="display:inline">
     <rect
        style="fill:#a4714f;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-dasharray:none"
        id="rect159"
@@ -197,8 +195,7 @@
   </g>
   <g
      id="layer3"
-     style="display:inline"
-     transform="translate(-3.5470539,-9.9996699)">
+     style="display:inline">
     <path
        style="display:inline;fill:#e8ce8f;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-dasharray:none"
        d="M 46.001974,49.358341 7.7184101,15.5 10.975003,15.487052 46.001974,46.396839 Z"
