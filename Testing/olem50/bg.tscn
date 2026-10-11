@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://ddqk3cid68teo"]
+
+[ext_resource type="Texture2D" uid="uid://p60xj8mo8k88" path="res://icon.svg" id="1_qkhfn"]
+[ext_resource type="PackedScene" uid="uid://bghlwrvg8h01x" path="res://Entities/Towers/arrow_tower.tscn" id="2_d5etc"]
+
+[node name="Node2D" type="Node2D" unique_id=1083687686]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=440324959]
+position = Vector2(974, 542)
+scale = Vector2(5, 5)
+texture = ExtResource("1_qkhfn")
+
+[node name="Arrow Tower" parent="." unique_id=664368618 instance=ExtResource("2_d5etc")]
+position = Vector2(299, 412)
