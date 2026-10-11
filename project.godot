@@ -20,8 +20,23 @@ buses/default_bus_layout="uid://br4wajxtntide"
 
 [display]
 
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+window/size/window_width_override=1152
+window/size/window_height_override=648
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
+
+[file_customization]
+
+folder_colors={
+"res://Assets/": "red",
+"res://Common/": "orange",
+"res://Entities/": "yellow",
+"res://Stages/": "green",
+"res://Systems/": "blue",
+"res://Testing/": "purple"
+}
 
 [physics]
 
