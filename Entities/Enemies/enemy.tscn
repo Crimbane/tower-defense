@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://cpuuonscitnvx"]
+
+[ext_resource type="Texture2D" uid="uid://dnks7we1bvg17" path="res://Assets/Placeholders/Button background.png" id="1_7o3vr"]
+[ext_resource type="Script" uid="uid://cw0jxtdodiyv6" path="res://Entities/Enemies/enemy.gd" id="1_wbf3x"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wbf3x"]
+size = Vector2(39, 40)
+
+[node name="Enemy" type="PathFollow2D" unique_id=479867562 node_paths=PackedStringArray("sprite", "burnTimer") groups=["Enemy"]]
+script = ExtResource("1_wbf3x")
+sprite = NodePath("Sprite2D")
+burnTimer = NodePath("BurnTimer")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2035455794]
+texture = ExtResource("1_7o3vr")
+
+[node name="Hitbox" type="Area2D" parent="." unique_id=2000332408 groups=["Enemy"]]
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=483616725]
+position = Vector2(0.5, 0)
+shape = SubResource("RectangleShape2D_wbf3x")
+
+[node name="BurnTimer" type="Timer" parent="." unique_id=1596100805]
+one_shot = true

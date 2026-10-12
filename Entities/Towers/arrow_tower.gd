@@ -1,13 +1,20 @@
 extends Node2D
 
+@export_enum(
+	"Arrow", "Ice") var towerType: String = "Arrow"
+
 @export var projectileScene: PackedScene
 var projectileSpawnPosition: Vector2 = Vector2.ZERO
 @export var towerTop: AnimatedSprite2D
 @export var fireRateTimer: Timer
 
+@export var arrowDamage: int = 10
+@export var iceDamage: int = 1
+
 var canFire: bool = true
 @export var fireRate: float = 0.5
-var attackRange: float = 500.0
+@export var attackRange: float = 500.0
+
 
 var currentTarget = null
 
@@ -38,6 +45,13 @@ func shoot() -> void:
 	var spawnPosition = self.global_position
 	
 	var direction = (currentTarget.global_position - spawnPosition).normalized()
+	
+	projectile.projectileType = towerType
+	match towerType:
+		"Arrow":
+			projectile.damage = arrowDamage
+		"Ice":
+			projectile.damage = iceDamage
 	
 	projectile.global_position = spawnPosition
 	projectile.direction = direction

@@ -1,0 +1,51 @@
+[gd_scene format=3 uid="uid://buqy3xwut4xhr"]
+
+[ext_resource type="Script" uid="uid://2uklop5f15pv" path="res://Entities/Projectiles/projectile.gd" id="1_x5b6o"]
+[ext_resource type="PackedScene" uid="uid://do21bu4h2565b" path="res://Entities/Projectiles/ice_field.tscn" id="2_6kijj"]
+[ext_resource type="Texture2D" uid="uid://m1ng7lxhip8e" path="res://Entities/Projectiles/Art/Basic Arrow.svg" id="2_rca8h"]
+[ext_resource type="Texture2D" uid="uid://b5cqnc6wd1cu6" path="res://Entities/Projectiles/Art/Ice Chunk.svg" id="3_6kijj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t1yug"]
+size = Vector2(225, 20)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_t1yug"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_rca8h")
+}],
+"loop": 1,
+"name": &"arrow",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_6kijj")
+}],
+"loop": 1,
+"name": &"ice",
+"speed": 5.0
+}]
+
+[node name="Projectile" type="Area2D" unique_id=807208911]
+scale = Vector2(0.3, 0.3)
+collision_layer = 8
+collision_mask = 4
+script = ExtResource("1_x5b6o")
+iceFieldScene = ExtResource("2_6kijj")
+speed = 1500
+projectileSprite = "Ice"
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1044981045]
+visible = false
+rotation = 1.5707964
+texture = ExtResource("2_rca8h")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=705034017]
+position = Vector2(30, 0)
+shape = SubResource("RectangleShape2D_t1yug")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=292606929]
+rotation = 1.5707964
+sprite_frames = SubResource("SpriteFrames_t1yug")
+animation = &"ice"

@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://kx0msk5dsok3"]
+
+[ext_resource type="Script" uid="uid://dat88m4fykyni" path="res://Entities/Towers/arrow_tower.gd" id="1_q7hfs"]
+[ext_resource type="PackedScene" uid="uid://buqy3xwut4xhr" path="res://Entities/Projectiles/projectile.tscn" id="2_b5d63"]
+[ext_resource type="Texture2D" uid="uid://cj5b7jmbtmhsk" path="res://Entities/Towers/Art/Ice Tower Base.svg" id="3_lahyv"]
+[ext_resource type="Texture2D" uid="uid://7a0njq2nufh5" path="res://Entities/Towers/Art/Ice Tower Turret.svg" id="4_nqmql"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jvmfa"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_nqmql")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Ice Tower" type="Node2D" unique_id=664368618 node_paths=PackedStringArray("towerTop", "fireRateTimer")]
+scale = Vector2(0.3, 0.3)
+script = ExtResource("1_q7hfs")
+towerType = "Ice"
+projectileScene = ExtResource("2_b5d63")
+towerTop = NodePath("Tower Top")
+fireRateTimer = NodePath("FireRateTimer")
+
+[node name="Base" type="Sprite2D" parent="." unique_id=1738475557]
+texture = ExtResource("3_lahyv")
+
+[node name="Tower Top" type="AnimatedSprite2D" parent="." unique_id=1172487934]
+sprite_frames = SubResource("SpriteFrames_jvmfa")
+
+[node name="FireRateTimer" type="Timer" parent="." unique_id=1645054394]
+one_shot = true

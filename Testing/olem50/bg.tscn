@@ -2,13 +2,16 @@
 
 [ext_resource type="Texture2D" uid="uid://p60xj8mo8k88" path="res://icon.svg" id="1_qkhfn"]
 [ext_resource type="PackedScene" uid="uid://bghlwrvg8h01x" path="res://Entities/Towers/arrow_tower.tscn" id="2_d5etc"]
-[ext_resource type="PackedScene" uid="uid://o6uso5ija8u8" path="res://Testing/olem50/enemy_test.tscn" id="3_fs1by"]
+[ext_resource type="Script" uid="uid://cdj54w87supeo" path="res://Testing/olem50/enemy_spawner.gd" id="4_cy7fe"]
+[ext_resource type="PackedScene" uid="uid://cpuuonscitnvx" path="res://Entities/Enemies/enemy.tscn" id="5_w245n"]
+[ext_resource type="PackedScene" uid="uid://d21cd6rl6j76n" path="res://Entities/Towers/fire_tower.tscn" id="6_rrttu"]
+[ext_resource type="PackedScene" uid="uid://kx0msk5dsok3" path="res://Entities/Towers/ice_tower.tscn" id="7_w245n"]
 
-[sub_resource type="Curve2D" id="Curve2D_fs1by"]
+[sub_resource type="Curve2D" id="Curve2D_w245n"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 0, 0)
+"points": PackedVector2Array(0, 0, 0, 0, 1723, 985, 0, 0, 0, 0, 1340, 906, 0, 0, 0, 0, 1046, 975, 0, 0, 0, 0, 572, 925, 0, 0, 0, 0, 574, 733, 0, 0, 0, 0, 403, 632, 0, 0, 0, 0, 568, 420, 0, 0, 0, 0, 373, 207, 0, 0, 0, 0, 752, 96, 0, 0, 0, 0, 226, 62, 0, 0, 0, 0, 50, 475, 0, 0, 0, 0, 264, 600)
 }
-point_count = 1
+point_count = 12
 
 [node name="Testing scene" type="Node2D" unique_id=1083687686]
 
@@ -20,8 +23,16 @@ texture = ExtResource("1_qkhfn")
 [node name="Arrow Tower" parent="." unique_id=664368618 instance=ExtResource("2_d5etc")]
 position = Vector2(299, 412)
 
-[node name="EnemyTest" parent="." unique_id=1776093051 instance=ExtResource("3_fs1by")]
-position = Vector2(31, 202)
+[node name="Path2D" type="Path2D" parent="." unique_id=731043234]
+curve = SubResource("Curve2D_w245n")
+script = ExtResource("4_cy7fe")
+enemyScene = ExtResource("5_w245n")
 
-[node name="Path2D" type="Path2D" parent="." unique_id=1158346799]
-curve = SubResource("Curve2D_fs1by")
+[node name="Fire Tower" parent="." unique_id=717643783 instance=ExtResource("6_rrttu")]
+position = Vector2(323, 729)
+
+[node name="Fire Tower2" parent="." unique_id=1568236440 instance=ExtResource("6_rrttu")]
+position = Vector2(398, 1025)
+
+[node name="Ice Tower" parent="." unique_id=1144880034 instance=ExtResource("7_w245n")]
+position = Vector2(1433, 806)
