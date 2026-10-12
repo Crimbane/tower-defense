@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="100mm"
+   height="100mm"
+   viewBox="0 0 100 100"
+   version="1.1"
+   id="svg1"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs1" />
+  <g
+     id="layer1"
+     style="display:none">
+    <path
+       id="path1"
+       style="fill:#4a3737;stroke:#000000"
+       d="m 95.000001,50 c 0,1.679355 3.915517,3.338978 3.750571,4.97485 -0.939656,9.319157 -4.490604,17.867557 -9.909986,24.902342 -1.438931,1.867845 -6.152116,-0.517716 -7.840585,1.122809 -1.348945,1.310642 0.369443,6.691 -1.122809,7.840585 -7.034785,5.419382 -15.583185,8.97033 -24.902342,9.909986 C 53.338978,98.915518 51.679355,95.000001 50,95.000001 c -1.679354,0 -3.338977,3.915517 -4.97485,3.750571 C 35.705993,97.810916 27.157593,94.259968 20.122808,88.840586 18.442759,87.546329 20.497272,82.497272 19,81.000001 17.502728,79.502729 12.453672,81.557241 11.159414,79.877193 5.7400323,72.842408 2.1890841,64.294007 1.2494281,54.97485 1.0844822,53.338978 5,51.679355 5,50 5,48.320646 1.084482,46.661023 1.249428,45.02515 2.1890839,35.705993 5.740032,27.157593 11.159414,20.122808 12.453672,18.442759 17.502728,20.497272 19,19 20.351893,17.648107 18.134182,12.726609 19.635882,11.53942 26.76156,5.9061178 35.489897,2.2108731 45.02515,1.249428 46.661023,1.084482 48.320646,5 50,5 c 1.679355,0 3.338978,-3.9155178 4.97485,-3.7505719 9.319157,0.939656 17.867558,4.4906042 24.902343,9.9099859 1.680048,1.294258 -0.374464,6.343314 1.122808,7.840586 1.497271,1.497272 6.546328,-0.557241 7.840585,1.122808 5.419382,7.034785 8.97033,15.583185 9.909986,24.902342 0.164946,1.635873 -3.750571,3.295496 -3.750571,4.97485 z" />
+    <circle
+       style="fill:#4f4f4f;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-opacity:1"
+       id="path2"
+       cx="50"
+       cy="50"
+       r="40" />
+    <rect
+       style="fill:#4a3737;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-opacity:1"
+       id="rect2"
+       width="49.497475"
+       height="49.497475"
+       x="45.961941"
+       y="-24.748739"
+       transform="rotate(45.000001)" />
+  </g>
+  <g
+     id="layer2"
+     style="display:inline">
+    <rect
+       style="fill:#513522;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-opacity:1"
+       id="rect10"
+       width="34"
+       height="45"
+       x="33"
+       y="30.000002"
+       rx="0"
+       ry="0" />
+    <rect
+       style="fill:#3b3b3b;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-opacity:1"
+       id="rect9"
+       width="26"
+       height="15"
+       x="37"
+       y="45"
+       ry="5.0000005"
+       rx="1.9999995" />
+    <path
+       id="rect3"
+       style="fill:#2e2e2e;fill-opacity:1;stroke:#000000"
+       d="m 38,10 h 24 c 0,0 -1.666137,7.833355 -2,12 -0.333862,4.166646 0,13 0,13 H 40 c 0,0 0.333334,-8.833333 0,-13 -0.333333,-4.166666 -2,-12 -2,-12 z" />
+    <rect
+       style="fill:#3b3b3b;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-opacity:1"
+       id="rect4"
+       width="26"
+       height="5"
+       x="36.999996"
+       y="5"
+       ry="2"
+       rx="1.9999957" />
+    <rect
+       style="fill:#3b3b3b;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-opacity:1"
+       id="rect5"
+       width="24"
+       height="5"
+       x="38"
+       y="35"
+       ry="2.0000002"
+       rx="1.9999995" />
+    <path
+       id="rect6"
+       style="fill:#2e2e2e;stroke:#000000"
+       d="m 40,40 h 20 c 0,0 -1,7.833334 -1,12 0,4.166667 1,13 1,13 H 40 c 0,0 1,-8.833333 1,-13 0,-4.166666 -1,-12 -1,-12 z" />
+    <rect
+       style="fill:#3b3b3b;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-opacity:1"
+       id="rect7"
+       width="24"
+       height="5"
+       x="38"
+       y="65"
+       ry="2.0000005"
+       rx="2" />
+    <path
+       id="rect8"
+       style="fill:#2e2e2e;stroke:#000000"
+       d="m 40,70 h 20 l 1.051909,11.045047 A 9.0928678,9.0928678 132.27983 0 1 52,91.000001 h -4.012476 a 9.0815237,9.0815237 47.720166 0 1 -9.040616,-9.942535 z" />
+    <rect
+       style="fill:#3b3b3b;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-opacity:1"
+       id="rect11"
+       width="1.9999996"
+       height="2.9999993"
+       x="49"
+       y="91" />
+    <ellipse
+       style="fill:#3b3b3b;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-opacity:1"
+       id="path11"
+       cx="50"
+       cy="96"
+       rx="1.9999996"
+       ry="2" />
+  </g>
+  <g
+     id="layer3"
+     style="display:none">
+    <circle
+       style="fill:#2e2e2e;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-opacity:1"
+       id="path12"
+       cx="50"
+       cy="50"
+       r="10" />
+  </g>
+</svg>
