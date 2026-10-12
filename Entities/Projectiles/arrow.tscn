@@ -1,21 +1,22 @@
 [gd_scene format=3 uid="uid://buqy3xwut4xhr"]
 
-[ext_resource type="Texture2D" uid="uid://ctrn6bc15qkhm" path="res://Assets/Placeholders/Door closed.png" id="1_2kp02"]
 [ext_resource type="Script" uid="uid://2uklop5f15pv" path="res://Entities/Projectiles/arrow.gd" id="1_lwbsb"]
+[ext_resource type="Texture2D" uid="uid://m1ng7lxhip8e" path="res://Entities/Projectiles/Art/Basic Arrow.svg" id="2_lwbsb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t1yug"]
-size = Vector2(162, 20)
+size = Vector2(225, 20)
 
 [node name="Arrow" type="Area2D" unique_id=807208911]
+scale = Vector2(0.3, 0.3)
 collision_layer = 8
 collision_mask = 4
 script = ExtResource("1_lwbsb")
 speed = 1000
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1044981045]
-position = Vector2(0, 4.705)
 rotation = 1.5707964
-texture = ExtResource("1_2kp02")
+texture = ExtResource("2_lwbsb")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=705034017]
+position = Vector2(30, 0)
 shape = SubResource("RectangleShape2D_t1yug")
