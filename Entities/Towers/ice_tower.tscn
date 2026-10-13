@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://kx0msk5dsok3"]
 
-[ext_resource type="Script" uid="uid://dat88m4fykyni" path="res://Entities/Towers/arrow_tower.gd" id="1_q7hfs"]
+[ext_resource type="Script" uid="uid://dat88m4fykyni" path="res://Entities/Towers/tower.gd" id="1_q7hfs"]
 [ext_resource type="PackedScene" uid="uid://buqy3xwut4xhr" path="res://Entities/Projectiles/projectile.tscn" id="2_b5d63"]
 [ext_resource type="Texture2D" uid="uid://cj5b7jmbtmhsk" path="res://Entities/Towers/Art/Ice Tower Base.svg" id="3_lahyv"]
 [ext_resource type="Texture2D" uid="uid://7a0njq2nufh5" path="res://Entities/Towers/Art/Ice Tower Turret.svg" id="4_nqmql"]

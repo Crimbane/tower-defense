@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bghlwrvg8h01x"]
 
-[ext_resource type="Script" uid="uid://dat88m4fykyni" path="res://Entities/Towers/arrow_tower.gd" id="1_au2ll"]
+[ext_resource type="Script" uid="uid://dat88m4fykyni" path="res://Entities/Towers/tower.gd" id="1_au2ll"]
 [ext_resource type="PackedScene" uid="uid://buqy3xwut4xhr" path="res://Entities/Projectiles/projectile.tscn" id="2_0mj8a"]
 [ext_resource type="Texture2D" uid="uid://dsnn26r711x8h" path="res://Entities/Towers/Art/Arrow Tower Base.svg" id="3_au2ll"]
 [ext_resource type="Texture2D" uid="uid://bcx1m15rts1j" path="res://Entities/Towers/Art/Arrow Tower Turret.svg" id="4_0mj8a"]
@@ -22,6 +22,7 @@ script = ExtResource("1_au2ll")
 projectileScene = ExtResource("2_0mj8a")
 towerTop = NodePath("Tower Top")
 fireRateTimer = NodePath("FireRateTimer")
+projectileSpeed = 1200
 
 [node name="Base" type="Sprite2D" parent="." unique_id=1738475557]
 texture = ExtResource("3_au2ll")

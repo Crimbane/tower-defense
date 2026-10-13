@@ -1,0 +1,124 @@
+[gd_scene format=3 uid="uid://c2qmqslpqs4ub"]
+
+[ext_resource type="Script" uid="uid://cw0jxtdodiyv6" path="res://Entities/Enemies/enemy.gd" id="1_xa3x5"]
+[ext_resource type="Texture2D" uid="uid://cfojvwc37ykry" path="res://Testing/olem50/Enemy Healthbar Empty.png" id="2_l545l"]
+[ext_resource type="Texture2D" uid="uid://dwa1hwklb2lnm" path="res://Testing/olem50/Enemy Healthbar Full.png" id="3_gy5gq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6rqwt"]
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4jf10"]
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ihd1f"]
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o1grr"]
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ftopr"]
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jk8g3"]
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sawca"]
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uqk4q"]
+region = Rect2(96, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_t1yug"]
+animations = [{
+"frames": [],
+"loop": 1,
+"name": &"attack",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6rqwt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4jf10")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ihd1f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o1grr")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ftopr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jk8g3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sawca")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uqk4q")
+}],
+"loop": 1,
+"name": &"move",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t1yug"]
+size = Vector2(15, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fyjvv"]
+size = Vector2(17, 17)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_onxlf"]
+size = Vector2(18, 20)
+
+[node name="BaseEnemy" type="CharacterBody2D" unique_id=1903621472 groups=["Enemy"]]
+z_index = 1
+collision_layer = 4
+collision_mask = 6
+script = ExtResource("1_xa3x5")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2135723407]
+sprite_frames = SubResource("SpriteFrames_t1yug")
+animation = &"idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=812084088]
+position = Vector2(0.5, 0.25)
+scale = Vector2(0.99999994, 0.99999994)
+shape = SubResource("RectangleShape2D_t1yug")
+
+[node name="Line Of Sight Ray" type="RayCast2D" parent="." unique_id=2134486389]
+collision_mask = 3
+
+[node name="Line Of Sight Timer" type="Timer" parent="." unique_id=890732152]
+one_shot = true
+
+[node name="Area2D Pathfinding" type="Area2D" parent="." unique_id=1488407102]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D Pathfinding" unique_id=666793766]
+shape = SubResource("RectangleShape2D_fyjvv")
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="." unique_id=1424703275]
+visible = false
+offset_right = 40.0
+offset_bottom = 40.0
+value = 100.0
+nine_patch_stretch = true
+texture_under = ExtResource("2_l545l")
+texture_progress = ExtResource("3_gy5gq")
+
+[node name="Area2D Attack" type="Area2D" parent="." unique_id=1367624743]
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D Attack" unique_id=1001917874]
+position = Vector2(1, 4)
+shape = SubResource("RectangleShape2D_onxlf")

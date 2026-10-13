@@ -15,14 +15,15 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Fire Tower" type="Node2D" unique_id=664368618 node_paths=PackedStringArray("towerTop", "weapon", "fireRateTimer", "fireDurationTimer")]
+[node name="Fire Tower" type="Node2D" unique_id=664368618 node_paths=PackedStringArray("towerTop", "weapon", "fireRateTimer", "fireDurationTimer", "particles")]
 scale = Vector2(0.3, 0.3)
 script = ExtResource("1_2hdbw")
 towerTop = NodePath("Tower Top")
 weapon = NodePath("Fire")
 fireRateTimer = NodePath("FireRateTimer")
 fireDurationTimer = NodePath("FireDurationTimer")
-fireRate = 4.0
+particles = NodePath("Fire/CPUParticles2D")
+fireRate = 5.0
 fireDuration = 2.5
 
 [node name="Base" type="Sprite2D" parent="." unique_id=1738475557]
@@ -43,7 +44,6 @@ collision_layer = 8
 collision_mask = 4
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Fire" unique_id=1843357427]
-visible = false
 position = Vector2(0, -163.333)
 polygon = PackedVector2Array(0, 0, 300, -800, -300, -800)
 
@@ -57,5 +57,5 @@ spread = 35.48
 gravity = Vector2(0, 0)
 initial_velocity_min = 637.62
 initial_velocity_max = 637.62
-scale_amount_max = 2.0
+scale_amount_max = 10.0
 color = Color(1, 0.09019608, 0, 1)

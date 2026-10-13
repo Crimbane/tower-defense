@@ -1,46 +1,47 @@
 [gd_scene format=3 uid="uid://ddqk3cid68teo"]
 
-[ext_resource type="Texture2D" uid="uid://p60xj8mo8k88" path="res://icon.svg" id="1_qkhfn"]
+[ext_resource type="Texture2D" uid="uid://c4tq01guafoq3" path="res://Stages/Game/Art/Desert Map With Texture.png" id="1_w245n"]
 [ext_resource type="PackedScene" uid="uid://bghlwrvg8h01x" path="res://Entities/Towers/arrow_tower.tscn" id="2_d5etc"]
 [ext_resource type="Script" uid="uid://cdj54w87supeo" path="res://Testing/olem50/enemy_spawner.gd" id="4_cy7fe"]
-[ext_resource type="PackedScene" uid="uid://cpuuonscitnvx" path="res://Entities/Enemies/enemy.tscn" id="5_w245n"]
+[ext_resource type="PackedScene" uid="uid://cpuuonscitnvx" path="res://Entities/Enemies/base_enemy.tscn" id="5_w245n"]
 [ext_resource type="PackedScene" uid="uid://d21cd6rl6j76n" path="res://Entities/Towers/fire_tower.tscn" id="6_rrttu"]
 [ext_resource type="PackedScene" uid="uid://7tfgc51ngohn" path="res://Entities/Towers/cannon_tower.tscn" id="7_t2ke1"]
 [ext_resource type="PackedScene" uid="uid://kx0msk5dsok3" path="res://Entities/Towers/ice_tower.tscn" id="7_w245n"]
 
-[sub_resource type="Curve2D" id="Curve2D_w245n"]
+[sub_resource type="Curve2D" id="Curve2D_t2ke1"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 1723, 985, 0, 0, 0, 0, 1340, 906, 0, 0, 0, 0, 1046, 975, 0, 0, 0, 0, 572, 925, 0, 0, 0, 0, 574, 733, 0, 0, 0, 0, 403, 632, 0, 0, 0, 0, 568, 420, 0, 0, 0, 0, 373, 207, 0, 0, 0, 0, 752, 96, 0, 0, 0, 0, 226, 62, 0, 0, 0, 0, 50, 475, 0, 0, 0, 0, 264, 600)
+"points": PackedVector2Array(0, 0, 0, 0, 201, 1035, 0, 0, 0, 0, 201, 936, -79.72025, 30.116539, 79.72025, -30.116539, 276, 844, 0, 0, 0, 0, 455, 817, 0, 0, 0, 0, 639, 821, -40.7, -4.4, 40.7, 4.4, 871, 835, 0, 0, 0, 0, 1153, 801, -15.94405, 104.52211, 15.94405, -104.52211, 1385, 710, 11.269721, 30.05259, -11.269721, -30.05259, 1406, 550, 0, 0, 0, 0, 1330, 422, 35.311794, 12.772351, -35.311794, -12.772351, 1204, 314, 0, 0, 0, 0, 963, 318, 0, 0, 0, 0, 720, 303, 0, 0, 0, 0, 605, 273, 86.4012, 64.61307, -86.4012, -64.61307, 375, 211, 5.2592034, 54.845978, -5.2592034, -54.845978, 310, 48)
 }
-point_count = 12
+point_count = 16
 
 [node name="Testing scene" type="Node2D" unique_id=1083687686]
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=440324959]
-position = Vector2(974, 542)
-scale = Vector2(5, 5)
-texture = ExtResource("1_qkhfn")
+[node name="Background" type="TextureRect" parent="." unique_id=2094654496]
+z_index = -1
+offset_right = 1728.0
+offset_bottom = 1080.0
+texture = ExtResource("1_w245n")
 
 [node name="Arrow Tower" parent="." unique_id=664368618 instance=ExtResource("2_d5etc")]
-position = Vector2(299, 412)
+position = Vector2(1372, 157)
 
 [node name="Path2D" type="Path2D" parent="." unique_id=731043234]
-curve = SubResource("Curve2D_w245n")
+curve = SubResource("Curve2D_t2ke1")
 script = ExtResource("4_cy7fe")
 enemyScene = ExtResource("5_w245n")
 
-[node name="Enemy" parent="Path2D" unique_id=1036619569 instance=ExtResource("5_w245n")]
-position = Vector2(1723, 985)
-rotation = -2.938179
+[node name="Base Enemy" parent="Path2D" unique_id=479867562 instance=ExtResource("5_w245n")]
+position = Vector2(201, 1035)
+rotation = -1.5707964
 
 [node name="Fire Tower" parent="." unique_id=717643783 instance=ExtResource("6_rrttu")]
-position = Vector2(323, 729)
+position = Vector2(527, 86)
 
 [node name="Fire Tower2" parent="." unique_id=1568236440 instance=ExtResource("6_rrttu")]
-position = Vector2(398, 1025)
+position = Vector2(1240, 594)
 
 [node name="Ice Tower" parent="." unique_id=1144880034 instance=ExtResource("7_w245n")]
-position = Vector2(1433, 806)
+position = Vector2(1242, 973)
 
 [node name="Cannon Tower" parent="." unique_id=71440309 instance=ExtResource("7_t2ke1")]
-position = Vector2(557, 274)
+position = Vector2(187, 313)

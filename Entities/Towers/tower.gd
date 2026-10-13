@@ -16,6 +16,7 @@ var projectileSpawnPosition: Vector2 = Vector2.ZERO
 var canFire: bool = true
 @export var fireRate: float = 0.5
 @export var attackRange: float = 500.0
+@export var projectileSpeed: int = 500
 
 
 var currentTarget = null
@@ -50,6 +51,7 @@ func shoot() -> void:
 	
 	projectile.projectileType = towerType
 	projectile.damage = damage
+	projectile.speed = projectileSpeed
 	#match towerType:
 		#"Arrow":
 			#projectile.damage = arrowDamage

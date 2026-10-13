@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://7tfgc51ngohn"]
 
-[ext_resource type="Script" uid="uid://dat88m4fykyni" path="res://Entities/Towers/arrow_tower.gd" id="1_pb8ps"]
+[ext_resource type="Script" uid="uid://dat88m4fykyni" path="res://Entities/Towers/tower.gd" id="1_pb8ps"]
 [ext_resource type="PackedScene" uid="uid://buqy3xwut4xhr" path="res://Entities/Projectiles/projectile.tscn" id="2_3dxh7"]
 [ext_resource type="Texture2D" uid="uid://bwc7lw47230im" path="res://Entities/Towers/Art/Cannon Tower Base.svg" id="3_n3io8"]
 [ext_resource type="Texture2D" uid="uid://jbasbb3wsko8" path="res://Entities/Towers/Art/Cannon Tower Turret.svg" id="4_hhn6m"]
@@ -25,6 +25,7 @@ towerTop = NodePath("Tower Top")
 fireRateTimer = NodePath("FireRateTimer")
 damage = 50
 fireRate = 1.0
+projectileSpeed = 1000
 
 [node name="Base" type="Sprite2D" parent="." unique_id=1738475557]
 texture = ExtResource("3_n3io8")

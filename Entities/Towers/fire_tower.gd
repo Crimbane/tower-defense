@@ -6,6 +6,7 @@ var projectileSpawnPosition: Vector2 = Vector2.ZERO
 @export var weapon: Area2D
 @export var fireRateTimer: Timer
 @export var fireDurationTimer: Timer
+@export var particles: CPUParticles2D
 
 var canFire: bool = true
 var isShooting: bool = false
@@ -26,8 +27,10 @@ func _ready() -> void:
 	
 	weapon.area_entered.connect(applyFire)
 	weapon.area_exited.connect(applyFire)
+	particles.finished.connect(weapon.hide)
 	weapon.monitoring = false
 	weapon.visible = false
+	particles.emitting = false
 
 
 func _process(_delta: float) -> void:
@@ -49,6 +52,7 @@ func shoot() -> void:
 	canFire = false
 	fireDurationTimer.start()
 	weapon.show()
+	particles.emitting = true
 	weapon.set_deferred("monitoring", true)
 	
 
@@ -59,8 +63,9 @@ func applyFire(body: Area2D) -> void:
 
 func onStopShooting() -> void:
 	weapon.set_deferred("monitoring", false)
-	weapon.hide()
+	particles.emitting = false
 	fireRateTimer.start()
+
 
 func onFireRateTimerTimeout() -> void:
 	canFire = true

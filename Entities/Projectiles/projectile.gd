@@ -7,7 +7,7 @@ var projectileType: String = "Arrow"
 var direction = Vector2.ZERO
 
 @export var speed: int = 500
-var damage: int = 10
+var damage: int = 0
 @export var pierceCount: int = 0
 
 var hasHit: bool = false
