@@ -1,6 +1,7 @@
 extends Area2D
 
 @export var iceFieldScene: PackedScene
+@export var explosionScene: PackedScene
 var projectileType: String = "Arrow"
 
 var direction = Vector2.ZERO
@@ -40,7 +41,9 @@ func projectileHit(body: Node2D) -> void:
 			"Ice":
 				body.get_parent().takeDamage(damage)
 				spawnIceField()
-				
+			"Cannon":
+				#body.get_parent().takeDamage(damage)
+				spawnExplosion()
 	
 	
 	hasHit = true
@@ -56,6 +59,17 @@ func spawnIceField() -> void:
 	
 	get_tree().current_scene.call_deferred("add_child", iceField)
 
+
+func spawnExplosion() -> void:
+	var explosion = explosionScene.instantiate()
+	var spawnPosition = self.global_position
+	
+	explosion.global_position = spawnPosition
+	explosion.damage = damage
+	
+	get_tree().current_scene.call_deferred("add_child", explosion)
+
+
 func updateSprite() -> void:
 	var animatedSprite = get_node_or_null("AnimatedSprite2D")
 	
@@ -67,3 +81,5 @@ func updateSprite() -> void:
 			animatedSprite.animation = "arrow"
 		"Ice":
 			animatedSprite.animation = "ice"
+		"Cannon":
+			animatedSprite.animation = "cannon"

@@ -4,6 +4,8 @@
 [ext_resource type="PackedScene" uid="uid://do21bu4h2565b" path="res://Entities/Projectiles/ice_field.tscn" id="2_6kijj"]
 [ext_resource type="Texture2D" uid="uid://m1ng7lxhip8e" path="res://Entities/Projectiles/Art/Basic Arrow.svg" id="2_rca8h"]
 [ext_resource type="Texture2D" uid="uid://b5cqnc6wd1cu6" path="res://Entities/Projectiles/Art/Ice Chunk.svg" id="3_6kijj"]
+[ext_resource type="PackedScene" uid="uid://b3jy8j487acsq" path="res://Entities/Projectiles/cannon_explosion.tscn" id="3_vpfrp"]
+[ext_resource type="Texture2D" uid="uid://cnnybmtupfnsh" path="res://Entities/Projectiles/Art/Basic Cannonball.svg" id="5_o7t25"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t1yug"]
 size = Vector2(225, 20)
@@ -16,6 +18,14 @@ animations = [{
 }],
 "loop": 1,
 "name": &"arrow",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_o7t25")
+}],
+"loop": 1,
+"name": &"cannon",
 "speed": 5.0
 }, {
 "frames": [{
@@ -33,13 +43,7 @@ collision_layer = 8
 collision_mask = 4
 script = ExtResource("1_x5b6o")
 iceFieldScene = ExtResource("2_6kijj")
-speed = 1500
-projectileSprite = "Ice"
-
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1044981045]
-visible = false
-rotation = 1.5707964
-texture = ExtResource("2_rca8h")
+explosionScene = ExtResource("3_vpfrp")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=705034017]
 position = Vector2(30, 0)

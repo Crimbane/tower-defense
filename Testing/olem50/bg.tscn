@@ -5,6 +5,7 @@
 [ext_resource type="Script" uid="uid://cdj54w87supeo" path="res://Testing/olem50/enemy_spawner.gd" id="4_cy7fe"]
 [ext_resource type="PackedScene" uid="uid://cpuuonscitnvx" path="res://Entities/Enemies/enemy.tscn" id="5_w245n"]
 [ext_resource type="PackedScene" uid="uid://d21cd6rl6j76n" path="res://Entities/Towers/fire_tower.tscn" id="6_rrttu"]
+[ext_resource type="PackedScene" uid="uid://7tfgc51ngohn" path="res://Entities/Towers/cannon_tower.tscn" id="7_t2ke1"]
 [ext_resource type="PackedScene" uid="uid://kx0msk5dsok3" path="res://Entities/Towers/ice_tower.tscn" id="7_w245n"]
 
 [sub_resource type="Curve2D" id="Curve2D_w245n"]
@@ -28,6 +29,10 @@ curve = SubResource("Curve2D_w245n")
 script = ExtResource("4_cy7fe")
 enemyScene = ExtResource("5_w245n")
 
+[node name="Enemy" parent="Path2D" unique_id=1036619569 instance=ExtResource("5_w245n")]
+position = Vector2(1723, 985)
+rotation = -2.938179
+
 [node name="Fire Tower" parent="." unique_id=717643783 instance=ExtResource("6_rrttu")]
 position = Vector2(323, 729)
 
@@ -36,3 +41,6 @@ position = Vector2(398, 1025)
 
 [node name="Ice Tower" parent="." unique_id=1144880034 instance=ExtResource("7_w245n")]
 position = Vector2(1433, 806)
+
+[node name="Cannon Tower" parent="." unique_id=71440309 instance=ExtResource("7_t2ke1")]
+position = Vector2(557, 274)

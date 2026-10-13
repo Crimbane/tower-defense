@@ -1,0 +1,86 @@
+[gd_scene format=3 uid="uid://b3jy8j487acsq"]
+
+[ext_resource type="Script" uid="uid://c1dc07fwynpgj" path="res://Entities/Projectiles/cannon_explosion.gd" id="1_noka1"]
+[ext_resource type="Texture2D" uid="uid://bhny3oduwyiad" path="res://Assets/Placeholders/Explosive Bullet Hit Impact Sprite Sheet.png" id="2_1bwec"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jirgs"]
+radius = 75.00667
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y7cll"]
+atlas = ExtResource("2_1bwec")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wgpg2"]
+atlas = ExtResource("2_1bwec")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ywk1i"]
+atlas = ExtResource("2_1bwec")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l3cyi"]
+atlas = ExtResource("2_1bwec")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h88fj"]
+atlas = ExtResource("2_1bwec")
+region = Rect2(512, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_70pcq"]
+atlas = ExtResource("2_1bwec")
+region = Rect2(640, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7n830"]
+atlas = ExtResource("2_1bwec")
+region = Rect2(768, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gvt3i"]
+atlas = ExtResource("2_1bwec")
+region = Rect2(896, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_t1yug"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y7cll")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wgpg2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ywk1i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l3cyi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h88fj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_70pcq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7n830")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gvt3i")
+}, {
+"duration": 1.0,
+"texture": null
+}],
+"loop": 0,
+"name": &"explosion",
+"speed": 20.0
+}]
+
+[node name="Cannon Explosion" type="Area2D" unique_id=1226056163]
+collision_layer = 0
+collision_mask = 4
+script = ExtResource("1_noka1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1300026696]
+shape = SubResource("CircleShape2D_jirgs")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1588073662]
+sprite_frames = SubResource("SpriteFrames_t1yug")
+animation = &"explosion"

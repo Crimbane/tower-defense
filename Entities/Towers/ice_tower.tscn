@@ -23,6 +23,7 @@ towerType = "Ice"
 projectileScene = ExtResource("2_b5d63")
 towerTop = NodePath("Tower Top")
 fireRateTimer = NodePath("FireRateTimer")
+fireRate = 2.0
 
 [node name="Base" type="Sprite2D" parent="." unique_id=1738475557]
 texture = ExtResource("3_lahyv")

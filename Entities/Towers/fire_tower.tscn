@@ -22,6 +22,8 @@ towerTop = NodePath("Tower Top")
 weapon = NodePath("Fire")
 fireRateTimer = NodePath("FireRateTimer")
 fireDurationTimer = NodePath("FireDurationTimer")
+fireRate = 4.0
+fireDuration = 2.5
 
 [node name="Base" type="Sprite2D" parent="." unique_id=1738475557]
 texture = ExtResource("3_hyie5")
