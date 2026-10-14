@@ -6,7 +6,7 @@ extends PathFollow2D
 @export var burnTimer: Timer
 var time: float = 0.0
 
-@export var unitCost: int = 0
+@export var unitCost: int = 1
 @export var attackDamage: int = 1
 @export var maxHealth = 50
 @onready var currentHealth: int = maxHealth
@@ -38,8 +38,7 @@ func _process(delta: float) -> void:
 	time += delta
 	
 	if progress_ratio == 1.0:
-		print("reached end of path")
-		queue_free()
+		onPathCompletion()
 	
 	if burnTimer.time_left != 0:
 		if time > burnTicks:
@@ -94,13 +93,17 @@ func removeSlowDebuff() -> void:
 		slowStength = 1.0
 		currentSpeed = baseSpeed
 
+func onPathCompletion() -> void:
+	if GameManager.nexus != null:
+		GameManager.nexus.takeDamage(attackDamage)
+	queue_free()
 
 func placeHealthBar() -> void:
 	healthBar.max_value = maxHealth
 	healthBar.value = currentHealth
 	if collisionShape.shape is RectangleShape2D:
 		var collisionSizeWidth = collisionShape.shape.size.x
-		var collisionSizeHeight = collisionShape.shape.size.y
+		#var collisionSizeHeight = collisionShape.shape.size.y
 		healthBar.size = Vector2(collisionSizeWidth, healthBarSizeHeight)
 		
 		#healthBar.position.x = -healthBar.size.x / 2

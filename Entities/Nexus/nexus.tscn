@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://dlg4dm7pcirbi"]
+
+[ext_resource type="Script" uid="uid://b5xim4hv5jrro" path="res://Entities/Nexus/nexus.gd" id="1_3np3v"]
+[ext_resource type="Texture2D" uid="uid://jv0ytpp3mpu1" path="res://Assets/Placeholders/Box.png" id="1_u7x0y"]
+[ext_resource type="Texture2D" uid="uid://cfojvwc37ykry" path="res://Testing/olem50/Enemy Healthbar Empty.png" id="3_num41"]
+[ext_resource type="Texture2D" uid="uid://dwa1hwklb2lnm" path="res://Testing/olem50/Enemy Healthbar Full.png" id="4_cks1j"]
+
+[node name="Nexus" type="Node2D" unique_id=1619217758]
+script = ExtResource("1_3np3v")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1698545554]
+modulate = Color(0.7647059, 0.21176471, 1, 1)
+texture = ExtResource("1_u7x0y")
+
+[node name="Health Bar" type="TextureProgressBar" parent="." unique_id=1589720766]
+offset_right = 40.0
+offset_bottom = 40.0
+value = 100.0
+nine_patch_stretch = true
+texture_under = ExtResource("3_num41")
+texture_progress = ExtResource("4_cks1j")

@@ -1,18 +1,35 @@
 extends Path2D
-@export var enemyScene: PackedScene
 
-var time: float = 0.0
-var spawnTimer: float = 3.0
+@export var waveManager: Node
 
-func _process(delta: float) -> void:
-	time += delta
+@onready var spawnTimer: Timer = $"Spawn Timer"
+
+var spawnQueue: Array[PackedScene] = []
+
+
+func _ready() -> void:
+	spawnTimer.timeout.connect(onSpawnTimerTimeout)
+
+func _process(_delta: float) -> void:
+	pass
 	
-	if time > spawnTimer:
-		time = 0
-		spawnEnemy()
 
+func startWave(spawnList: Array[PackedScene]) -> void:
+	spawnQueue = spawnList
+	
+	if not spawnQueue.is_empty():
+		spawnEnemy()
+		spawnTimer.start()
+
+func onSpawnTimerTimeout() -> void:
+	if not spawnQueue.is_empty():
+		spawnEnemy()
+		spawnTimer.start()
+	else:
+		waveManager.waveCompleted()
 
 func spawnEnemy() -> void:
+	var enemyScene: PackedScene = spawnQueue.pop_front()
 	var enemy = enemyScene.instantiate()
 	var spawnPosition = Vector2.ZERO
 	
