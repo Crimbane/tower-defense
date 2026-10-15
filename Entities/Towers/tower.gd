@@ -8,6 +8,8 @@ var projectileSpawnPosition: Vector2 = Vector2.ZERO
 @export var towerTop: AnimatedSprite2D
 @export var fireRateTimer: Timer
 
+var isGhostShape: bool = false
+
 @export var damage: int = 10
 #@export var arrowDamage: int = 10
 #@export var iceDamage: int = 1
@@ -28,6 +30,8 @@ func _ready() -> void:
 
 
 func _process(_delta: float) -> void:
+	if isGhostShape:
+		return
 	currentTarget = findClosestEnemy()
 	
 	if currentTarget != null:
@@ -41,6 +45,8 @@ func _process(_delta: float) -> void:
 
 
 func shoot() -> void:
+	if isGhostShape:
+		return
 	canFire = false
 	fireRateTimer.start()
 	

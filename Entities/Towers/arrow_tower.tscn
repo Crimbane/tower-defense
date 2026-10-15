@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://buqy3xwut4xhr" path="res://Entities/Projectiles/projectile.tscn" id="2_0mj8a"]
 [ext_resource type="Texture2D" uid="uid://dsnn26r711x8h" path="res://Entities/Towers/Art/Arrow Tower Base.svg" id="3_au2ll"]
 [ext_resource type="Texture2D" uid="uid://bcx1m15rts1j" path="res://Entities/Towers/Art/Arrow Tower Turret.svg" id="4_0mj8a"]
+[ext_resource type="Script" uid="uid://bcokocxaptaxb" path="res://Entities/Towers/attack_range.gd" id="5_1xniw"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_t1yug"]
 animations = [{
@@ -15,6 +16,9 @@ animations = [{
 "name": &"default",
 "speed": 5.0
 }]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_t1yug"]
+radius = 226.66666
 
 [node name="Arrow Tower" type="Node2D" unique_id=664368618 node_paths=PackedStringArray("towerTop", "fireRateTimer")]
 scale = Vector2(0.3, 0.3)
@@ -32,3 +36,12 @@ sprite_frames = SubResource("SpriteFrames_t1yug")
 
 [node name="FireRateTimer" type="Timer" parent="." unique_id=1645054394]
 one_shot = true
+
+[node name="Placement Hitbox" type="Area2D" parent="." unique_id=914576015]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Placement Hitbox" unique_id=1490553821]
+shape = SubResource("CircleShape2D_t1yug")
+
+[node name="Attack Range" type="Node2D" parent="." unique_id=450146633]
+script = ExtResource("5_1xniw")

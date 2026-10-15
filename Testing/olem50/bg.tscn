@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://ddqk3cid68teo"]
 
+[ext_resource type="Script" uid="uid://6rdi74t4ac0y" path="res://Testing/olem50/placement_manager.gd" id="1_8wxnh"]
 [ext_resource type="Texture2D" uid="uid://bc3nb58lryfis" path="res://Stages/Game/Art/Desert Map Textured Alternative.png" id="1_t2ke1"]
 [ext_resource type="PackedScene" uid="uid://bghlwrvg8h01x" path="res://Entities/Towers/arrow_tower.tscn" id="2_d5etc"]
 [ext_resource type="Script" uid="uid://cdj54w87supeo" path="res://Testing/olem50/enemy_spawner.gd" id="4_cy7fe"]
@@ -18,6 +19,8 @@ _data = {
 point_count = 16
 
 [node name="Testing scene" type="Node2D" unique_id=1083687686]
+script = ExtResource("1_8wxnh")
+towerScene = ExtResource("2_d5etc")
 
 [node name="Background" type="TextureRect" parent="." unique_id=2094654496]
 z_index = -1
@@ -38,6 +41,7 @@ position = Vector2(201, 1035)
 rotation = -1.5707964
 
 [node name="Spawn Timer" type="Timer" parent="Path2D" unique_id=1572588186]
+wait_time = 0.5
 one_shot = true
 
 [node name="Fire Tower" parent="." unique_id=717643783 instance=ExtResource("6_rrttu")]
@@ -61,5 +65,5 @@ enemyScene = ExtResource("5_w245n")
 fastEnemyScene = ExtResource("10_ma62e")
 
 [node name="Next Wave Timer" type="Timer" parent="Wave Manager" unique_id=552329530]
-wait_time = 10.0
+wait_time = 8.0
 one_shot = true

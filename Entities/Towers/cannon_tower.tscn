@@ -24,7 +24,7 @@ projectileScene = ExtResource("2_3dxh7")
 towerTop = NodePath("Tower Top")
 fireRateTimer = NodePath("FireRateTimer")
 damage = 50
-fireRate = 1.0
+fireRate = 10.0
 projectileSpeed = 1000
 
 [node name="Base" type="Sprite2D" parent="." unique_id=1738475557]
