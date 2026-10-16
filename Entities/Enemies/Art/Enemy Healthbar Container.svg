@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="100mm"
+   height="100mm"
+   viewBox="0 0 100 100"
+   version="1.1"
+   id="svg1"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs1">
+    <pattern
+       xlink:href="#Strips1_8"
+       preserveAspectRatio="xMidYMid"
+       id="pattern6"
+       patternTransform="scale(1)"
+       x="0"
+       y="0" />
+    <pattern
+       patternUnits="userSpaceOnUse"
+       width="9"
+       height="1"
+       patternTransform="translate(0,0) scale(2,2)"
+       preserveAspectRatio="xMidYMid"
+       id="Strips1_8"
+       style="fill:#bd0f0f">
+      <rect
+   style="stroke:none"
+   x="0"
+   y="-0.5"
+   width="1"
+   height="2"
+   id="rect170" />
+
+    </pattern>
+  </defs>
+  <g
+     id="layer1">
+    <rect
+       style="opacity:1;fill:none;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-dasharray:none;stroke-opacity:1"
+       id="rect2"
+       width="60"
+       height="5.9999995"
+       x="20"
+       y="47" />
+    <rect
+       style="display:none;opacity:1;fill:#ee1c1c;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-dasharray:none;stroke-opacity:1"
+       id="rect6"
+       width="60"
+       height="5.9999995"
+       x="20"
+       y="47" />
+    <rect
+       style="display:none;opacity:1;fill:url(#pattern6);stroke:none;stroke-width:1;stroke-linecap:round;stroke-dasharray:none;stroke-opacity:1"
+       id="rect3"
+       width="59"
+       height="5"
+       x="20.5"
+       y="47.5" />
+  </g>
+</svg>
