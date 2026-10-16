@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://bhllmt0i37knn"]
+
+[ext_resource type="Script" uid="uid://dksdrl4jiaksc" path="res://Systems/UI/tower_buy_button.gd" id="1_1rjhe"]
+[ext_resource type="Texture2D" uid="uid://dnks7we1bvg17" path="res://Assets/Placeholders/Button background.png" id="1_md6kl"]
+[ext_resource type="Texture2D" uid="uid://bcx1m15rts1j" path="res://Entities/Towers/Art/Arrow Tower Turret.svg" id="2_md6kl"]
+
+[node name="Button" type="Button" unique_id=1343717249]
+z_index = 1
+offset_right = 48.0
+offset_bottom = 48.0
+icon = ExtResource("1_md6kl")
+flat = true
+script = ExtResource("1_1rjhe")
+
+[node name="Icon" type="TextureRect" parent="." unique_id=1423745173]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -18.30851
+offset_top = -21.30851
+offset_right = 18.30851
+offset_bottom = 21.30851
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_md6kl")
+expand_mode = 1
+
+[node name="DropShadow" type="TextureRect" parent="Icon" unique_id=1543883635]
+visible = false
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_md6kl")
+expand_mode = 2
+
+[node name="ButtonShadow" type="Panel" parent="." unique_id=1812621659]
+visible = false
+z_index = -1
+layout_mode = 0
+offset_right = 44.68085
+offset_bottom = 55.31915

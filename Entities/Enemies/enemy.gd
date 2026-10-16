@@ -12,6 +12,7 @@ var time: float = 0.0
 @onready var currentHealth: int = maxHealth
 @export var baseSpeed: float = 0.5
 @onready var currentSpeed: float = baseSpeed
+@export var armor: int = 0
 
 var isBurning: bool = false
 var fireDamage: int = 0

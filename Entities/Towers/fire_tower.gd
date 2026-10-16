@@ -7,6 +7,12 @@ var projectileSpawnPosition: Vector2 = Vector2.ZERO
 @export var fireRateTimer: Timer
 @export var fireDurationTimer: Timer
 @export var particles: CPUParticles2D
+@export var mouseDetectionArea: Area2D
+@export var attackRangeNode: Node2D
+
+var isGhostShape: bool = false
+
+var towerCost: int = 50
 
 var canFire: bool = true
 var isShooting: bool = false
@@ -31,9 +37,16 @@ func _ready() -> void:
 	weapon.monitoring = false
 	weapon.visible = false
 	particles.emitting = false
+	
+	if mouseDetectionArea:
+		mouseDetectionArea.mouse_entered.connect(onMouseEntered)
+		mouseDetectionArea.mouse_exited.connect(onMouseExited)
+		mouseDetectionArea.input_event.connect(onTowerMouseClick)
 
 
 func _process(_delta: float) -> void:
+	if isGhostShape:
+		return
 	currentTarget = findClosestEnemy()
 	
 	if currentTarget != null:
@@ -83,3 +96,21 @@ func findClosestEnemy() -> Node2D:
 			closestEnemy = enemy
 	
 	return closestEnemy
+
+func onMouseEntered() -> void:
+	if not isGhostShape:
+		attackRangeNode.show()
+
+func onMouseExited() -> void:
+	if not isGhostShape:
+		attackRangeNode.hide()
+
+func onTowerMouseClick(_viewport: Node, event: InputEvent, _shapeidx: int ):
+	if (event is InputEventMouseButton && event.pressed):
+		print('Clicked')
+		if not isGhostShape:
+			print("not ghost")
+
+func payForTower() -> void:
+	towerCost = GameManager.fireTowerCost
+	GameManager.removeMoney(towerCost)

@@ -1,0 +1,67 @@
+[gd_scene format=3 uid="uid://bfcwe1u2tuj58"]
+
+[ext_resource type="PackedScene" uid="uid://brqe6yc0g2u66" path="res://Systems/UI/tower_upgrade_button.tscn" id="1_ovqud"]
+
+[node name="Tower Upgrade Menu" type="Control" unique_id=595273987]
+layout_mode = 3
+anchors_preset = 0
+scale = Vector2(5, 5)
+
+[node name="Upgrade Buttons" type="GridContainer" parent="." unique_id=2104622447]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+columns = 3
+
+[node name="Tower Upgrade Button12" parent="Upgrade Buttons" unique_id=2105109026 instance=ExtResource("1_ovqud")]
+layout_mode = 2
+upgradePath = "Left"
+upgradeTier = "4"
+
+[node name="Tower Upgrade Button11" parent="Upgrade Buttons" unique_id=1452018956 instance=ExtResource("1_ovqud")]
+layout_mode = 2
+upgradePath = "Middle"
+upgradeTier = "4"
+
+[node name="Tower Upgrade Button10" parent="Upgrade Buttons" unique_id=1907853715 instance=ExtResource("1_ovqud")]
+layout_mode = 2
+upgradeTier = "4"
+
+[node name="Tower Upgrade Button9" parent="Upgrade Buttons" unique_id=1419457534 instance=ExtResource("1_ovqud")]
+layout_mode = 2
+upgradePath = "Left"
+upgradeTier = "3"
+
+[node name="Tower Upgrade Button8" parent="Upgrade Buttons" unique_id=1817803320 instance=ExtResource("1_ovqud")]
+layout_mode = 2
+upgradePath = "Middle"
+upgradeTier = "3"
+
+[node name="Tower Upgrade Button7" parent="Upgrade Buttons" unique_id=847716250 instance=ExtResource("1_ovqud")]
+layout_mode = 2
+upgradeTier = "3"
+
+[node name="Tower Upgrade Button6" parent="Upgrade Buttons" unique_id=1464074569 instance=ExtResource("1_ovqud")]
+layout_mode = 2
+upgradePath = "Left"
+upgradeTier = "2"
+
+[node name="Tower Upgrade Button5" parent="Upgrade Buttons" unique_id=267386537 instance=ExtResource("1_ovqud")]
+layout_mode = 2
+upgradePath = "Middle"
+upgradeTier = "2"
+
+[node name="Tower Upgrade Button4" parent="Upgrade Buttons" unique_id=1574212924 instance=ExtResource("1_ovqud")]
+layout_mode = 2
+upgradeTier = "2"
+
+[node name="Tower Upgrade Button3" parent="Upgrade Buttons" unique_id=1944919597 instance=ExtResource("1_ovqud")]
+layout_mode = 2
+upgradePath = "Left"
+
+[node name="Tower Upgrade Button2" parent="Upgrade Buttons" unique_id=1799077271 instance=ExtResource("1_ovqud")]
+layout_mode = 2
+upgradePath = "Middle"
+
+[node name="Tower Upgrade Button" parent="Upgrade Buttons" unique_id=1944462880 instance=ExtResource("1_ovqud")]
+layout_mode = 2

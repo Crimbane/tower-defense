@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://brqe6yc0g2u66"]
+
+[ext_resource type="Script" uid="uid://b1x4wxsk0fooi" path="res://Systems/UI/tower_upgrade_button.gd" id="1_male1"]
+
+[node name="Tower Upgrade Button" type="Button" unique_id=2105109026]
+offset_right = 8.0
+offset_bottom = 8.0
+script = ExtResource("1_male1")

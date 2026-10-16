@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://buqy3xwut4xhr" path="res://Entities/Projectiles/projectile.tscn" id="2_b5d63"]
 [ext_resource type="Texture2D" uid="uid://cj5b7jmbtmhsk" path="res://Entities/Towers/Art/Ice Tower Base.svg" id="3_lahyv"]
 [ext_resource type="Texture2D" uid="uid://7a0njq2nufh5" path="res://Entities/Towers/Art/Ice Tower Turret.svg" id="4_nqmql"]
+[ext_resource type="Script" uid="uid://bcokocxaptaxb" path="res://Entities/Towers/attack_range.gd" id="5_b5d63"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_jvmfa"]
 animations = [{
@@ -16,13 +17,21 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Ice Tower" type="Node2D" unique_id=664368618 node_paths=PackedStringArray("towerTop", "fireRateTimer")]
+[sub_resource type="CircleShape2D" id="CircleShape2D_lahyv"]
+radius = 226.66666
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ma62e"]
+radius = 186.69641
+
+[node name="Ice Tower" type="Node2D" unique_id=664368618 node_paths=PackedStringArray("towerTop", "fireRateTimer", "mouseDetectionArea", "attackRangeNode")]
 scale = Vector2(0.3, 0.3)
 script = ExtResource("1_q7hfs")
 towerType = "Ice"
 projectileScene = ExtResource("2_b5d63")
 towerTop = NodePath("Tower Top")
 fireRateTimer = NodePath("FireRateTimer")
+mouseDetectionArea = NodePath("Mouse Detection Area")
+attackRangeNode = NodePath("Attack Range")
 fireRate = 2.0
 
 [node name="Base" type="Sprite2D" parent="." unique_id=1738475557]
@@ -33,3 +42,20 @@ sprite_frames = SubResource("SpriteFrames_jvmfa")
 
 [node name="FireRateTimer" type="Timer" parent="." unique_id=1645054394]
 one_shot = true
+
+[node name="Placement Hitbox" type="Area2D" parent="." unique_id=1637211013]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Placement Hitbox" unique_id=2038995068]
+shape = SubResource("CircleShape2D_lahyv")
+
+[node name="Attack Range" type="Node2D" parent="." unique_id=1897106264]
+script = ExtResource("5_b5d63")
+width = 10.0
+
+[node name="Mouse Detection Area" type="Area2D" parent="." unique_id=1932615831]
+collision_layer = 128
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Mouse Detection Area" unique_id=1928527352]
+shape = SubResource("CircleShape2D_ma62e")

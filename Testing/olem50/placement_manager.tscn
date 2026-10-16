@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://l4q5o3oih0q0"]
+
+[ext_resource type="Script" uid="uid://6rdi74t4ac0y" path="res://Testing/olem50/placement_manager.gd" id="1_cnso6"]
+
+[node name="Placement Manager" type="Node2D" unique_id=218556432 groups=["Placement Manager"]]
+script = ExtResource("1_cnso6")

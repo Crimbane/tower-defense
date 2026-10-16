@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://blaa5qod5nkf0"]
+
+[ext_resource type="Texture2D" uid="uid://dnks7we1bvg17" path="res://Assets/Placeholders/Button background.png" id="1_vfx5c"]
+
+[node name="Button" type="Button" unique_id=78375304]
+offset_right = 8.0
+offset_bottom = 8.0
+text = "555555"
+icon = ExtResource("1_vfx5c")

@@ -1,22 +1,21 @@
 extends Node2D
 
-@export var towerScene: PackedScene
+#@export var towerScene: PackedScene
 
 var previewTower: Node2D = null
 var isPlacing: bool = false
 var canPlace: bool = true
 
-# Called when the node enters the scene tree for the first time.
+
 func _ready() -> void:
-	startPlacement()
+	pass
+	#startPlacement()
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 	if isPlacing and previewTower:
 		previewTower.global_position = get_global_mouse_position()
 		checkValidPlacement()
-	
 
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -25,17 +24,24 @@ func _unhandled_input(event: InputEvent) -> void:
 	
 	if event.is_action_pressed("Left Click"):
 		if canPlace:
+			await get_tree().create_timer(0.01).timeout # delay isGhostShape = true
 			placeTower()
+		else:
+			cancelPlacement()
+	
 	elif event.is_action_pressed("Right Click"):
 		cancelPlacement()
-	
 
 
-func startPlacement() -> void:
+func startPlacement(towerScene: PackedScene) -> void:
+	print(towerScene)
+	if isPlacing or towerScene == null:
+		return
 	isPlacing = true
 	previewTower = towerScene.instantiate()
 	
 	previewTower.isGhostShape = true
+	previewTower.get_node("Attack Range").show()
 	
 	add_child(previewTower)
 
@@ -53,10 +59,12 @@ func placeTower() -> void:
 	previewTower.modulate = Color(1, 1, 1, 1)
 	
 	previewTower.isGhostShape = false
+	previewTower.get_node("Attack Range").hide()
+	
+	previewTower.payForTower()
 	
 	previewTower = null
 	isPlacing = false
-
 
 func cancelPlacement() -> void:
 	if previewTower:

@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://kvcou3aqu72g" path="res://Entities/Towers/fire_tower.gd" id="1_2hdbw"]
 [ext_resource type="Texture2D" uid="uid://b34n113x3eumc" path="res://Entities/Towers/Art/Fire Tower Base.svg" id="3_hyie5"]
 [ext_resource type="Texture2D" uid="uid://bl407vsawlcte" path="res://Entities/Towers/Art/Fire Tower Turret.svg" id="4_8o4hs"]
+[ext_resource type="Script" uid="uid://bcokocxaptaxb" path="res://Entities/Towers/attack_range.gd" id="4_jybln"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_212l8"]
 animations = [{
@@ -15,7 +16,13 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Fire Tower" type="Node2D" unique_id=664368618 node_paths=PackedStringArray("towerTop", "weapon", "fireRateTimer", "fireDurationTimer", "particles")]
+[sub_resource type="CircleShape2D" id="CircleShape2D_s2g3v"]
+radius = 226.66666
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hyie5"]
+radius = 190.11693
+
+[node name="Fire Tower" type="Node2D" unique_id=664368618 node_paths=PackedStringArray("towerTop", "weapon", "fireRateTimer", "fireDurationTimer", "particles", "mouseDetectionArea", "attackRangeNode")]
 scale = Vector2(0.3, 0.3)
 script = ExtResource("1_2hdbw")
 towerTop = NodePath("Tower Top")
@@ -23,6 +30,8 @@ weapon = NodePath("Fire")
 fireRateTimer = NodePath("FireRateTimer")
 fireDurationTimer = NodePath("FireDurationTimer")
 particles = NodePath("Fire/CPUParticles2D")
+mouseDetectionArea = NodePath("Mouse Detection Area")
+attackRangeNode = NodePath("Attack Range")
 fireRate = 5.0
 fireDuration = 2.5
 
@@ -59,3 +68,20 @@ initial_velocity_min = 637.62
 initial_velocity_max = 637.62
 scale_amount_max = 10.0
 color = Color(1, 0.09019608, 0, 1)
+
+[node name="Placement Hitbox" type="Area2D" parent="." unique_id=615678285]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Placement Hitbox" unique_id=182074742]
+shape = SubResource("CircleShape2D_s2g3v")
+
+[node name="Attack Range" type="Node2D" parent="." unique_id=773190953]
+script = ExtResource("4_jybln")
+width = 10.0
+
+[node name="Mouse Detection Area" type="Area2D" parent="." unique_id=246932730]
+collision_layer = 128
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Mouse Detection Area" unique_id=513561426]
+shape = SubResource("CircleShape2D_hyie5")

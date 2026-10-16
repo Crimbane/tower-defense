@@ -20,12 +20,17 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_t1yug"]
 radius = 226.66666
 
-[node name="Arrow Tower" type="Node2D" unique_id=664368618 node_paths=PackedStringArray("towerTop", "fireRateTimer")]
+[sub_resource type="CircleShape2D" id="CircleShape2D_fyjvv"]
+radius = 190.11693
+
+[node name="Arrow Tower" type="Node2D" unique_id=664368618 node_paths=PackedStringArray("towerTop", "fireRateTimer", "mouseDetectionArea", "attackRangeNode")]
 scale = Vector2(0.3, 0.3)
 script = ExtResource("1_au2ll")
 projectileScene = ExtResource("2_0mj8a")
 towerTop = NodePath("Tower Top")
 fireRateTimer = NodePath("FireRateTimer")
+mouseDetectionArea = NodePath("Mouse Detection Area")
+attackRangeNode = NodePath("Attack Range")
 projectileSpeed = 1200
 
 [node name="Base" type="Sprite2D" parent="." unique_id=1738475557]
@@ -45,3 +50,11 @@ shape = SubResource("CircleShape2D_t1yug")
 
 [node name="Attack Range" type="Node2D" parent="." unique_id=450146633]
 script = ExtResource("5_1xniw")
+width = 10.0
+
+[node name="Mouse Detection Area" type="Area2D" parent="." unique_id=246512474]
+collision_layer = 128
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Mouse Detection Area" unique_id=1779100836]
+shape = SubResource("CircleShape2D_fyjvv")
