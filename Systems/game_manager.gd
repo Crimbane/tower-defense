@@ -10,7 +10,7 @@ var money: int = START_MONEY
 
 var arrowTowerCost = 50
 var fireTowerCost = 100
-var iceTowerCost = 100
+var slimeTowerCost = 100
 var cannonTowerCost = 200
 
 var leftTierCosts: Array[int] = [30, 60, 120, 180]

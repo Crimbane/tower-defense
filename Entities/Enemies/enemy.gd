@@ -19,7 +19,7 @@ var fireDamage: int = 0
 var burnTime: float = 0.0
 var burnTicks: float = 0.5
 
-var activeIceFields: int = 0
+var activeSlowFields: int = 0
 var slowStength: float = 1.0
 
 @onready var healthBar = $"Health Bar"
@@ -46,7 +46,7 @@ func _process(delta: float) -> void:
 			time = 0
 			takeDamage(fireDamage)
 	
-	if activeIceFields > 0:
+	if activeSlowFields > 0:
 		currentSpeed = baseSpeed * slowStength
 	
 	progress += currentSpeed
@@ -83,14 +83,14 @@ func onStopBurning() -> void:
 
 
 func applySlowDebuff(slowPercent: float) -> void:
-	activeIceFields += 1
+	activeSlowFields += 1
 	
 	slowStength = slowPercent
 
 func removeSlowDebuff() -> void:
-	activeIceFields -= 1
+	activeSlowFields -= 1
 	
-	if activeIceFields <= 0:
+	if activeSlowFields <= 0:
 		slowStength = 1.0
 		currentSpeed = baseSpeed
 

@@ -31,4 +31,3 @@ func destroyField() -> void:
 		onEnemyExited(area)
 	
 	queue_free()
-	

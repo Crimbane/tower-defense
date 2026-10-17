@@ -1,0 +1,157 @@
+[gd_scene format=3 uid="uid://cpml1qr8qustr"]
+
+[ext_resource type="Texture2D" uid="uid://bc3nb58lryfis" path="res://Stages/Game/Art/Desert Map Textured Alternative.png" id="1_baspc"]
+[ext_resource type="PackedScene" uid="uid://v8s1l3ss70q7" path="res://Systems/UI/ui_manager.tscn" id="2_vmu7u"]
+[ext_resource type="PackedScene" uid="uid://brg6oyosaexti" path="res://Systems/wave_manager.tscn" id="3_0qeys"]
+[ext_resource type="PackedScene" uid="uid://l4q5o3oih0q0" path="res://Systems/placement_manager.tscn" id="4_vuken"]
+[ext_resource type="PackedScene" uid="uid://dlg4dm7pcirbi" path="res://Entities/Nexus/nexus.tscn" id="5_vmu7u"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_t1yug"]
+radius = 15.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_t1yug"]
+radius = 23.0
+height = 76.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fyjvv"]
+radius = 18.396332
+height = 88.80444
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_onxlf"]
+radius = 30.0
+height = 90.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_sf0ym"]
+radius = 35.72693
+height = 95.01404
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fyjvv"]
+radius = 15.033297
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vmu7u"]
+radius = 24.020824
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_auqhx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_64m3x"]
+size = Vector2(67.129265, 41.699455)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t1yug"]
+size = Vector2(118, 113.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fyjvv"]
+size = Vector2(160.5, 136)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_t2imv"]
+radius = 23.82051
+height = 124.53073
+
+[sub_resource type="Curve2D" id="Curve2D_baspc"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 1450, 1080, 73.114174, 35.895065, -73.114174, -35.895065, 1335, 865, 39.10468, -8.400265, -39.10468, 8.400265, 1081, 843, 52.35867, -3.3497105, -52.35867, 3.3497105, 872, 882, 44.318638, -12.890062, -44.318638, 12.890062, 742, 884, 46.034332, -13.792473, -46.034332, 13.792473, 552, 944, 32.08813, 9.06055, -32.08813, -9.06055, 334, 921, 16.539804, 25.869951, -16.539804, -25.869951, 256.68665, 848.62946, 47.498924, 71.67249, -47.498924, -71.67249, 186, 736, -54.74655, 5.793286, 54.74655, -5.793286, 366, 555, -39.92586, -5.433467, 39.92586, 5.433467, 656, 535, -92.26852, -3.028984, 92.26852, 3.028984, 890, 581, -22.633423, 1.7410324, 22.633423, -1.7410324, 965, 581, -39.644604, 4.6297417, 39.644604, -4.6297417, 1051, 544, 0, 0, 0, 0, 1267, 466, 7.894669, 56.737343, -7.894669, -56.737343, 1294, 385, 12.4265995, 11.152077, -12.4265995, -11.152077, 1250, 297, -14.657015, -2.2304153, 14.657015, 2.2304153, 1073, 284, 46.529133, -5.2856, -46.529133, 5.2856, 835, 303, 30.380432, -1.056894, -30.380432, 1.056894, 711, 335, -19.117846, -1.9117845, 19.117846, 1.9117845, 551, 334, 24.837572, 9.2715435, -24.837572, -9.2715435, 446, 325, 12.4265995, 15.612907, -12.4265995, -15.612907, 337, 249, 6.691246, 24.534569, -6.691246, -24.534569, 307, 184, -7.0098767, 20.392368, 7.0098767, -20.392368, 307, 93, 0.09768534, -0.21633196, -0.09768534, 0.21633196, 324, 36)
+}
+point_count = 26
+
+[node name="Desert Map" type="Node" unique_id=1908528012]
+
+[node name="Enviroment" type="Node2D" parent="." unique_id=581577236]
+
+[node name="Background" type="TextureRect" parent="Enviroment" unique_id=265588618]
+z_index = -1
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("1_baspc")
+
+[node name="No Build Area" type="Area2D" parent="Enviroment/Background" unique_id=1076719080]
+visible = false
+collision_mask = 0
+
+[node name="Rock2" type="CollisionShape2D" parent="Enviroment/Background/No Build Area" unique_id=2053202712]
+position = Vector2(61, 482)
+shape = SubResource("CircleShape2D_t1yug")
+metadata/_edit_lock_ = true
+
+[node name="Path" type="CollisionPolygon2D" parent="Enviroment/Background/No Build Area" unique_id=273776606]
+polygon = PackedVector2Array(1401, 1080, 1315, 919, 1116, 889, 879, 948, 793, 924, 641, 955, 600, 981, 454, 1001, 396, 985, 305, 985, 240, 941, 173, 781, 110, 751, 99, 682, 134, 630, 209, 585, 247, 540, 357, 487, 425, 505, 523, 483, 597, 492, 631, 488, 837, 526, 931, 539, 1022, 495, 1071, 494, 1229, 417, 1254, 358, 1215, 324, 974, 345, 925, 362, 836, 355, 803, 385, 737, 376, 622, 404, 532, 376, 468, 381, 312, 287, 242, 205, 222, 116, 243, 63, 260, 0, 394, 1, 365, 50, 358, 211, 370, 235, 452, 278, 521, 284, 709, 286, 763, 246, 921, 215, 1057, 243, 1101, 226, 1261, 255, 1312, 322, 1347, 407, 1320, 493, 1200, 546, 1023, 596, 988, 624, 934, 622, 896, 633, 765, 612, 634, 573, 611, 580, 577, 576, 508, 597, 472, 596, 408, 614, 336, 611, 240, 664, 211, 712, 296, 826, 536, 897, 719, 835, 750, 831, 799, 804, 875, 830, 977, 802, 1041, 786, 1098, 767, 1140, 778, 1200, 783, 1298, 798, 1347, 790, 1451, 887, 1474, 949, 1511, 1080)
+metadata/_edit_lock_ = true
+
+[node name="Rock" type="CollisionShape2D" parent="Enviroment/Background/No Build Area" unique_id=226940681]
+position = Vector2(250, 389)
+shape = SubResource("CapsuleShape2D_t1yug")
+metadata/_edit_lock_ = true
+
+[node name="Rock3" type="CollisionShape2D" parent="Enviroment/Background/No Build Area" unique_id=553711722]
+position = Vector2(672.00006, 69)
+rotation = -0.9302605
+shape = SubResource("CapsuleShape2D_fyjvv")
+metadata/_edit_lock_ = true
+
+[node name="Right Side" type="CollisionPolygon2D" parent="Enviroment/Background/No Build Area" unique_id=859214816]
+polygon = PackedVector2Array(1626, 1080, 1628, 892, 1568, 848, 1497, 686, 1388, 611, 1460, 547, 1494, 373, 1571, 332, 1499, 189, 1239, 141, 1192, 84, 1104, 79, 1124, 3, 1920, 2, 1920, 1080)
+metadata/_edit_lock_ = true
+
+[node name="Rock4" type="CollisionShape2D" parent="Enviroment/Background/No Build Area" unique_id=503781769]
+position = Vector2(1154, 1059)
+rotation = -1.5707964
+shape = SubResource("CapsuleShape2D_onxlf")
+metadata/_edit_lock_ = true
+
+[node name="Rock5" type="CollisionShape2D" parent="Enviroment/Background/No Build Area" unique_id=284234801]
+position = Vector2(580, 722)
+rotation = 1.2793263
+shape = SubResource("CapsuleShape2D_sf0ym")
+metadata/_edit_lock_ = true
+
+[node name="Rock6" type="CollisionShape2D" parent="Enviroment/Background/No Build Area" unique_id=1945223937]
+position = Vector2(503, 741)
+shape = SubResource("CircleShape2D_fyjvv")
+metadata/_edit_lock_ = true
+
+[node name="Rock7" type="CollisionShape2D" parent="Enviroment/Background/No Build Area" unique_id=94026074]
+position = Vector2(544, 673)
+shape = SubResource("CircleShape2D_vmu7u")
+metadata/_edit_lock_ = true
+
+[node name="Rock8" type="CollisionShape2D" parent="Enviroment/Background/No Build Area" unique_id=819746870]
+position = Vector2(700, 703)
+rotation = -1.5707964
+shape = SubResource("CapsuleShape2D_auqhx")
+metadata/_edit_lock_ = true
+
+[node name="Rock9" type="CollisionShape2D" parent="Enviroment/Background/No Build Area" unique_id=1405667926]
+position = Vector2(72.6175, 50.292217)
+rotation = -0.4660029
+shape = SubResource("RectangleShape2D_64m3x")
+metadata/_edit_lock_ = true
+
+[node name="Cactus" type="CollisionShape2D" parent="Enviroment/Background/No Build Area" unique_id=2063407602]
+position = Vector2(67, 1019.75)
+shape = SubResource("RectangleShape2D_t1yug")
+metadata/_edit_lock_ = true
+
+[node name="Cactus2" type="CollisionShape2D" parent="Enviroment/Background/No Build Area" unique_id=2067116981]
+position = Vector2(104, 378)
+shape = SubResource("RectangleShape2D_fyjvv")
+metadata/_edit_lock_ = true
+
+[node name="Cactus3" type="CollisionShape2D" parent="Enviroment/Background/No Build Area" unique_id=1762069728]
+position = Vector2(105.000015, 246.00002)
+rotation = -0.9948377
+shape = SubResource("CapsuleShape2D_t2imv")
+metadata/_edit_lock_ = true
+
+[node name="UI" parent="." unique_id=2066053580 instance=ExtResource("2_vmu7u")]
+
+[node name="Wave Manager" parent="." unique_id=347742924 node_paths=PackedStringArray("spawnLocation") instance=ExtResource("3_0qeys")]
+spawnLocation = NodePath("../Path2D")
+
+[node name="Placement Manager" parent="." unique_id=218556432 instance=ExtResource("4_vuken")]
+metadata/_edit_lock_ = true
+
+[node name="Path2D" type="Path2D" parent="." unique_id=1377568018]
+position = Vector2(-7, -1)
+curve = SubResource("Curve2D_baspc")
+metadata/_edit_lock_ = true
+
+[node name="Nexus" parent="." unique_id=1619217758 instance=ExtResource("5_vmu7u")]
+position = Vector2(313, -7)

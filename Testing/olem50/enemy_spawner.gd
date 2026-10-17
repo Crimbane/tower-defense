@@ -2,7 +2,7 @@ extends Path2D
 
 @export var waveManager: Node
 
-@onready var spawnTimer: Timer = $"Spawn Timer"
+@export var spawnTimer: Timer
 
 var spawnQueue: Array[PackedScene] = []
 

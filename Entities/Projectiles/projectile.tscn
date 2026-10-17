@@ -1,14 +1,14 @@
 [gd_scene format=3 uid="uid://buqy3xwut4xhr"]
 
 [ext_resource type="Script" uid="uid://2uklop5f15pv" path="res://Entities/Projectiles/projectile.gd" id="1_x5b6o"]
-[ext_resource type="PackedScene" uid="uid://do21bu4h2565b" path="res://Entities/Projectiles/ice_field.tscn" id="2_6kijj"]
+[ext_resource type="PackedScene" uid="uid://do21bu4h2565b" path="res://Entities/Projectiles/slime_field.tscn" id="2_6kijj"]
 [ext_resource type="Texture2D" uid="uid://m1ng7lxhip8e" path="res://Entities/Projectiles/Art/Basic Arrow.svg" id="2_rca8h"]
-[ext_resource type="Texture2D" uid="uid://b5cqnc6wd1cu6" path="res://Entities/Projectiles/Art/Ice Chunk.svg" id="3_6kijj"]
 [ext_resource type="PackedScene" uid="uid://b3jy8j487acsq" path="res://Entities/Projectiles/cannon_explosion.tscn" id="3_vpfrp"]
 [ext_resource type="Texture2D" uid="uid://cnnybmtupfnsh" path="res://Entities/Projectiles/Art/Basic Cannonball.svg" id="5_o7t25"]
+[ext_resource type="Texture2D" uid="uid://cdie7brcctus6" path="res://Entities/Projectiles/Art/Slime Projectile.svg" id="6_vpfrp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t1yug"]
-size = Vector2(225, 20)
+size = Vector2(156.66666, 20)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_t1yug"]
 animations = [{
@@ -30,10 +30,10 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("3_6kijj")
+"texture": ExtResource("6_vpfrp")
 }],
 "loop": 1,
-"name": &"ice",
+"name": &"slime",
 "speed": 5.0
 }]
 
@@ -42,14 +42,14 @@ scale = Vector2(0.3, 0.3)
 collision_layer = 8
 collision_mask = 4
 script = ExtResource("1_x5b6o")
-iceFieldScene = ExtResource("2_6kijj")
+slimeFieldScene = ExtResource("2_6kijj")
 explosionScene = ExtResource("3_vpfrp")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=705034017]
-position = Vector2(30, 0)
+position = Vector2(35, 0)
 shape = SubResource("RectangleShape2D_t1yug")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=292606929]
 rotation = 1.5707964
 sprite_frames = SubResource("SpriteFrames_t1yug")
-animation = &"ice"
+animation = &"slime"

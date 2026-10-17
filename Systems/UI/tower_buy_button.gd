@@ -7,21 +7,21 @@ const BUTTON_BACKGROUND = preload("uid://dnks7we1bvg17")
 const ICON_TEXTURE: Dictionary[String, CompressedTexture2D] = {
 	ARROW = preload("uid://ycypt7ywptfh"),
 	FIRE = preload("uid://d1dpyd3gpr4jg"),
-	ICE = preload("uid://xvn050hxkt2d"),
+	SLIME = preload("uid://xvn050hxkt2d"),
 	CANNON = preload("uid://b3xyiytg4ylhq"),
 }
 
 const TOWER_SCENES: Dictionary[String, PackedScene] = {
 	ARROW = preload("uid://bghlwrvg8h01x"),
 	FIRE = preload("uid://d21cd6rl6j76n"),
-	ICE = preload("uid://kx0msk5dsok3"),
+	SLIME = preload("uid://kx0msk5dsok3"),
 	CANNON = preload("uid://7tfgc51ngohn"),
 }
 
 enum TowerSprite {
 	Arrow,
 	Fire,
-	Ice,
+	Slime,
 	Cannon
 }
 

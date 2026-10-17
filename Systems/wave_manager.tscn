@@ -1,6 +1,18 @@
 [gd_scene format=3 uid="uid://brg6oyosaexti"]
 
 [ext_resource type="Script" uid="uid://cfmohum8o4alf" path="res://Systems/wave_manager.gd" id="1_pwhgv"]
+[ext_resource type="PackedScene" uid="uid://cpuuonscitnvx" path="res://Entities/Enemies/base_enemy.tscn" id="2_ar3a6"]
+[ext_resource type="PackedScene" uid="uid://0un434de8j3p" path="res://Entities/Enemies/fast_enemy.tscn" id="3_5a3ti"]
 
 [node name="Wave Manager" type="Node" unique_id=347742924]
 script = ExtResource("1_pwhgv")
+enemyScene = ExtResource("2_ar3a6")
+fastEnemyScene = ExtResource("3_5a3ti")
+
+[node name="Next Wave Timer" type="Timer" parent="." unique_id=1430764877]
+wait_time = 8.0
+one_shot = true
+
+[node name="Spawn Timer" type="Timer" parent="." unique_id=747894397]
+wait_time = 0.5
+one_shot = true

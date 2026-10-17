@@ -2,15 +2,15 @@
 
 [ext_resource type="Script" uid="uid://dat88m4fykyni" path="res://Entities/Towers/tower.gd" id="1_q7hfs"]
 [ext_resource type="PackedScene" uid="uid://buqy3xwut4xhr" path="res://Entities/Projectiles/projectile.tscn" id="2_b5d63"]
-[ext_resource type="Texture2D" uid="uid://cj5b7jmbtmhsk" path="res://Entities/Towers/Art/Ice Tower Base.svg" id="3_lahyv"]
-[ext_resource type="Texture2D" uid="uid://7a0njq2nufh5" path="res://Entities/Towers/Art/Ice Tower Turret.svg" id="4_nqmql"]
+[ext_resource type="Texture2D" uid="uid://cqnqkbcew3t4d" path="res://Entities/Towers/Art/Slime Tower Base.svg" id="3_b5d63"]
+[ext_resource type="Texture2D" uid="uid://domjn4k7f5omg" path="res://Entities/Towers/Art/Slime Tower Turret.svg" id="4_lahyv"]
 [ext_resource type="Script" uid="uid://bcokocxaptaxb" path="res://Entities/Towers/attack_range.gd" id="5_b5d63"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_jvmfa"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("4_nqmql")
+"texture": ExtResource("4_lahyv")
 }],
 "loop": 1,
 "name": &"default",
@@ -23,10 +23,10 @@ radius = 226.66666
 [sub_resource type="CircleShape2D" id="CircleShape2D_ma62e"]
 radius = 186.69641
 
-[node name="Ice Tower" type="Node2D" unique_id=664368618 node_paths=PackedStringArray("towerTop", "fireRateTimer", "mouseDetectionArea", "attackRangeNode")]
+[node name="Slime Tower" type="Node2D" unique_id=664368618 node_paths=PackedStringArray("towerTop", "fireRateTimer", "mouseDetectionArea", "attackRangeNode")]
 scale = Vector2(0.3, 0.3)
 script = ExtResource("1_q7hfs")
-towerType = "Ice"
+towerType = "Slime"
 projectileScene = ExtResource("2_b5d63")
 towerTop = NodePath("Tower Top")
 fireRateTimer = NodePath("FireRateTimer")
@@ -35,7 +35,7 @@ attackRangeNode = NodePath("Attack Range")
 fireRate = 2.0
 
 [node name="Base" type="Sprite2D" parent="." unique_id=1738475557]
-texture = ExtResource("3_lahyv")
+texture = ExtResource("3_b5d63")
 
 [node name="Tower Top" type="AnimatedSprite2D" parent="." unique_id=1172487934]
 sprite_frames = SubResource("SpriteFrames_jvmfa")

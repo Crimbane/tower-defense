@@ -1,7 +1,7 @@
 extends Node2D
 
 @export_enum(
-	"Arrow", "Ice", "Cannon") var towerType: String = "Arrow"
+	"Arrow", "Slime", "Cannon") var towerType: String = "Arrow"
 
 @export var projectileScene: PackedScene
 var projectileSpawnPosition: Vector2 = Vector2.ZERO
@@ -124,8 +124,8 @@ func payForTower() -> void:
 	match towerType:
 		"Arrow":
 			towerCost = GameManager.arrowTowerCost
-		"Ice":
-			towerCost = GameManager.iceTowerCost
+		"Slime":
+			towerCost = GameManager.slimeTowerCost
 		"Cannon":
 			towerCost = GameManager.cannonTowerCost
 	GameManager.removeMoney(towerCost)
