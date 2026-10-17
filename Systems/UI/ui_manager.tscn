@@ -37,35 +37,44 @@ columns = 3
 [node name="Tower Upgrade Button12" parent="UI Manager/Tower Upgrade Menu" unique_id=2105109026 instance=ExtResource("2_07xqu")]
 layout_mode = 2
 upgradePath = "Left"
+upgradeTier = "4"
 
 [node name="Tower Upgrade Button11" parent="UI Manager/Tower Upgrade Menu" unique_id=12927104 instance=ExtResource("2_07xqu")]
 layout_mode = 2
 upgradePath = "Middle"
+upgradeTier = "4"
 
 [node name="Tower Upgrade Button10" parent="UI Manager/Tower Upgrade Menu" unique_id=232702389 instance=ExtResource("2_07xqu")]
 layout_mode = 2
+upgradeTier = "4"
 
 [node name="Tower Upgrade Button9" parent="UI Manager/Tower Upgrade Menu" unique_id=883589956 instance=ExtResource("2_07xqu")]
 layout_mode = 2
 upgradePath = "Left"
+upgradeTier = "3"
 
 [node name="Tower Upgrade Button8" parent="UI Manager/Tower Upgrade Menu" unique_id=685655870 instance=ExtResource("2_07xqu")]
 layout_mode = 2
 upgradePath = "Middle"
+upgradeTier = "3"
 
 [node name="Tower Upgrade Button7" parent="UI Manager/Tower Upgrade Menu" unique_id=837163962 instance=ExtResource("2_07xqu")]
 layout_mode = 2
+upgradeTier = "3"
 
 [node name="Tower Upgrade Button6" parent="UI Manager/Tower Upgrade Menu" unique_id=482748398 instance=ExtResource("2_07xqu")]
 layout_mode = 2
 upgradePath = "Left"
+upgradeTier = "2"
 
 [node name="Tower Upgrade Button5" parent="UI Manager/Tower Upgrade Menu" unique_id=1143704901 instance=ExtResource("2_07xqu")]
 layout_mode = 2
 upgradePath = "Middle"
+upgradeTier = "2"
 
 [node name="Tower Upgrade Button4" parent="UI Manager/Tower Upgrade Menu" unique_id=714595156 instance=ExtResource("2_07xqu")]
 layout_mode = 2
+upgradeTier = "2"
 
 [node name="Tower Upgrade Button3" parent="UI Manager/Tower Upgrade Menu" unique_id=919688333 instance=ExtResource("2_07xqu")]
 layout_mode = 2
@@ -108,18 +117,21 @@ texture = ExtResource("3_pnx8b")
 
 [node name="Tower Buttons" type="GridContainer" parent="UI Manager/Right Panel" unique_id=1382980010]
 layout_mode = 1
-anchors_preset = 6
-anchor_left = 1.0
+anchors_preset = 8
+anchor_left = 0.5
 anchor_top = 0.5
-anchor_right = 1.0
+anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -191.0
+offset_left = -112.0
 offset_top = -232.5
-offset_bottom = 232.5
-grow_horizontal = 0
+offset_right = 112.0
+offset_bottom = 1.0
+grow_horizontal = 2
 grow_vertical = 2
+columns = 2
 
 [node name="Arrow" parent="UI Manager/Right Panel/Tower Buttons" unique_id=1343717249 instance=ExtResource("2_vwuv3")]
+custom_maximum_size = Vector2(100, 100)
 layout_mode = 2
 
 [node name="Fire" parent="UI Manager/Right Panel/Tower Buttons" unique_id=827456401 instance=ExtResource("2_vwuv3")]

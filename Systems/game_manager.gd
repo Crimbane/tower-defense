@@ -13,9 +13,9 @@ var fireTowerCost = 100
 var iceTowerCost = 100
 var cannonTowerCost = 200
 
-var leftTierCosts: Array[int] = [30, 60, 120]
-var middleTierCosts: Array[int] = [25, 50, 100]
-var rightTierCosts: Array[int] = [20, 40, 80]
+var leftTierCosts: Array[int] = [30, 60, 120, 180]
+var middleTierCosts: Array[int] = [25, 50, 100, 150]
+var rightTierCosts: Array[int] = [20, 40, 80, 120]
 
 func _ready() -> void:
 	pass

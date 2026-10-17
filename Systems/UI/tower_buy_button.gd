@@ -5,10 +5,10 @@ extends Button
 const BUTTON_BACKGROUND = preload("uid://dnks7we1bvg17")
 
 const ICON_TEXTURE: Dictionary[String, CompressedTexture2D] = {
-	ARROW = preload("uid://bcx1m15rts1j"),
-	FIRE = preload("uid://bl407vsawlcte"),
-	ICE = preload("uid://7a0njq2nufh5"),
-	CANNON = preload("uid://jbasbb3wsko8"),
+	ARROW = preload("uid://ycypt7ywptfh"),
+	FIRE = preload("uid://d1dpyd3gpr4jg"),
+	ICE = preload("uid://xvn050hxkt2d"),
+	CANNON = preload("uid://b3xyiytg4ylhq"),
 }
 
 const TOWER_SCENES: Dictionary[String, PackedScene] = {

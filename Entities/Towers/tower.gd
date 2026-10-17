@@ -132,15 +132,13 @@ func payForTower() -> void:
 
 
 func upgradeTower(upgradePath: String, upgradeTier: String) -> void:
-	var targetTier: int = int(upgradeTier)
-	
-	print("target tier: ",targetTier, " current tier: ",currentTier)
-	if targetTier != (currentTier + 1):
-		print("Wrong upgrade tier")
-		return
-	
 	if currentTier >= MAX_TIER:
 		print("Tower maxed")
+		return
+	
+	var targetTier: int = int(upgradeTier)
+	if targetTier != (currentTier + 1):
+		print("Wrong upgrade tier")
 		return
 	
 	var cost: int = 0
