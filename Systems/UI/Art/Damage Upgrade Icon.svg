@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="100mm"
+   height="100mm"
+   viewBox="0 0 100 100"
+   version="1.1"
+   id="svg1"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs1">
+    <linearGradient
+       id="linearGradient7">
+      <stop
+         style="stop-color:#1b6d27;stop-opacity:1;"
+         offset="0.44262296"
+         id="stop8" />
+      <stop
+         style="stop-color:#27d741;stop-opacity:1;"
+         offset="1"
+         id="stop9" />
+    </linearGradient>
+    <linearGradient
+       id="linearGradient5">
+      <stop
+         style="stop-color:#f0b000;stop-opacity:1;"
+         offset="0"
+         id="stop6" />
+      <stop
+         style="stop-color:#f05200;stop-opacity:1;"
+         offset="1"
+         id="stop7" />
+    </linearGradient>
+    <linearGradient
+       id="linearGradient3">
+      <stop
+         style="stop-color:#e89900;stop-opacity:1;"
+         offset="0.49742937"
+         id="stop4" />
+      <stop
+         style="stop-color:#f64000;stop-opacity:1;"
+         offset="0.79953706"
+         id="stop5" />
+    </linearGradient>
+    <linearGradient
+       id="linearGradient2">
+      <stop
+         style="stop-color:#ffe547;stop-opacity:1;"
+         offset="0.17423521"
+         id="stop2" />
+      <stop
+         style="stop-color:#ffa902;stop-opacity:1;"
+         offset="0.49648714"
+         id="stop3" />
+    </linearGradient>
+    <radialGradient
+       xlink:href="#linearGradient2"
+       id="radialGradient3"
+       cx="50"
+       cy="50"
+       fx="50"
+       fy="50"
+       r="21.249846"
+       gradientUnits="userSpaceOnUse" />
+    <radialGradient
+       xlink:href="#linearGradient3"
+       id="radialGradient5"
+       cx="50"
+       cy="50"
+       fx="50"
+       fy="50"
+       r="36.249901"
+       gradientUnits="userSpaceOnUse" />
+    <radialGradient
+       xlink:href="#linearGradient5"
+       id="radialGradient7"
+       cx="50"
+       cy="50"
+       fx="50"
+       fy="50"
+       r="21.249846"
+       gradientUnits="userSpaceOnUse" />
+    <radialGradient
+       xlink:href="#linearGradient7"
+       id="radialGradient11"
+       cx="50"
+       cy="50"
+       fx="50"
+       fy="50"
+       r="47"
+       gradientUnits="userSpaceOnUse" />
+  </defs>
+  <g
+     id="layer1">
+    <rect
+       style="fill:url(#radialGradient11);stroke:#ffffff;stroke-width:4;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
+       id="rect1"
+       width="90"
+       height="90"
+       x="5"
+       y="5"
+       ry="20" />
+    <path
+       style="fill:url(#radialGradient5);fill-opacity:1;stroke:#000000;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none"
+       d="M 50,15 39.999999,30 25,25 30,39.999999 15,50 30,60.000001 25,75 39.999999,69.999999 50,84.999998 60.000001,69.999999 75,75 69.999999,60.000001 84.999998,50 69.999999,39.999999 75,25 60.000001,30 Z"
+       id="path1" />
+    <path
+       style="fill:url(#radialGradient3);fill-opacity:1;stroke:url(#radialGradient7);stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
+       d="m 50,30 -5.000001,9.999999 -9.999998,-4.999998 4.999998,9.999998 L 30,50 39.999999,55 35.000001,64.999999 44.999999,60.000001 50,69.999999 55,60.000001 64.999999,64.999999 60.000001,55 69.999999,50 60.000001,44.999999 64.999999,35.000001 55,39.999999 Z"
+       id="path2" />
+  </g>
+</svg>
