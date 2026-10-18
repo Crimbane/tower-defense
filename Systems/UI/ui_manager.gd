@@ -28,6 +28,8 @@ func placeTowerUpgradeMenu() -> void:
 		return
 	GameManager.selectedTower.showAttackRange()
 	
+	updateTowerUpgradeMenuColors()
+	
 	var menuOffset = Vector2(85, 310)
 	towerUpgradeMenu.global_position = GameManager.selectedTower.global_position - menuOffset
 	towerUpgradeMenu.show()
@@ -35,3 +37,7 @@ func placeTowerUpgradeMenu() -> void:
 func hideTowerUpgradeMenu() -> void:
 	towerUpgradeMenu.hide()
 	GameManager.selectedTower = null
+
+func updateTowerUpgradeMenuColors() -> void:
+	for button in towerUpgradeMenu.get_children():
+		button.updateColor()

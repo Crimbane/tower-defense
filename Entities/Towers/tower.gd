@@ -23,16 +23,14 @@ var canFire: bool = true
 @export var projectileSpeed: int = 500
 
 #Upgrades
-var leftTier: int = 0
-var middleTier: int = 0
-var rightTier: int = 0
-
 var currentTier: int = 0
 const MAX_TIER: int = 4
 
 var leftTierCosts: Array[int] = GameManager.leftTierCosts
 var middleTierCosts: Array[int] = GameManager.middleTierCosts
 var rightTierCosts: Array[int] = GameManager.rightTierCosts
+
+var upgradePurchaseHistory: Array[String] = ["None", "None", "None", "None"]
 
 func _ready() -> void:
 	print(leftTierCosts)
@@ -131,13 +129,12 @@ func payForTower() -> void:
 	GameManager.removeMoney(towerCost)
 
 
-func upgradeTower(upgradePath: String, upgradeTier: String) -> void:
+func upgradeTower(upgradePath: String, upgradeTier: int) -> void:
 	if currentTier >= MAX_TIER:
 		print("Tower maxed")
 		return
 	
-	var targetTier: int = int(upgradeTier)
-	if targetTier != (currentTier + 1):
+	if upgradeTier != (currentTier + 1):
 		print("Wrong upgrade tier")
 		return
 	
@@ -152,19 +149,40 @@ func upgradeTower(upgradePath: String, upgradeTier: String) -> void:
 	
 	if GameManager.money >= cost:
 		GameManager.removeMoney(cost)
+		upgradePurchaseHistory[currentTier] = upgradePath
 		currentTier += 1
 		
 		match upgradePath:
 			"Left":
-				leftTier = targetTier
 				damage *= 2
 			"Middle":
-				middleTier = targetTier
 				fireRate *= 0.5
 				fireRateTimer.wait_time = fireRate
 			"Right":
-				rightTier = targetTier
 				attackRange *= 2
 				attackRangeNode.updateAttackRange()
+		GameManager.UIManager.updateTowerUpgradeMenuColors()
 	else:
 		print("You are poor")
+
+func applyTowerUpgrades(upgradePath: String, upgradeTier: int) -> void:
+	match towerType:
+		"Arrow":
+			if upgradeTier == 3:
+				pass
+			else:
+				match upgradePath:
+					"Left":
+						damage *= 2
+					"Middle":
+						fireRate *= 0.5
+						fireRateTimer.wait_time = fireRate
+					"Right":
+						attackRange *= 2
+						attackRangeNode.updateAttackRange()
+		"Fire":
+			pass
+		"Slime":
+			pass
+		"Cannon":
+			pass

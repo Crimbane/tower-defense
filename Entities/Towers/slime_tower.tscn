@@ -18,13 +18,13 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_lahyv"]
-radius = 226.66666
+radius = 192.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ma62e"]
 radius = 186.69641
 
 [node name="Slime Tower" type="Node2D" unique_id=664368618 node_paths=PackedStringArray("towerTop", "fireRateTimer", "mouseDetectionArea", "attackRangeNode")]
-scale = Vector2(0.3, 0.3)
+scale = Vector2(0.25, 0.25)
 script = ExtResource("1_q7hfs")
 towerType = "Slime"
 projectileScene = ExtResource("2_b5d63")
@@ -58,4 +58,5 @@ collision_layer = 128
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Mouse Detection Area" unique_id=1928527352]
+visible = false
 shape = SubResource("CircleShape2D_ma62e")

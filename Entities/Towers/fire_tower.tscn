@@ -17,13 +17,13 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_s2g3v"]
-radius = 226.66666
+radius = 192.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_hyie5"]
 radius = 190.11693
 
 [node name="Fire Tower" type="Node2D" unique_id=664368618 node_paths=PackedStringArray("towerTop", "weapon", "fireRateTimer", "fireDurationTimer", "particles", "mouseDetectionArea", "attackRangeNode")]
-scale = Vector2(0.3, 0.3)
+scale = Vector2(0.25, 0.25)
 script = ExtResource("1_2hdbw")
 towerTop = NodePath("Tower Top")
 weapon = NodePath("Fire")
@@ -84,4 +84,5 @@ collision_layer = 128
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Mouse Detection Area" unique_id=513561426]
+visible = false
 shape = SubResource("CircleShape2D_hyie5")

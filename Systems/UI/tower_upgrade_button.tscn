@@ -1,8 +1,17 @@
 [gd_scene format=3 uid="uid://brqe6yc0g2u66"]
 
 [ext_resource type="Script" uid="uid://b1x4wxsk0fooi" path="res://Systems/UI/tower_upgrade_button.gd" id="1_male1"]
+[ext_resource type="Texture2D" uid="uid://6asst08vlprb" path="res://Systems/UI/Art/Damage Upgrade Icon.svg" id="2_j2uma"]
 
 [node name="Tower Upgrade Button" type="Button" unique_id=2105109026]
+custom_minimum_size = Vector2(10, 10)
 offset_right = 8.0
 offset_bottom = 8.0
 script = ExtResource("1_male1")
+
+[node name="Icon" type="TextureRect" parent="." unique_id=1349943744]
+custom_maximum_size = Vector2(10, 10)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_j2uma")

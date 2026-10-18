@@ -36,56 +36,56 @@ columns = 3
 
 [node name="Tower Upgrade Button12" parent="UI Manager/Tower Upgrade Menu" unique_id=2105109026 instance=ExtResource("2_07xqu")]
 layout_mode = 2
-upgradePath = "Left"
-upgradeTier = "4"
+upgradeTier = 4
 
 [node name="Tower Upgrade Button11" parent="UI Manager/Tower Upgrade Menu" unique_id=12927104 instance=ExtResource("2_07xqu")]
 layout_mode = 2
-upgradePath = "Middle"
-upgradeTier = "4"
+upgradePath = 1
+upgradeTier = 4
 
 [node name="Tower Upgrade Button10" parent="UI Manager/Tower Upgrade Menu" unique_id=232702389 instance=ExtResource("2_07xqu")]
 layout_mode = 2
-upgradeTier = "4"
+upgradePath = 2
+upgradeTier = 4
 
 [node name="Tower Upgrade Button9" parent="UI Manager/Tower Upgrade Menu" unique_id=883589956 instance=ExtResource("2_07xqu")]
 layout_mode = 2
-upgradePath = "Left"
-upgradeTier = "3"
+upgradeTier = 3
 
 [node name="Tower Upgrade Button8" parent="UI Manager/Tower Upgrade Menu" unique_id=685655870 instance=ExtResource("2_07xqu")]
 layout_mode = 2
-upgradePath = "Middle"
-upgradeTier = "3"
+upgradePath = 1
+upgradeTier = 3
 
 [node name="Tower Upgrade Button7" parent="UI Manager/Tower Upgrade Menu" unique_id=837163962 instance=ExtResource("2_07xqu")]
 layout_mode = 2
-upgradeTier = "3"
+upgradePath = 2
+upgradeTier = 3
 
 [node name="Tower Upgrade Button6" parent="UI Manager/Tower Upgrade Menu" unique_id=482748398 instance=ExtResource("2_07xqu")]
 layout_mode = 2
-upgradePath = "Left"
-upgradeTier = "2"
+upgradeTier = 2
 
 [node name="Tower Upgrade Button5" parent="UI Manager/Tower Upgrade Menu" unique_id=1143704901 instance=ExtResource("2_07xqu")]
 layout_mode = 2
-upgradePath = "Middle"
-upgradeTier = "2"
+upgradePath = 1
+upgradeTier = 2
 
 [node name="Tower Upgrade Button4" parent="UI Manager/Tower Upgrade Menu" unique_id=714595156 instance=ExtResource("2_07xqu")]
 layout_mode = 2
-upgradeTier = "2"
+upgradePath = 2
+upgradeTier = 2
 
 [node name="Tower Upgrade Button3" parent="UI Manager/Tower Upgrade Menu" unique_id=919688333 instance=ExtResource("2_07xqu")]
 layout_mode = 2
-upgradePath = "Left"
 
 [node name="Tower Upgrade Button2" parent="UI Manager/Tower Upgrade Menu" unique_id=984522266 instance=ExtResource("2_07xqu")]
 layout_mode = 2
-upgradePath = "Middle"
+upgradePath = 1
 
 [node name="Tower Upgrade Button" parent="UI Manager/Tower Upgrade Menu" unique_id=1296461171 instance=ExtResource("2_07xqu")]
 layout_mode = 2
+upgradePath = 2
 
 [node name="Right Panel" type="Panel" parent="UI Manager" unique_id=2107449380]
 layout_mode = 1
@@ -131,7 +131,6 @@ grow_vertical = 2
 columns = 2
 
 [node name="Arrow" parent="UI Manager/Right Panel/Tower Buttons" unique_id=1343717249 instance=ExtResource("2_vwuv3")]
-custom_maximum_size = Vector2(100, 100)
 layout_mode = 2
 
 [node name="Fire" parent="UI Manager/Right Panel/Tower Buttons" unique_id=827456401 instance=ExtResource("2_vwuv3")]
