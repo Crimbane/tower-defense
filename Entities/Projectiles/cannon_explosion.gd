@@ -1,9 +1,11 @@
 extends Area2D
 
 var damage: int = 0
+var explosionSize = scale
 
 func _ready() -> void:
 	await get_tree().physics_frame
+	scale = explosionSize
 	var enemies = get_overlapping_areas()
 	
 	#var enemy = area.get_parent()

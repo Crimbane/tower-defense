@@ -32,7 +32,8 @@ towerTop = NodePath("Tower Top")
 fireRateTimer = NodePath("FireRateTimer")
 mouseDetectionArea = NodePath("Mouse Detection Area")
 attackRangeNode = NodePath("Attack Range")
-fireRate = 2.0
+fireRate = 4.0
+attackRange = 135.0
 
 [node name="Base" type="Sprite2D" parent="." unique_id=1738475557]
 texture = ExtResource("3_b5d63")

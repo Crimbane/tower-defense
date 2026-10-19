@@ -2,9 +2,13 @@
 
 [ext_resource type="Script" uid="uid://nxvp3ffwqd8d" path="res://Systems/UI/ui_manager.gd" id="1_efl0l"]
 [ext_resource type="PackedScene" uid="uid://brqe6yc0g2u66" path="res://Systems/UI/tower_upgrade_button.tscn" id="2_07xqu"]
+[ext_resource type="Texture2D" uid="uid://dfx4fyl7b5j2k" path="res://Systems/UI/Art/Popup Menu Panel.png" id="2_sa4aq"]
 [ext_resource type="PackedScene" uid="uid://bhllmt0i37knn" path="res://Systems/UI/tower_buy_button.tscn" id="2_vwuv3"]
 [ext_resource type="Texture2D" uid="uid://cl5v2lodh3v1e" path="res://Systems/UI/Art/Money Icon.svg" id="3_ed1bf"]
 [ext_resource type="Texture2D" uid="uid://dvskhor1m3a3o" path="res://Systems/UI/Art/Wooden Plank Panel.png" id="3_pnx8b"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_sa4aq"]
+font_size = 22
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t1yug"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -12,9 +16,12 @@ bg_color = Color(0.6, 0.6, 0.6, 0)
 [sub_resource type="LabelSettings" id="LabelSettings_t1yug"]
 font_size = 46
 
+[sub_resource type="LabelSettings" id="LabelSettings_fyjvv"]
+font_size = 32
+
 [node name="UI" type="CanvasLayer" unique_id=2066053580]
 
-[node name="UI Manager" type="Control" parent="." unique_id=394273874 node_paths=PackedStringArray("towerBuyButton", "moneyLabel", "towerUpgradeMenu")]
+[node name="UI Manager" type="Control" parent="." unique_id=394273874 node_paths=PackedStringArray("towerBuyButton", "moneyLabel", "fpsLabel", "towerUpgradeMenu", "towerUpgradeMenuGrid")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -25,65 +32,108 @@ mouse_filter = 2
 script = ExtResource("1_efl0l")
 towerBuyButton = NodePath("Right Panel/Tower Buttons/Arrow")
 moneyLabel = NodePath("Right Panel/MoneyLabelMargin/GridContainer/Money Label")
+fpsLabel = NodePath("FPS Label")
 towerUpgradeMenu = NodePath("Tower Upgrade Menu")
+towerUpgradeMenuGrid = NodePath("Tower Upgrade Menu/Background/Button Grid")
 
-[node name="Tower Upgrade Menu" type="GridContainer" parent="UI Manager" unique_id=1582060549]
+[node name="Tower Upgrade Menu" type="Control" parent="UI Manager" unique_id=2130134072]
+z_index = 6
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Background" type="TextureRect" parent="UI Manager/Tower Upgrade Menu" unique_id=1023016427]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-scale = Vector2(5, 5)
+offset_right = 378.0
+offset_bottom = 605.0
+texture = ExtResource("2_sa4aq")
+
+[node name="Label" type="Label" parent="UI Manager/Tower Upgrade Menu/Background" unique_id=1872735082]
+z_index = 1
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -126.0
+offset_top = 70.325
+offset_right = 108.0
+offset_bottom = 232.0
+grow_horizontal = 2
+text = "Hover upgrade 
+for info"
+label_settings = SubResource("LabelSettings_sa4aq")
+
+[node name="Button Grid" type="GridContainer" parent="UI Manager/Tower Upgrade Menu/Background" unique_id=1582060549]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -128.62
+offset_top = -364.825
+offset_right = 109.3804
+offset_bottom = -78.82501
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/h_separation = 14
+theme_override_constants/v_separation = 2
 columns = 3
 
-[node name="Tower Upgrade Button12" parent="UI Manager/Tower Upgrade Menu" unique_id=2105109026 instance=ExtResource("2_07xqu")]
+[node name="Tower Upgrade Button12" parent="UI Manager/Tower Upgrade Menu/Background/Button Grid" unique_id=2105109026 instance=ExtResource("2_07xqu")]
 layout_mode = 2
 upgradeTier = 4
 
-[node name="Tower Upgrade Button11" parent="UI Manager/Tower Upgrade Menu" unique_id=12927104 instance=ExtResource("2_07xqu")]
+[node name="Tower Upgrade Button11" parent="UI Manager/Tower Upgrade Menu/Background/Button Grid" unique_id=12927104 instance=ExtResource("2_07xqu")]
 layout_mode = 2
 upgradePath = 1
 upgradeTier = 4
 
-[node name="Tower Upgrade Button10" parent="UI Manager/Tower Upgrade Menu" unique_id=232702389 instance=ExtResource("2_07xqu")]
+[node name="Tower Upgrade Button10" parent="UI Manager/Tower Upgrade Menu/Background/Button Grid" unique_id=232702389 instance=ExtResource("2_07xqu")]
 layout_mode = 2
 upgradePath = 2
 upgradeTier = 4
 
-[node name="Tower Upgrade Button9" parent="UI Manager/Tower Upgrade Menu" unique_id=883589956 instance=ExtResource("2_07xqu")]
+[node name="Tower Upgrade Button9" parent="UI Manager/Tower Upgrade Menu/Background/Button Grid" unique_id=883589956 instance=ExtResource("2_07xqu")]
 layout_mode = 2
 upgradeTier = 3
 
-[node name="Tower Upgrade Button8" parent="UI Manager/Tower Upgrade Menu" unique_id=685655870 instance=ExtResource("2_07xqu")]
+[node name="Tower Upgrade Button8" parent="UI Manager/Tower Upgrade Menu/Background/Button Grid" unique_id=685655870 instance=ExtResource("2_07xqu")]
 layout_mode = 2
 upgradePath = 1
 upgradeTier = 3
 
-[node name="Tower Upgrade Button7" parent="UI Manager/Tower Upgrade Menu" unique_id=837163962 instance=ExtResource("2_07xqu")]
+[node name="Tower Upgrade Button7" parent="UI Manager/Tower Upgrade Menu/Background/Button Grid" unique_id=837163962 instance=ExtResource("2_07xqu")]
 layout_mode = 2
 upgradePath = 2
 upgradeTier = 3
 
-[node name="Tower Upgrade Button6" parent="UI Manager/Tower Upgrade Menu" unique_id=482748398 instance=ExtResource("2_07xqu")]
+[node name="Tower Upgrade Button6" parent="UI Manager/Tower Upgrade Menu/Background/Button Grid" unique_id=482748398 instance=ExtResource("2_07xqu")]
 layout_mode = 2
 upgradeTier = 2
 
-[node name="Tower Upgrade Button5" parent="UI Manager/Tower Upgrade Menu" unique_id=1143704901 instance=ExtResource("2_07xqu")]
+[node name="Tower Upgrade Button5" parent="UI Manager/Tower Upgrade Menu/Background/Button Grid" unique_id=1143704901 instance=ExtResource("2_07xqu")]
 layout_mode = 2
 upgradePath = 1
 upgradeTier = 2
 
-[node name="Tower Upgrade Button4" parent="UI Manager/Tower Upgrade Menu" unique_id=714595156 instance=ExtResource("2_07xqu")]
+[node name="Tower Upgrade Button4" parent="UI Manager/Tower Upgrade Menu/Background/Button Grid" unique_id=714595156 instance=ExtResource("2_07xqu")]
 layout_mode = 2
 upgradePath = 2
 upgradeTier = 2
 
-[node name="Tower Upgrade Button3" parent="UI Manager/Tower Upgrade Menu" unique_id=919688333 instance=ExtResource("2_07xqu")]
+[node name="Tower Upgrade Button3" parent="UI Manager/Tower Upgrade Menu/Background/Button Grid" unique_id=919688333 instance=ExtResource("2_07xqu")]
 layout_mode = 2
 
-[node name="Tower Upgrade Button2" parent="UI Manager/Tower Upgrade Menu" unique_id=984522266 instance=ExtResource("2_07xqu")]
+[node name="Tower Upgrade Button2" parent="UI Manager/Tower Upgrade Menu/Background/Button Grid" unique_id=984522266 instance=ExtResource("2_07xqu")]
 layout_mode = 2
 upgradePath = 1
 
-[node name="Tower Upgrade Button" parent="UI Manager/Tower Upgrade Menu" unique_id=1296461171 instance=ExtResource("2_07xqu")]
+[node name="Tower Upgrade Button" parent="UI Manager/Tower Upgrade Menu/Background/Button Grid" unique_id=1296461171 instance=ExtResource("2_07xqu")]
 layout_mode = 2
 upgradePath = 2
 
@@ -170,3 +220,15 @@ texture = ExtResource("3_ed1bf")
 layout_mode = 2
 text = "427"
 label_settings = SubResource("LabelSettings_t1yug")
+
+[node name="FPS Label" type="Label" parent="UI Manager" unique_id=1953476194]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -26.5
+offset_right = 26.5
+offset_bottom = 34.0
+grow_horizontal = 2
+text = "FPS: "
+label_settings = SubResource("LabelSettings_fyjvv")

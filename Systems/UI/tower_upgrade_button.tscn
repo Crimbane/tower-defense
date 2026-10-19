@@ -4,13 +4,13 @@
 [ext_resource type="Texture2D" uid="uid://6asst08vlprb" path="res://Systems/UI/Art/Damage Upgrade Icon.svg" id="2_j2uma"]
 
 [node name="Tower Upgrade Button" type="Button" unique_id=2105109026]
-custom_minimum_size = Vector2(10, 10)
+custom_minimum_size = Vector2(70, 70)
 offset_right = 8.0
 offset_bottom = 8.0
 script = ExtResource("1_male1")
 
 [node name="Icon" type="TextureRect" parent="." unique_id=1349943744]
-custom_maximum_size = Vector2(10, 10)
+custom_maximum_size = Vector2(70, 70)
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0

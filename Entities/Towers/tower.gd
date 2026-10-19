@@ -16,6 +16,8 @@ var isGhostShape: bool = false
 var towerCost: int = 50
 
 @export var damage: int = 10
+var cannonExplosionSize = Vector2(1, 1)
+var slimeSlowPercent: float = 0.8
 
 var canFire: bool = true
 @export var fireRate: float = 0.5
@@ -45,6 +47,7 @@ func _ready() -> void:
 
 func _process(_delta: float) -> void:
 	if isGhostShape:
+		z_index = 5
 		return
 	currentTarget = findClosestEnemy()
 	
@@ -77,6 +80,11 @@ func shoot() -> void:
 	projectile.direction = direction
 	projectile.rotation = direction.angle()
 	projectile.target = currentTarget
+	
+	if towerType == "Cannon":
+		projectile.explosionSize = cannonExplosionSize
+	elif towerType == "Slime":
+		projectile.slowPercent = slimeSlowPercent
 	
 	get_tree().current_scene.add_child(projectile)
 
@@ -112,9 +120,8 @@ func onMouseExited() -> void:
 		attackRangeNode.hide()
 
 func onTowerMouseClick(_viewport: Node, event: InputEvent, _shapeidx: int ):
-	if (event is InputEventMouseButton && event.pressed):
+	if (event is InputEventMouseButton && event.is_action_pressed("Left Click")):
 		if not isGhostShape:
-			#upgradeTower("Right")
 			GameManager.selectedTower = self
 			GameManager.UIManager.placeTowerUpgradeMenu()
 
@@ -152,15 +159,8 @@ func upgradeTower(upgradePath: String, upgradeTier: int) -> void:
 		upgradePurchaseHistory[currentTier] = upgradePath
 		currentTier += 1
 		
-		match upgradePath:
-			"Left":
-				damage *= 2
-			"Middle":
-				fireRate *= 0.5
-				fireRateTimer.wait_time = fireRate
-			"Right":
-				attackRange *= 2
-				attackRangeNode.updateAttackRange()
+		applyTowerUpgrades(upgradePath, upgradeTier)
+		
 		GameManager.UIManager.updateTowerUpgradeMenuColors()
 	else:
 		print("You are poor")
@@ -168,21 +168,57 @@ func upgradeTower(upgradePath: String, upgradeTier: int) -> void:
 func applyTowerUpgrades(upgradePath: String, upgradeTier: int) -> void:
 	match towerType:
 		"Arrow":
-			if upgradeTier == 3:
+			if upgradeTier == 4:
 				pass
 			else:
 				match upgradePath:
 					"Left":
-						damage *= 2
+						damage += 10
 					"Middle":
-						fireRate *= 0.5
+						fireRate *= 0.75
 						fireRateTimer.wait_time = fireRate
 					"Right":
-						attackRange *= 2
+						attackRange *= 1.5
 						attackRangeNode.updateAttackRange()
 		"Fire":
-			pass
+			#damage, firerate, range increase
+			if upgradeTier == 4:
+				pass
+			else:
+				match upgradePath:
+					"Left":
+						damage = roundi(damage * 1.5)
+					"Middle":
+						fireRate *= 0.8
+						fireRateTimer.wait_time = fireRate
+					"Right":
+						attackRange *= 1.3
+						attackRangeNode.updateAttackRange()
 		"Slime":
-			pass
+			#slow strength, firerate, small range increase
+			if upgradeTier == 4:
+				pass
+			else:
+				match upgradePath:
+					"Left":
+						slimeSlowPercent -= 0.15
+					"Middle":
+						fireRate *= 0.75
+						fireRateTimer.wait_time = fireRate
+					"Right":
+						attackRange *= 1.1
+						attackRangeNode.updateAttackRange()
 		"Cannon":
-			pass
+			#explosion aoe, firerate, range increase
+			if upgradeTier == 4:
+				pass
+			else:
+				match upgradePath:
+					"Left":
+						cannonExplosionSize += Vector2(1,1)
+					"Middle":
+						fireRate *= 0.75
+						fireRateTimer.wait_time = fireRate
+					"Right":
+						attackRange *= 1.4
+						attackRangeNode.updateAttackRange()

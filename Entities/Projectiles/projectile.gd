@@ -9,6 +9,8 @@ var direction = Vector2.ZERO
 @export var speed: int = 500
 var damage: int = 0
 @export var pierceCount: int = 0
+var explosionSize = Vector2(1, 1)
+var slowPercent: float = 0
 
 var hasHit: bool = false
 
@@ -56,6 +58,7 @@ func spawnSlimeField() -> void:
 	var spawnPosition = self.global_position
 	
 	slimeField.global_position = spawnPosition
+	slimeField.slowPercent = slowPercent
 	
 	get_tree().current_scene.call_deferred("add_child", slimeField)
 
@@ -66,6 +69,7 @@ func spawnExplosion() -> void:
 	
 	explosion.global_position = spawnPosition
 	explosion.damage = damage
+	explosion.explosionSize = explosionSize
 	
 	get_tree().current_scene.call_deferred("add_child", explosion)
 

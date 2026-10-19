@@ -2,7 +2,7 @@ extends Node2D
 
 #@export var towerScene: PackedScene
 
-var previewTower: Node2D = null
+var ghostTower: Node2D = null
 var isPlacing: bool = false
 var canPlace: bool = true
 
@@ -13,8 +13,8 @@ func _ready() -> void:
 
 
 func _process(_delta: float) -> void:
-	if isPlacing and previewTower:
-		previewTower.global_position = get_global_mouse_position()
+	if isPlacing and ghostTower:
+		ghostTower.global_position = get_global_mouse_position()
 		checkValidPlacement()
 
 
@@ -24,7 +24,7 @@ func _unhandled_input(event: InputEvent) -> void:
 	
 	if event.is_action_pressed("Left Click"):
 		if canPlace:
-			await get_tree().create_timer(0.01).timeout # delay isGhostShape = true
+			await get_tree().create_timer(0.1).timeout # delay isGhostShape = true
 			placeTower()
 		else:
 			cancelPlacement()
@@ -38,36 +38,36 @@ func startPlacement(towerScene: PackedScene) -> void:
 	if isPlacing or towerScene == null:
 		return
 	isPlacing = true
-	previewTower = towerScene.instantiate()
+	ghostTower = towerScene.instantiate()
 	
-	previewTower.isGhostShape = true
-	previewTower.get_node("Attack Range").show()
+	ghostTower.isGhostShape = true
+	ghostTower.get_node("Attack Range").show()
 	
-	add_child(previewTower)
+	GameManager.UIManager.add_child(ghostTower)
 
 func checkValidPlacement() -> void:
-	var area = previewTower.get_node("Placement Hitbox") as Area2D
+	var area = ghostTower.get_node("Placement Hitbox") as Area2D
 	
 	if area.has_overlapping_areas():
 		canPlace = false
-		previewTower.modulate = Color(1, 0.3, 0.3, 0.6)
+		ghostTower.modulate = Color(1, 0.3, 0.3, 0.6)
 	else:
 		canPlace = true
-		previewTower.modulate = Color(0.3, 1, 0.3, 0.6)
+		ghostTower.modulate = Color(0.3, 1, 0.3, 0.6)
 
 func placeTower() -> void:
-	previewTower.modulate = Color(1, 1, 1, 1)
+	ghostTower.modulate = Color(1, 1, 1, 1)
 	
-	previewTower.isGhostShape = false
-	previewTower.get_node("Attack Range").hide()
+	ghostTower.isGhostShape = false
+	ghostTower.get_node("Attack Range").hide()
 	
-	previewTower.payForTower()
+	ghostTower.payForTower()
 	
-	previewTower = null
+	ghostTower = null
 	isPlacing = false
 
 func cancelPlacement() -> void:
-	if previewTower:
-		previewTower.queue_free()
-		previewTower = null
+	if ghostTower:
+		ghostTower.queue_free()
+		ghostTower = null
 	isPlacing = false

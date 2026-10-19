@@ -20,7 +20,7 @@ var burnTime: float = 0.0
 var burnTicks: float = 0.5
 
 var activeSlowFields: int = 0
-var slowStength: float = 1.0
+var slowStrength: float = 1.0
 
 @onready var healthBar = $"Health Bar"
 @onready var collisionShape: CollisionShape2D = $Hitbox/CollisionShape2D
@@ -47,7 +47,7 @@ func _process(delta: float) -> void:
 			takeDamage(fireDamage)
 	
 	if activeSlowFields > 0:
-		currentSpeed = baseSpeed * slowStength
+		currentSpeed = baseSpeed * slowStrength 
 	
 	progress += currentSpeed
 	
@@ -85,13 +85,13 @@ func onStopBurning() -> void:
 func applySlowDebuff(slowPercent: float) -> void:
 	activeSlowFields += 1
 	
-	slowStength = slowPercent
+	slowStrength = slowPercent
 
 func removeSlowDebuff() -> void:
 	activeSlowFields -= 1
 	
 	if activeSlowFields <= 0:
-		slowStength = 1.0
+		slowStrength = 1.0
 		currentSpeed = baseSpeed
 
 func onPathCompletion() -> void:

@@ -27,7 +27,7 @@ const MAX_WAVES: int = 100
 func _ready() -> void:
 	spawnTimer.timeout.connect(onSpawnTimerTimeout)
 	generateWave()
-	nextWaveTimer.timeout.connect(generateWave)
+	nextWaveTimer.timeout.connect(checkIfEnemiesDead)
 
 
 func _process(_delta: float) -> void:
@@ -90,4 +90,11 @@ func calculateBudget(wave) -> int:
 
 func waveCompleted() -> void:
 	currentWave += 1
-	nextWaveTimer.start()
+	
+	#nextWaveTimer.start()
+
+func checkIfEnemiesDead() -> void:
+	var enemiesAlive: int = spawnLocation.get_child_count()
+	print("enemies alive: ", enemiesAlive)
+	if enemiesAlive == 0:
+		generateWave()

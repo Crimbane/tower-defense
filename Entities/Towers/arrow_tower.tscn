@@ -31,6 +31,8 @@ towerTop = NodePath("Tower Top")
 fireRateTimer = NodePath("FireRateTimer")
 mouseDetectionArea = NodePath("Mouse Detection Area")
 attackRangeNode = NodePath("Attack Range")
+damage = 20
+fireRate = 1.3
 projectileSpeed = 1200
 
 [node name="Base" type="Sprite2D" parent="." unique_id=1738475557]

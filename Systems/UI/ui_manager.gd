@@ -3,7 +3,11 @@ extends Control
 @export var towerBuyButton: Button
 @export var placementManager: Node2D
 @export var moneyLabel: Label
+@export var fpsLabel: Label
 @export var towerUpgradeMenu: Control
+@export var towerUpgradeMenuGrid: GridContainer
+
+var hideCooldown: bool = false
 
 func _ready() -> void:
 	GameManager.UIManager = self
@@ -13,8 +17,15 @@ func _ready() -> void:
 
 
 func _process(_delta: float) -> void:
-	pass
+	showFPS()
 
+func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_pressed("Left Click"):
+		if GameManager.selectedTower != null:
+			hideTowerUpgradeMenu()
+
+func showFPS() -> void:
+	fpsLabel.text = str(Engine.get_frames_per_second())
 
 func updateMoneyUI() -> void:
 	if not moneyLabel:
@@ -23,15 +34,21 @@ func updateMoneyUI() -> void:
 
 func placeTowerUpgradeMenu() -> void:
 	if towerUpgradeMenu.visible:
-		towerUpgradeMenu.hide()
-		GameManager.selectedTower = null
+		hideTowerUpgradeMenu()
 		return
 	GameManager.selectedTower.showAttackRange()
 	
 	updateTowerUpgradeMenuColors()
 	
-	var menuOffset = Vector2(85, 310)
-	towerUpgradeMenu.global_position = GameManager.selectedTower.global_position - menuOffset
+	var menuOffset = Vector2(150, 630)
+	
+	var spawnPosition = GameManager.selectedTower.global_position - menuOffset
+	if spawnPosition.x < 0:
+		spawnPosition.x -= spawnPosition.x
+	if spawnPosition.y < 0:
+		spawnPosition.y -= spawnPosition.y
+	
+	towerUpgradeMenu.global_position = spawnPosition
 	towerUpgradeMenu.show()
 
 func hideTowerUpgradeMenu() -> void:
@@ -39,5 +56,5 @@ func hideTowerUpgradeMenu() -> void:
 	GameManager.selectedTower = null
 
 func updateTowerUpgradeMenuColors() -> void:
-	for button in towerUpgradeMenu.get_children():
+	for button in towerUpgradeMenuGrid.get_children():
 		button.updateColor()

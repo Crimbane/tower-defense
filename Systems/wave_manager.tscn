@@ -10,8 +10,7 @@ enemyScene = ExtResource("2_ar3a6")
 fastEnemyScene = ExtResource("3_5a3ti")
 
 [node name="Next Wave Timer" type="Timer" parent="." unique_id=1430764877]
-wait_time = 8.0
-one_shot = true
+autostart = true
 
 [node name="Spawn Timer" type="Timer" parent="." unique_id=747894397]
 wait_time = 0.5
