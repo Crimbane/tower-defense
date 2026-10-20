@@ -10,7 +10,7 @@ var time: float = 0.0
 @export var attackDamage: int = 1
 @export var maxHealth = 50
 @onready var currentHealth: int = maxHealth
-@export var baseSpeed: float = 0.5
+@export var baseSpeed: float = 0.3
 @onready var currentSpeed: float = baseSpeed
 @export var armor: int = 0
 

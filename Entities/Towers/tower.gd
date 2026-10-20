@@ -17,7 +17,7 @@ var towerCost: int = 50
 
 @export var damage: int = 10
 var cannonExplosionSize = Vector2(1, 1)
-var slimeSlowPercent: float = 0.8
+var slimeSlowPercent: float = 0.7
 
 var canFire: bool = true
 @export var fireRate: float = 0.5
@@ -49,7 +49,8 @@ func _process(_delta: float) -> void:
 	if isGhostShape:
 		z_index = 5
 		return
-	currentTarget = findClosestEnemy()
+	#currentTarget = findClosestEnemy()
+	currentTarget = findPriorityEnemy()
 	
 	if currentTarget != null:
 		var distance = global_position.distance_to(currentTarget.global_position)
@@ -92,6 +93,21 @@ func shoot() -> void:
 func onFireRateTimerTimeout() -> void:
 	canFire = true
 
+
+func findPriorityEnemy() -> Node2D:
+	var enemies = get_tree().get_nodes_in_group("Enemy")
+	var priorityEnemy: Node2D = null
+	var highestProgress = 0
+	
+	for enemy in enemies:
+		var enemyDistance = global_position.distance_to(enemy.global_position)
+		if enemyDistance < attackRange:
+			var progress = enemy.get_parent().progress
+			if progress > highestProgress:
+				highestProgress = progress
+				priorityEnemy = enemy
+	
+	return priorityEnemy
 
 func findClosestEnemy() -> Node2D:
 	var enemies = get_tree().get_nodes_in_group("Enemy")
@@ -168,57 +184,81 @@ func upgradeTower(upgradePath: String, upgradeTier: int) -> void:
 func applyTowerUpgrades(upgradePath: String, upgradeTier: int) -> void:
 	match towerType:
 		"Arrow":
-			if upgradeTier == 4:
-				pass
-			else:
-				match upgradePath:
-					"Left":
+			match upgradePath:
+				"Left":
+					if upgradeTier == 4:
+						damage += 20
+					else:
 						damage += 10
-					"Middle":
+				"Middle":
+					if upgradeTier == 4:
+						fireRate *= 0.5
+					else:
 						fireRate *= 0.75
-						fireRateTimer.wait_time = fireRate
-					"Right":
-						attackRange *= 1.5
-						attackRangeNode.updateAttackRange()
+					fireRateTimer.wait_time = fireRate
+				"Right":
+					if upgradeTier == 4:
+						attackRange *= 1.3
+					else:
+						attackRange *= 1.15
+					attackRangeNode.updateAttackRange()
 		"Fire":
 			#damage, firerate, range increase
-			if upgradeTier == 4:
-				pass
-			else:
-				match upgradePath:
-					"Left":
+			match upgradePath:
+				"Left":
+					if upgradeTier == 4:
+						damage *= 2
+					else:
 						damage = roundi(damage * 1.5)
-					"Middle":
+				"Middle":
+					if upgradeTier == 4:
+						fireRate *= 0.6
+					else:
 						fireRate *= 0.8
-						fireRateTimer.wait_time = fireRate
-					"Right":
+					fireRateTimer.wait_time = fireRate
+				"Right":
+					if upgradeTier == 4:
 						attackRange *= 1.3
-						attackRangeNode.updateAttackRange()
+					else:
+						attackRange *= 1.15
+					attackRangeNode.updateAttackRange()
 		"Slime":
 			#slow strength, firerate, small range increase
-			if upgradeTier == 4:
-				pass
-			else:
-				match upgradePath:
-					"Left":
-						slimeSlowPercent -= 0.15
-					"Middle":
+			match upgradePath:
+				"Left":
+					if upgradeTier == 4:
+						slimeSlowPercent -= 0.20
+					else:
+						slimeSlowPercent -= 0.10
+				"Middle":
+					if upgradeTier == 4:
+						fireRate *= 0.5
+					else:
 						fireRate *= 0.75
-						fireRateTimer.wait_time = fireRate
-					"Right":
+					fireRateTimer.wait_time = fireRate
+				"Right":
+					if upgradeTier == 4:
+						attackRange *= 1.2
+					else:
 						attackRange *= 1.1
-						attackRangeNode.updateAttackRange()
+					attackRangeNode.updateAttackRange()
 		"Cannon":
 			#explosion aoe, firerate, range increase
-			if upgradeTier == 4:
-				pass
-			else:
-				match upgradePath:
-					"Left":
+			match upgradePath:
+				"Left":
+					if upgradeTier == 4:
+						cannonExplosionSize += Vector2(2,2)
+					else:
 						cannonExplosionSize += Vector2(1,1)
-					"Middle":
+				"Middle":
+					if upgradeTier == 4:
+						fireRate *= 0.5
+					else:
 						fireRate *= 0.75
-						fireRateTimer.wait_time = fireRate
-					"Right":
-						attackRange *= 1.4
-						attackRangeNode.updateAttackRange()
+					fireRateTimer.wait_time = fireRate
+				"Right":
+					if upgradeTier == 4:
+						attackRange *= 1.3
+					else:
+						attackRange *= 1.15
+					attackRangeNode.updateAttackRange()

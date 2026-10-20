@@ -8,12 +8,12 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wbf3x"]
 size = Vector2(39, 40)
 
-[node name="Fast Enemy" type="PathFollow2D" unique_id=479867562 node_paths=PackedStringArray("sprite", "burnTimer") groups=["Enemy"]]
+[node name="Fast Enemy" type="PathFollow2D" unique_id=479867562 node_paths=PackedStringArray("sprite", "burnTimer")]
 script = ExtResource("1_uxyn8")
 sprite = NodePath("Sprite2D")
 burnTimer = NodePath("BurnTimer")
 maxHealth = 20
-baseSpeed = 1.0
+baseSpeed = 0.6
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=2035455794]
 texture = ExtResource("2_h6ysb")

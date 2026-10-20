@@ -8,7 +8,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wbf3x"]
 size = Vector2(39, 40)
 
-[node name="Base Enemy" type="PathFollow2D" unique_id=479867562 node_paths=PackedStringArray("sprite", "burnTimer") groups=["Enemy"]]
+[node name="Base Enemy" type="PathFollow2D" unique_id=479867562 node_paths=PackedStringArray("sprite", "burnTimer")]
 script = ExtResource("1_wbf3x")
 sprite = NodePath("Sprite2D")
 burnTimer = NodePath("BurnTimer")

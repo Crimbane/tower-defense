@@ -47,7 +47,7 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	if isGhostShape:
 		return
-	currentTarget = findClosestEnemy()
+	currentTarget = findPriorityEnemy()
 	
 	if currentTarget != null:
 		var distance = position.distance_to(currentTarget.global_position)
@@ -75,6 +75,10 @@ func applyFire(body: Area2D) -> void:
 		enemy.applyFireDebuff(fireDamage, fireBurnTime)
 
 func onStopShooting() -> void:
+	var enemiesInside = weapon.get_overlapping_areas()
+	for body in enemiesInside:
+		applyFire(body)
+	
 	weapon.set_deferred("monitoring", false)
 	particles.emitting = false
 	fireRateTimer.start()
@@ -83,6 +87,21 @@ func onStopShooting() -> void:
 func onFireRateTimerTimeout() -> void:
 	canFire = true
 
+
+func findPriorityEnemy() -> Node2D:
+	var enemies = get_tree().get_nodes_in_group("Enemy")
+	var priorityEnemy: Node2D = null
+	var highestProgress = 0
+	
+	for enemy in enemies:
+		var enemyDistance = global_position.distance_to(enemy.global_position)
+		if enemyDistance < attackRange:
+			var progress = enemy.get_parent().progress
+			if progress > highestProgress:
+				highestProgress = progress
+				priorityEnemy = enemy
+	
+	return priorityEnemy
 
 func findClosestEnemy() -> Node2D:
 	var enemies = get_tree().get_nodes_in_group("Enemy")
@@ -96,6 +115,7 @@ func findClosestEnemy() -> Node2D:
 			closestEnemy = enemy
 	
 	return closestEnemy
+
 
 func onMouseEntered() -> void:
 	if not isGhostShape:

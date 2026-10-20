@@ -64,6 +64,7 @@ mouse_filter = 2
 texture = ExtResource("1_baspc")
 
 [node name="No Build Area" type="Area2D" parent="Enviroment/Background" unique_id=1076719080]
+visible = false
 collision_mask = 0
 
 [node name="Rock2" type="CollisionShape2D" parent="Enviroment/Background/No Build Area" unique_id=2053202712]

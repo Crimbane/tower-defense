@@ -42,7 +42,7 @@ func projectileHit(body: Node2D) -> void:
 				body.get_parent().takeDamage(damage)
 			"Slime":
 				body.get_parent().takeDamage(damage)
-				spawnSlimeField()
+				spawnSlimeField(body)
 			"Cannon":
 				#body.get_parent().takeDamage(damage)
 				spawnExplosion()
@@ -53,9 +53,9 @@ func projectileHit(body: Node2D) -> void:
 	set_deferred("monitoring", false)
 	queue_free()
 
-func spawnSlimeField() -> void:
+func spawnSlimeField(body: Node2D) -> void:
 	var slimeField = slimeFieldScene.instantiate()
-	var spawnPosition = self.global_position
+	var spawnPosition = body.global_position
 	
 	slimeField.global_position = spawnPosition
 	slimeField.slowPercent = slowPercent
