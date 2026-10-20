@@ -23,6 +23,7 @@ func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("Left Click"):
 		if GameManager.selectedTower != null:
 			hideTowerUpgradeMenu()
+			get_viewport().set_input_as_handled()
 
 func showFPS() -> void:
 	fpsLabel.text = str(Engine.get_frames_per_second())
