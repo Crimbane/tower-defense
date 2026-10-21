@@ -63,16 +63,16 @@ func updateColor() -> void:
 	var activeTierPath: String = tower.upgradePurchaseHistory[buttonTier -1]
 	
 	if activeTierPath == pathString:
-		modulate = Color(0.5, 1.0, 0.5)
+		buttonIcon.modulate = Color(0.5, 1.0, 0.5)
 		purchased = true
 	
 	elif activeTierPath != "None":
-		modulate = Color.DARK_RED
+		buttonIcon.modulate = Color.DARK_RED
 		purchased = false
 	elif buttonTier == tower.currentTier + 1:
-		modulate = Color.WHITE
+		buttonIcon.modulate = Color.WHITE
 		purchased = false
 	
 	else:
-		modulate = Color(0.5,0.5,0.5)
+		buttonIcon.modulate = Color(0.5,0.5,0.5)
 		purchased = false

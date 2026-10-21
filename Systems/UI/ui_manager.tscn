@@ -53,6 +53,7 @@ offset_bottom = 605.0
 texture = ExtResource("2_sa4aq")
 
 [node name="Label" type="Label" parent="UI Manager/Tower Upgrade Menu/Background" unique_id=1872735082]
+visible = false
 z_index = 1
 layout_mode = 1
 anchors_preset = 5

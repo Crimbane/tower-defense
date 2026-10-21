@@ -17,6 +17,71 @@ var leftTierCosts: Array[int] = [30, 60, 120, 180]
 var middleTierCosts: Array[int] = [25, 50, 100, 150]
 var rightTierCosts: Array[int] = [20, 40, 80, 120]
 
+const TOWER_UPGRADES = {
+	"Arrow": {
+		"Left":{
+			"damageIncrease": 10,
+			"tier4": 20
+		},
+		"Middle":{
+			"fireRateIncreaseMultiplier": 0.75,
+			"tier4": 0.5
+		},
+		"Right":{
+			"rangeIncreaseMultiplier": 1.15,
+			"tier4": 1.3
+		}
+	},
+	"Fire": {
+		"Left":{
+			"damageIncrease": 10,
+			"tier4": 20
+		},
+		"Middle":{
+			"fireRateIncreaseMultiplier": 0.8,
+			"tier4": 0.6
+		},
+		"Right":{
+			"rangeIncreaseMultiplier": 1.15,
+			"tier4": 1.3
+		}
+	},
+	"Slime": {
+		"Left":{
+			"slowIncreasePercent": 0.10,
+			"tier4": 0.20,
+			
+			"slowIncreasePercentTooltip": 10,
+			"tier4Tooltip": 20
+		},
+		"Middle":{
+			"fireRateIncreaseMultiplier": 0.75,
+			"tier4": 0.5
+		},
+		"Right":{
+			"rangeIncreaseMultiplier": 1.1,
+			"tier4": 1.2
+		}
+	},
+	"Cannon": {
+		"Left":{
+			"explosionSizeIncrease": Vector2(1, 1),
+			"tier4": Vector2(2, 2),
+			
+			"explosionSizeIncreaseTooltip": 1,
+			"tier4Tooltip": 2
+		},
+		"Middle":{
+			"fireRateIncreaseMultiplier": 0.9,
+			"tier4": 0.8
+		},
+		"Right":{
+			"rangeIncreaseMultiplier": 1.15,
+			"tier4": 1.3
+		}
+	}
+}
+
 func _ready() -> void:
 	pass
 

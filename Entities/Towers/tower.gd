@@ -34,6 +34,7 @@ var rightTierCosts: Array[int] = GameManager.rightTierCosts
 
 var upgradePurchaseHistory: Array[String] = ["None", "None", "None", "None"]
 
+
 func _ready() -> void:
 	print(leftTierCosts)
 	fireRateTimer.wait_time = fireRate
@@ -182,83 +183,85 @@ func upgradeTower(upgradePath: String, upgradeTier: int) -> void:
 		print("You are poor")
 
 func applyTowerUpgrades(upgradePath: String, upgradeTier: int) -> void:
+	var upgradeData: Dictionary = GameManager.TOWER_UPGRADES[towerType][upgradePath]
+	
 	match towerType:
 		"Arrow":
 			match upgradePath:
 				"Left":
 					if upgradeTier == 4:
-						damage += 20
+						damage += upgradeData["tier4"]
 					else:
-						damage += 10
+						damage += upgradeData["damageIncrease"]
 				"Middle":
 					if upgradeTier == 4:
-						fireRate *= 0.5
+						fireRate *= upgradeData["tier4"]
 					else:
-						fireRate *= 0.75
+						fireRate *= upgradeData["fireRateIncreaseMultiplier"]
 					fireRateTimer.wait_time = fireRate
 				"Right":
 					if upgradeTier == 4:
-						attackRange *= 1.3
+						attackRange *= upgradeData["tier4"]
 					else:
-						attackRange *= 1.15
+						attackRange *= upgradeData["rangeIncreaseMultiplier"]
 					attackRangeNode.updateAttackRange()
 		"Fire":
 			#damage, firerate, range increase
 			match upgradePath:
 				"Left":
 					if upgradeTier == 4:
-						damage *= 2
+						damage += upgradeData["tier4"]
 					else:
-						damage = roundi(damage * 1.5)
+						damage += upgradeData["damageIncrease"]
 				"Middle":
 					if upgradeTier == 4:
-						fireRate *= 0.6
+						fireRate *= upgradeData["tier4"]
 					else:
-						fireRate *= 0.8
+						fireRate *= upgradeData["fireRateIncreaseMultiplier"]
 					fireRateTimer.wait_time = fireRate
 				"Right":
 					if upgradeTier == 4:
-						attackRange *= 1.3
+						attackRange *= upgradeData["tier4"]
 					else:
-						attackRange *= 1.15
+						attackRange *= upgradeData["rangeIncreaseMultiplier"]
 					attackRangeNode.updateAttackRange()
 		"Slime":
 			#slow strength, firerate, small range increase
 			match upgradePath:
 				"Left":
 					if upgradeTier == 4:
-						slimeSlowPercent -= 0.20
+						slimeSlowPercent -= upgradeData["tier4"]
 					else:
-						slimeSlowPercent -= 0.10
+						slimeSlowPercent -= upgradeData["slowIncreasePercent"]
 				"Middle":
 					if upgradeTier == 4:
-						fireRate *= 0.5
+						fireRate *= upgradeData["tier4"]
 					else:
-						fireRate *= 0.75
+						fireRate *= upgradeData["fireRateIncreaseMultiplier"]
 					fireRateTimer.wait_time = fireRate
 				"Right":
 					if upgradeTier == 4:
-						attackRange *= 1.2
+						attackRange *= upgradeData["tier4"]
 					else:
-						attackRange *= 1.1
+						attackRange *= upgradeData["rangeIncreaseMultiplier"]
 					attackRangeNode.updateAttackRange()
 		"Cannon":
 			#explosion aoe, firerate, range increase
 			match upgradePath:
 				"Left":
 					if upgradeTier == 4:
-						cannonExplosionSize += Vector2(2,2)
+						cannonExplosionSize += upgradeData["tier4"]
 					else:
-						cannonExplosionSize += Vector2(1,1)
+						cannonExplosionSize += upgradeData["explosionSizeIncrease"]
 				"Middle":
 					if upgradeTier == 4:
-						fireRate *= 0.5
+						fireRate *= upgradeData["tier4"]
 					else:
-						fireRate *= 0.75
+						fireRate *= upgradeData["fireRateIncreaseMultiplier"]
 					fireRateTimer.wait_time = fireRate
 				"Right":
 					if upgradeTier == 4:
-						attackRange *= 1.3
+						attackRange *= upgradeData["tier4"]
 					else:
-						attackRange *= 1.15
+						attackRange *= upgradeData["rangeIncreaseMultiplier"]
 					attackRangeNode.updateAttackRange()
