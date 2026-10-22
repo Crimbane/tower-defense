@@ -8,10 +8,10 @@ const START_MONEY = 10000
 
 var money: int = START_MONEY
 
-var arrowTowerCost = 50
-var fireTowerCost = 100
-var slimeTowerCost = 100
-var cannonTowerCost = 200
+var arrowTowerCost = 20
+var fireTowerCost = 50
+var slimeTowerCost = 35
+var cannonTowerCost = 100
 
 var leftTierCosts: Array[int] = [30, 60, 120, 180]
 var middleTierCosts: Array[int] = [25, 50, 100, 150]

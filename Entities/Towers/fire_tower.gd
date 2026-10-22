@@ -12,7 +12,7 @@ var projectileSpawnPosition: Vector2 = Vector2.ZERO
 
 var isGhostShape: bool = false
 
-var towerCost: int = 50
+var towerCost: int = 0
 
 var canFire: bool = true
 var isShooting: bool = false

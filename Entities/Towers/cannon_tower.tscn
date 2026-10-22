@@ -32,6 +32,7 @@ towerTop = NodePath("Tower Top")
 fireRateTimer = NodePath("FireRateTimer")
 mouseDetectionArea = NodePath("Mouse Detection Area")
 attackRangeNode = NodePath("Attack Range")
+towerCost = 100
 damage = 50
 fireRate = 10.0
 projectileSpeed = 1000

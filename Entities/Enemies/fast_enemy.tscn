@@ -12,8 +12,10 @@ size = Vector2(39, 40)
 script = ExtResource("1_uxyn8")
 sprite = NodePath("Sprite2D")
 burnTimer = NodePath("BurnTimer")
+unitCost = 2
+minSpawnableWave = 3
 maxHealth = 20
-baseSpeed = 0.6
+baseSpeed = 200
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=2035455794]
 texture = ExtResource("2_h6ysb")

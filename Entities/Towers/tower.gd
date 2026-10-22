@@ -13,7 +13,7 @@ var currentTarget = null
 
 var isGhostShape: bool = false
 
-var towerCost: int = 50
+var towerCost: int = 0
 
 @export var damage: int = 10
 var cannonExplosionSize = Vector2(1, 1)

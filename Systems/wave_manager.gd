@@ -7,14 +7,13 @@ extends Node
 var spawnQueue: Array[PackedScene] = []
 
 @export var enemyScene: PackedScene
-var enemyCost: int = 1
 @export var fastEnemyScene: PackedScene
-var fastEnemyCost: int = 2
 
-@onready var enemyUnits: Dictionary[PackedScene, int] = {
-	enemyScene: enemyCost,
-	fastEnemyScene: fastEnemyCost
-}
+@onready var enemyScenesArray: Array[PackedScene] = [
+	enemyScene, fastEnemyScene
+	]
+
+var enemyUnits: Dictionary = {}
 
 var currentWave: int = 1
 const MAX_WAVES: int = 100
@@ -25,6 +24,7 @@ const MAX_WAVES: int = 100
 #TODO Make enemy types spawnable after certain wave number
 
 func _ready() -> void:
+	getEnemyData()
 	spawnTimer.timeout.connect(onSpawnTimerTimeout)
 	generateWave()
 	nextWaveTimer.timeout.connect(checkIfEnemiesDead)
@@ -32,6 +32,19 @@ func _ready() -> void:
 
 func _process(_delta: float) -> void:
 	pass
+
+func getEnemyData() -> void:
+	for scene in enemyScenesArray:
+		var tempEnemy = scene.instantiate()
+		
+		var cost = tempEnemy.unitCost
+		var minWave = tempEnemy.minSpawnableWave
+		enemyUnits[scene] = {
+			"cost": cost,
+			"minWave": minWave
+		}
+		
+		tempEnemy.free()
 
 func startWave(spawnList: Array[PackedScene]) -> void:
 	spawnQueue = spawnList
@@ -63,15 +76,21 @@ func generateWave() -> void:
 		spawnBossWave()
 		return
 	
+	
+	var allowedUnits: Array[PackedScene] = []
+	for unit in enemyUnits.keys():
+		if currentWave >= enemyUnits[unit]["minWave"]:
+			allowedUnits.append(unit)
+	
+	
 	budget = calculateBudget(currentWave)
 	
 	var attempts: int = 0
 	while budget > 0 and attempts < 100:
 		attempts += 1
-		var unitsArray: Array[PackedScene] = enemyUnits.keys()
-		var randomUnit: PackedScene = unitsArray.pick_random()
+		var randomUnit: PackedScene = allowedUnits.pick_random()
 		
-		var unitCost: int = enemyUnits[randomUnit]
+		var unitCost: int = enemyUnits[randomUnit]["cost"]
 		
 		if unitCost <= budget:
 			spawnList.append(randomUnit)
@@ -85,16 +104,14 @@ func spawnBossWave() -> void:
 
 func calculateBudget(wave) -> int:
 	budget = startingBudget + (wave * 2)
+	print("budget: ", budget)
 	return budget
-
 
 func waveCompleted() -> void:
 	currentWave += 1
-	
-	#nextWaveTimer.start()
 
 func checkIfEnemiesDead() -> void:
 	var enemiesAlive: int = spawnLocation.get_child_count()
-	print("enemies alive: ", enemiesAlive)
+	#print("enemies alive: ", enemiesAlive)
 	if enemiesAlive == 0:
 		generateWave()
