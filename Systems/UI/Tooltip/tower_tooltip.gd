@@ -75,6 +75,30 @@ func updateTooltip() -> void:
 						nextValue = tower.attackRange * upgradeData["tier4"]
 					else:
 						nextValue = tower.attackRange * upgradeData["rangeIncreaseMultiplier"]
+		"Fire":
+			match pathName:
+				"Left":
+					title = "Damage Upgrade"
+					var fireDamageCalculation = 2 * tower.fireBurnTime
+					currentValue = tower.fireDamage * fireDamageCalculation
+					if tier == 4:
+						nextValue = (tower.fireDamage + upgradeData["tier4"]) * fireDamageCalculation
+					else:
+						nextValue = (tower.fireDamage + upgradeData["damageIncrease"]) * fireDamageCalculation
+				"Middle":
+					title = "Fire Rate Upgrade"
+					currentValue = tower.fireRate
+					if tier == 4:
+						nextValue = tower.fireRate * upgradeData["tier4"]
+					else:
+						nextValue = tower.fireRate * upgradeData["fireRateIncreaseMultiplier"]
+				"Right":
+					title = "Range Upgrade"
+					currentValue = tower.attackRange
+					if tier == 4:
+						nextValue = tower.attackRange * upgradeData["tier4"]
+					else:
+						nextValue = tower.attackRange * upgradeData["rangeIncreaseMultiplier"]
 		"Slime":
 			match pathName:
 				"Left":

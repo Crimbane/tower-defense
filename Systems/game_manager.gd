@@ -34,8 +34,8 @@ const TOWER_UPGRADES = {
 	},
 	"Fire": {
 		"Left":{
-			"damageIncrease": 10,
-			"tier4": 20
+			"damageIncrease": 1,
+			"tier4": 2
 		},
 		"Middle":{
 			"fireRateIncreaseMultiplier": 0.8,

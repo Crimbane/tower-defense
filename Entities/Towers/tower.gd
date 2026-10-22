@@ -15,11 +15,13 @@ var isGhostShape: bool = false
 
 var towerCost: int = 0
 
+var canFire: bool = true
+
+@export_category("Stats")
 @export var damage: int = 10
 var cannonExplosionSize = Vector2(1, 1)
 var slimeSlowPercent: float = 0.7
 
-var canFire: bool = true
 @export var fireRate: float = 0.5
 @export var attackRange: float = 250.0
 @export var projectileSpeed: int = 500

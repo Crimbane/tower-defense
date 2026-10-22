@@ -16,17 +16,23 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="Gradient" id="Gradient_jybln"]
+offsets = PackedFloat32Array(0, 0.35185185, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 0.09019608, 0, 1, 0, 0, 0, 0.48235294)
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_s2g3v"]
 radius = 192.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_hyie5"]
 radius = 190.11693
 
-[node name="Fire Tower" type="Node2D" unique_id=664368618 node_paths=PackedStringArray("towerTop", "weapon", "fireRateTimer", "fireDurationTimer", "particles", "mouseDetectionArea", "attackRangeNode")]
+[node name="Fire Tower" type="Node2D" unique_id=664368618 node_paths=PackedStringArray("towerTop", "weapon", "weaponCollision", "weaponVisualPolygon", "fireRateTimer", "fireDurationTimer", "particles", "mouseDetectionArea", "attackRangeNode")]
 scale = Vector2(0.25, 0.25)
 script = ExtResource("1_2hdbw")
 towerTop = NodePath("Tower Top")
 weapon = NodePath("Fire")
+weaponCollision = NodePath("Fire/CollisionPolygon2D")
+weaponVisualPolygon = NodePath("Fire/Polygon2D")
 fireRateTimer = NodePath("FireRateTimer")
 fireDurationTimer = NodePath("FireDurationTimer")
 particles = NodePath("Fire/CPUParticles2D")
@@ -48,26 +54,32 @@ one_shot = true
 one_shot = true
 
 [node name="Fire" type="Area2D" parent="." unique_id=1392404344]
-visible = false
 collision_layer = 8
 collision_mask = 4
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Fire" unique_id=1843357427]
 position = Vector2(0, -163.333)
-polygon = PackedVector2Array(0, 0, 300, -800, -300, -800)
+polygon = PackedVector2Array(0, 0, 300, -836.667, -300, -836.667)
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="Fire" unique_id=434801212]
 position = Vector2(0, -163.333)
 rotation = -1.5707964
-amount = 50
+amount = 100
 lifetime = 1.4
 lifetime_randomness = 0.15
-spread = 35.48
+spread = 20.0
 gravity = Vector2(0, 0)
 initial_velocity_min = 637.62
 initial_velocity_max = 637.62
 scale_amount_max = 10.0
 color = Color(1, 0.09019608, 0, 1)
+color_ramp = SubResource("Gradient_jybln")
+
+[node name="Polygon2D" type="Polygon2D" parent="Fire" unique_id=1943084548]
+visible = false
+position = Vector2(0, -163.333)
+polygon = PackedVector2Array(0, 0, 300, -836.667, -300, -836.667)
+uv = PackedVector2Array(0.5, 1, 0, 0, 1, 0)
 
 [node name="Placement Hitbox" type="Area2D" parent="." unique_id=615678285]
 visible = false

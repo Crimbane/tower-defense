@@ -30,10 +30,6 @@ enum TowerSprite {
 		towerSprite = value
 		updateIcon()
 
-@export var cost: int = 10:
-	set(value):
-		cost = value
-
 @onready var buttonIcon: TextureRect = $Icon
 @onready var dropShadow: TextureRect = $Icon/DropShadow
 
