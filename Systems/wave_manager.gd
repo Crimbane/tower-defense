@@ -8,9 +8,15 @@ var spawnQueue: Array[PackedScene] = []
 
 @export var enemyScene: PackedScene
 @export var fastEnemyScene: PackedScene
+@export var babySandwormScene: PackedScene
+@export var scorpionScene: PackedScene
+@export var boarScene: PackedScene
+@export var lizardScene: PackedScene
+@export var bossSandwormScene: PackedScene
+
 
 @onready var enemyScenesArray: Array[PackedScene] = [
-	enemyScene, fastEnemyScene
+	babySandwormScene, scorpionScene, boarScene
 	]
 
 var enemyUnits: Dictionary = {}

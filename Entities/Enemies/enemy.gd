@@ -1,8 +1,15 @@
 extends PathFollow2D
 
-@onready var hitbox: Area2D = $Hitbox
+@export_enum(
+	"Baby Sandworm", "Scorpion", "Boar", "Lizard") var enemyType: String = "Boar"
 
-@export var sprite: Sprite2D
+
+@onready var hitbox: Area2D = $Hitbox
+@onready var collisionShape: CollisionShape2D = $Hitbox/CollisionShape2D
+@onready var healthBar: TextureProgressBar = $"Health Bar"
+@export var armorBar: TextureProgressBar
+
+@export var sprite: AnimatedSprite2D
 @export var burnTimer: Timer
 var time: float = 0.0
 
@@ -23,17 +30,18 @@ var burnTicks: float = 0.5
 var activeSlowFields: int = 0
 var slowStrength: float = 1.0
 
-@onready var healthBar = $"Health Bar"
-@onready var collisionShape: CollisionShape2D = $Hitbox/CollisionShape2D
 
-var healthBarSizeHeight = 80
-var healthBarOffsetHeight = -25
+var healthBarSizeHeight = 8
+var healthBarOffsetHeight = 25
 
 
 func _ready() -> void:
 	loop = false
+	enemySpecificLogic()
 	placeHealthBar()
 	burnTimer.timeout.connect(onStopBurning)
+	if armorBar:
+		armorBar.max_value = armor
 
 func _process(delta: float) -> void:
 	healthBar.rotation_degrees = 0
@@ -45,6 +53,9 @@ func _process(delta: float) -> void:
 	if burnTimer.time_left != 0:
 		if time > burnTicks:
 			time = 0
+			if armorBar:
+				armorBar.value -= fireDamage
+				armor -= fireDamage
 			takeDamage(fireDamage)
 	
 	if activeSlowFields > 0:
@@ -56,10 +67,18 @@ func _process(delta: float) -> void:
 		var collisionSizeHeight = collisionShape.shape.size.y
 		healthBar.global_position.x = global_position.x - (healthBar.size.x / 2)
 		healthBar.global_position.y = global_position.y - (collisionSizeHeight / 2) - healthBar.size.y - healthBarOffsetHeight
-		healthBar.rotation_degrees = 0
+		#healthBar.rotation_degrees = 0
+		if armorBar:
+			#armorBar.rotation_degrees = 0
+			armorBar.global_position.x = healthBar.global_position.x
+			armorBar.global_position.y = healthBar.global_position.y - armorBar.size.y
 
 
 func takeDamage(damage: int) -> void:
+	if armor > 0:
+		armorBar.show()
+		print("armored, take no damage")
+		return
 	currentHealth -= damage
 	#print("damaged: ", damage)
 	if currentHealth < 1:
@@ -106,7 +125,19 @@ func placeHealthBar() -> void:
 	if collisionShape.shape is RectangleShape2D:
 		var collisionSizeWidth = collisionShape.shape.size.x
 		#var collisionSizeHeight = collisionShape.shape.size.y
-		healthBar.size = Vector2(collisionSizeWidth, healthBarSizeHeight)
+		#healthBar.size = Vector2(collisionSizeWidth, healthBarSizeHeight)
+		healthBar.size.x = collisionSizeWidth
 		
 		#healthBar.position.x = -healthBar.size.x / 2
 		#healthBar.position.y = -collisionSizeHeight / 2 - healthBar.size.y - healthBarOffsetHeight
+
+func enemySpecificLogic() -> void:
+	match enemyType:
+		"Baby Sandworm":
+			healthBarOffsetHeight = 25
+		"Scorpion":
+			pass
+		"Boar":
+			healthBarOffsetHeight = 25
+		"Lizard":
+			pass

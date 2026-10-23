@@ -1,0 +1,88 @@
+[gd_scene format=3 uid="uid://csy1qis00i72f"]
+
+[ext_resource type="Script" uid="uid://cw0jxtdodiyv6" path="res://Entities/Enemies/enemy.gd" id="1_r7aay"]
+[ext_resource type="Texture2D" uid="uid://ccs5lw5x84rb5" path="res://Entities/Enemies/Art/Enemy Healthbar Container.svg" id="2_a0fp7"]
+[ext_resource type="Texture2D" uid="uid://bexwatntofbxk" path="res://Entities/Enemies/Art/Enemy Healthbar Fill.svg" id="3_mpjql"]
+[ext_resource type="Texture2D" uid="uid://cq74agjm4uhgw" path="res://Entities/Enemies/Art/Baby Sandworm/Baby Sandworm 1.svg" id="4_a0fp7"]
+[ext_resource type="Texture2D" uid="uid://cgm4hjget4ve" path="res://Entities/Enemies/Art/Baby Sandworm/Baby Sandworm 2.svg" id="5_mpjql"]
+[ext_resource type="Texture2D" uid="uid://6tfjv5m6gt0q" path="res://Entities/Enemies/Art/Baby Sandworm/Baby Sandworm 3.svg" id="6_3s7ob"]
+[ext_resource type="Texture2D" uid="uid://dow3sofaij3pj" path="res://Entities/Enemies/Art/Baby Sandworm/Baby Sandworm 4.svg" id="7_8bm3s"]
+[ext_resource type="Texture2D" uid="uid://cqf3j4mw0dsen" path="res://Entities/Enemies/Art/Baby Sandworm/Baby Sandworm 5.svg" id="8_tl1us"]
+[ext_resource type="Texture2D" uid="uid://cqyg4rx6kiois" path="res://Entities/Enemies/Art/Baby Sandworm/Baby Sandworm 6.svg" id="9_qnpjo"]
+[ext_resource type="Texture2D" uid="uid://c1ejrtp4uwf2l" path="res://Entities/Enemies/Art/Baby Sandworm/Baby Sandworm 7.svg" id="10_e58v4"]
+[ext_resource type="Texture2D" uid="uid://ftm82xjwc1g3" path="res://Entities/Enemies/Art/Baby Sandworm/Baby Sandworm 8.svg" id="11_d73r4"]
+[ext_resource type="Texture2D" uid="uid://cmaxds0vpiaef" path="res://Entities/Enemies/Art/Baby Sandworm/Baby Sandworm 9.svg" id="12_kvswl"]
+[ext_resource type="Texture2D" uid="uid://d2tyfyds2w08b" path="res://Entities/Enemies/Art/Baby Sandworm/Baby Sandworm 10.svg" id="13_2ubwa"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wbf3x"]
+size = Vector2(39, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_t1yug"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_a0fp7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_mpjql")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_3s7ob")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_8bm3s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_tl1us")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_qnpjo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_e58v4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_d73r4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_kvswl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_2ubwa")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 11.0
+}]
+
+[node name="Baby Sandworm" type="PathFollow2D" unique_id=479867562 node_paths=PackedStringArray("sprite", "burnTimer")]
+script = ExtResource("1_r7aay")
+enemyType = "Baby Sandworm"
+sprite = NodePath("AnimatedSprite2D")
+burnTimer = NodePath("BurnTimer")
+
+[node name="Hitbox" type="Area2D" parent="." unique_id=2000332408 groups=["Enemy"]]
+collision_layer = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=483616725]
+position = Vector2(0.5, 0)
+shape = SubResource("RectangleShape2D_wbf3x")
+
+[node name="BurnTimer" type="Timer" parent="." unique_id=1596100805]
+one_shot = true
+
+[node name="Health Bar" type="TextureProgressBar" parent="." unique_id=1401385791]
+visible = false
+top_level = true
+offset_right = 40.0
+offset_bottom = 8.0
+value = 100.0
+nine_patch_stretch = true
+texture_under = ExtResource("2_a0fp7")
+texture_progress = ExtResource("3_mpjql")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2110967852]
+scale = Vector2(0.2, 0.2)
+sprite_frames = SubResource("SpriteFrames_t1yug")
+autoplay = "default"
+frame_progress = 0.7378469

@@ -4,17 +4,27 @@
 [ext_resource type="Script" uid="uid://cw0jxtdodiyv6" path="res://Entities/Enemies/enemy.gd" id="1_wbf3x"]
 [ext_resource type="Texture2D" uid="uid://cfojvwc37ykry" path="res://Testing/olem50/Enemy Healthbar Empty.png" id="3_u23yv"]
 [ext_resource type="Texture2D" uid="uid://dwa1hwklb2lnm" path="res://Testing/olem50/Enemy Healthbar Full.png" id="4_4wjja"]
+[ext_resource type="Texture2D" uid="uid://ggk8p3aitl6y" path="res://Assets/Placeholders/Shield Icon.png" id="5_4wjja"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wbf3x"]
 size = Vector2(39, 40)
 
-[node name="Base Enemy" type="PathFollow2D" unique_id=479867562 node_paths=PackedStringArray("sprite", "burnTimer")]
-script = ExtResource("1_wbf3x")
-sprite = NodePath("Sprite2D")
-burnTimer = NodePath("BurnTimer")
+[sub_resource type="SpriteFrames" id="SpriteFrames_t1yug"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_7o3vr")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2035455794]
-texture = ExtResource("1_7o3vr")
+[node name="Base Enemy" type="PathFollow2D" unique_id=479867562 node_paths=PackedStringArray("armorBar", "sprite", "burnTimer")]
+script = ExtResource("1_wbf3x")
+armorBar = NodePath("Armor Bar")
+sprite = NodePath("AnimatedSprite2D")
+burnTimer = NodePath("BurnTimer")
 
 [node name="Hitbox" type="Area2D" parent="." unique_id=2000332408 groups=["Enemy"]]
 collision_layer = 4
@@ -35,3 +45,14 @@ value = 100.0
 nine_patch_stretch = true
 texture_under = ExtResource("3_u23yv")
 texture_progress = ExtResource("4_4wjja")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2110967852]
+visible = false
+sprite_frames = SubResource("SpriteFrames_t1yug")
+
+[node name="Armor Bar" type="TextureProgressBar" parent="." unique_id=1291340872]
+offset_right = 32.0
+offset_bottom = 32.0
+value = 100.0
+fill_mode = 3
+texture_progress = ExtResource("5_4wjja")

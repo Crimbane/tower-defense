@@ -1,0 +1,90 @@
+[gd_scene format=3 uid="uid://dpvqiku0f5ebp"]
+
+[ext_resource type="Script" uid="uid://cw0jxtdodiyv6" path="res://Entities/Enemies/enemy.gd" id="1_w65iq"]
+[ext_resource type="Texture2D" uid="uid://ccs5lw5x84rb5" path="res://Entities/Enemies/Art/Enemy Healthbar Container.svg" id="2_3b4yk"]
+[ext_resource type="Texture2D" uid="uid://bexwatntofbxk" path="res://Entities/Enemies/Art/Enemy Healthbar Fill.svg" id="3_hy357"]
+[ext_resource type="Texture2D" uid="uid://nnlfsqrmdx08" path="res://Entities/Enemies/Art/Wild Boar/Wild Boar 1.svg" id="4_o3y0e"]
+[ext_resource type="Texture2D" uid="uid://rxmhbea0g3g3" path="res://Entities/Enemies/Art/Wild Boar/Wild Boar 2.svg" id="5_ccrgo"]
+[ext_resource type="Texture2D" uid="uid://b785wbx3jannt" path="res://Entities/Enemies/Art/Wild Boar/Wild Boar 3.svg" id="6_lv0g5"]
+[ext_resource type="Texture2D" uid="uid://c4i7lsbdliwyh" path="res://Entities/Enemies/Art/Wild Boar/Wild Boar 4.svg" id="7_1a5et"]
+[ext_resource type="Texture2D" uid="uid://cmi60lmww5yf5" path="res://Entities/Enemies/Art/Wild Boar/Wild Boar 5.svg" id="8_wpc6j"]
+[ext_resource type="Texture2D" uid="uid://ctq40yvr75w3p" path="res://Entities/Enemies/Art/Wild Boar/Wild Boar 6.svg" id="9_5gvm5"]
+[ext_resource type="Texture2D" uid="uid://b5ne5dvqr0b16" path="res://Entities/Enemies/Art/Wild Boar/Wild Boar 7.svg" id="10_edf4x"]
+[ext_resource type="Texture2D" uid="uid://nvseach4imok" path="res://Entities/Enemies/Art/Wild Boar/Wild Boar 8.svg" id="11_qrq5o"]
+[ext_resource type="Texture2D" uid="uid://bumj65lrsu0wm" path="res://Entities/Enemies/Art/Wild Boar/Wild Boar 9.svg" id="12_t4inf"]
+[ext_resource type="Texture2D" uid="uid://r6ibs6kqpccx" path="res://Entities/Enemies/Art/Wild Boar/Wild Boar 10.svg" id="13_gcbuo"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wbf3x"]
+size = Vector2(53, 38)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_t1yug"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_o3y0e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_ccrgo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_lv0g5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_1a5et")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_wpc6j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_5gvm5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_edf4x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_qrq5o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_t4inf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_gcbuo")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 15.0
+}]
+
+[node name="Boar" type="PathFollow2D" unique_id=479867562 node_paths=PackedStringArray("sprite", "burnTimer")]
+script = ExtResource("1_w65iq")
+sprite = NodePath("AnimatedSprite2D")
+burnTimer = NodePath("BurnTimer")
+unitCost = 2
+minSpawnableWave = 3
+maxHealth = 20
+baseSpeed = 200
+
+[node name="Hitbox" type="Area2D" parent="." unique_id=2000332408 groups=["Enemy"]]
+collision_layer = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=483616725]
+position = Vector2(-1.5, 0)
+shape = SubResource("RectangleShape2D_wbf3x")
+
+[node name="BurnTimer" type="Timer" parent="." unique_id=1596100805]
+one_shot = true
+
+[node name="Health Bar" type="TextureProgressBar" parent="." unique_id=1401385791]
+top_level = true
+offset_right = 40.0
+offset_bottom = 8.0
+value = 50.0
+nine_patch_stretch = true
+texture_under = ExtResource("2_3b4yk")
+texture_progress = ExtResource("3_hy357")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1663093720]
+scale = Vector2(0.2, 0.2)
+sprite_frames = SubResource("SpriteFrames_t1yug")
+autoplay = "default"
+frame_progress = 0.84358376
