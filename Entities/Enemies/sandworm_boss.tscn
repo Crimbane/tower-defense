@@ -58,12 +58,12 @@ animations = [{
 
 [node name="Sandworm Boss" type="PathFollow2D" unique_id=479867562 node_paths=PackedStringArray("armorBar", "sprite", "burnTimer")]
 script = ExtResource("1_le7mi")
-enemyType = "Scorpion"
+enemyType = "Boss"
 armorBar = NodePath("Armor Bar")
 sprite = NodePath("AnimatedSprite2D")
 burnTimer = NodePath("BurnTimer")
 maxHealth = 2000
-baseSpeed = 25
+baseSpeed = 50
 
 [node name="Hitbox" type="Area2D" parent="." unique_id=2000332408 groups=["Enemy"]]
 collision_layer = 4

@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bfcwe1u2tuj58"]
 
-[ext_resource type="PackedScene" uid="uid://brqe6yc0g2u66" path="res://Systems/UI/tower_upgrade_button.tscn" id="1_ovqud"]
+[ext_resource type="PackedScene" uid="uid://brqe6yc0g2u66" path="res://Systems/UI/Tower Upgrade/tower_upgrade_button.tscn" id="1_ovqud"]
 
 [node name="Tower Upgrade Menu" type="Control" unique_id=595273987]
 layout_mode = 3

@@ -60,6 +60,9 @@ animations = [{
 script = ExtResource("1_w65iq")
 sprite = NodePath("AnimatedSprite2D")
 burnTimer = NodePath("BurnTimer")
+unitCost = 2
+minSpawnableWave = 5
+baseSpeed = 200
 
 [node name="Hitbox" type="Area2D" parent="." unique_id=2000332408 groups=["Enemy"]]
 collision_layer = 4

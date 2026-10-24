@@ -6,13 +6,22 @@ extends Control
 @export var fpsLabel: Label
 @export var towerUpgradeMenu: Control
 @export var towerUpgradeMenuGrid: GridContainer
+@export var nextWaveButton: Button
+@export var autoplayOnIcon: TextureRect
+@export var autoplayOffIcon: TextureRect
+@export var waveNumberLabel: Label
 
 var hideCooldown: bool = false
 
 func _ready() -> void:
 	GameManager.UIManager = self
 	updateMoneyUI()
+	
 	hideTowerUpgradeMenu()
+	
+	await get_tree().create_timer(1).timeout
+	#updateWaveNumberLabel()
+	nextWaveButton.pressed.connect(GameManager.waveManager.startNextWaveEarly)
 	#towerBuyButton.pressed.connect(placementManager.startPlacement)
 
 
@@ -59,3 +68,7 @@ func hideTowerUpgradeMenu() -> void:
 func updateTowerUpgradeMenuColors() -> void:
 	for button in towerUpgradeMenuGrid.get_children():
 		button.updateColor()
+
+func updateWaveNumberLabel() -> void:
+	print(GameManager.waveManager.currentWave)
+	waveNumberLabel.text = "Wave: " + str(GameManager.waveManager.currentWave)

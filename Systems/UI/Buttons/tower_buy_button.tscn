@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bhllmt0i37knn"]
 
-[ext_resource type="Script" uid="uid://dksdrl4jiaksc" path="res://Systems/UI/tower_buy_button.gd" id="1_1rjhe"]
+[ext_resource type="Script" uid="uid://dksdrl4jiaksc" path="res://Systems/UI/Buttons/tower_buy_button.gd" id="1_1rjhe"]
 [ext_resource type="Texture2D" uid="uid://ycypt7ywptfh" path="res://Systems/UI/Art/Arrow Tower Icon.svg" id="1_md6kl"]
 [ext_resource type="Texture2D" uid="uid://bcx1m15rts1j" path="res://Entities/Towers/Art/Arrow Tower Turret.svg" id="2_md6kl"]
 

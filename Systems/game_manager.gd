@@ -2,6 +2,7 @@ extends Node
 
 var nexus: Node = null
 var UIManager: Node = null
+var waveManager: Node = null
 var selectedTower: Node2D = null
 
 const START_MONEY = 10000

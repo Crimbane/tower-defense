@@ -1,7 +1,7 @@
 extends PathFollow2D
 
 @export_enum(
-	"Baby Sandworm", "Scorpion", "Boar", "Lizard") var enemyType: String = "Boar"
+	"Baby Sandworm", "Scorpion", "Boar", "Lizard", "Boss") var enemyType: String = "Boar"
 
 
 @onready var hitbox: Area2D = $Hitbox
@@ -82,6 +82,9 @@ func takeDamage(damage: int) -> void:
 	currentHealth -= damage
 	#print("damaged: ", damage)
 	if currentHealth < 1:
+		if enemyType == "Boss":
+			pass
+			# won the game logic
 		queue_free()
 	
 	healthBar.value = currentHealth

@@ -1,11 +1,15 @@
 [gd_scene format=3 uid="uid://v8s1l3ss70q7"]
 
 [ext_resource type="Script" uid="uid://nxvp3ffwqd8d" path="res://Systems/UI/ui_manager.gd" id="1_efl0l"]
-[ext_resource type="PackedScene" uid="uid://brqe6yc0g2u66" path="res://Systems/UI/tower_upgrade_button.tscn" id="2_07xqu"]
+[ext_resource type="PackedScene" uid="uid://brqe6yc0g2u66" path="res://Systems/UI/Tower Upgrade/tower_upgrade_button.tscn" id="2_07xqu"]
 [ext_resource type="Texture2D" uid="uid://dfx4fyl7b5j2k" path="res://Systems/UI/Art/Popup Menu Panel.png" id="2_sa4aq"]
-[ext_resource type="PackedScene" uid="uid://bhllmt0i37knn" path="res://Systems/UI/tower_buy_button.tscn" id="2_vwuv3"]
+[ext_resource type="PackedScene" uid="uid://bhllmt0i37knn" path="res://Systems/UI/Buttons/tower_buy_button.tscn" id="2_vwuv3"]
 [ext_resource type="Texture2D" uid="uid://cl5v2lodh3v1e" path="res://Systems/UI/Art/Money Icon.svg" id="3_ed1bf"]
 [ext_resource type="Texture2D" uid="uid://dvskhor1m3a3o" path="res://Systems/UI/Art/Wooden Plank Panel.png" id="3_pnx8b"]
+[ext_resource type="Texture2D" uid="uid://b5vwyki7uy2gq" path="res://Systems/UI/Art/Next Wave Button.svg" id="7_hav4j"]
+[ext_resource type="Script" uid="uid://jsel034ssnu" path="res://Systems/UI/Buttons/autoplay_button.gd" id="9_25enu"]
+[ext_resource type="Texture2D" uid="uid://o7fux5q786q7" path="res://Systems/UI/Art/Auto Play Toggle ON.svg" id="9_luill"]
+[ext_resource type="Texture2D" uid="uid://lq0nkpf10bg3" path="res://Systems/UI/Art/Auto Play Toggle OFF.svg" id="10_25enu"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_sa4aq"]
 font_size = 22
@@ -16,12 +20,15 @@ bg_color = Color(0.6, 0.6, 0.6, 0)
 [sub_resource type="LabelSettings" id="LabelSettings_t1yug"]
 font_size = 46
 
+[sub_resource type="LabelSettings" id="LabelSettings_luill"]
+font_size = 26
+
 [sub_resource type="LabelSettings" id="LabelSettings_fyjvv"]
 font_size = 32
 
 [node name="UI" type="CanvasLayer" unique_id=2066053580]
 
-[node name="UI Manager" type="Control" parent="." unique_id=394273874 node_paths=PackedStringArray("towerBuyButton", "moneyLabel", "fpsLabel", "towerUpgradeMenu", "towerUpgradeMenuGrid")]
+[node name="UI Manager" type="Control" parent="." unique_id=394273874 node_paths=PackedStringArray("towerBuyButton", "moneyLabel", "fpsLabel", "towerUpgradeMenu", "towerUpgradeMenuGrid", "nextWaveButton", "autoplayOnIcon", "autoplayOffIcon", "waveNumberLabel")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -35,6 +42,10 @@ moneyLabel = NodePath("Right Panel/MoneyLabelMargin/GridContainer/Money Label")
 fpsLabel = NodePath("FPS Label")
 towerUpgradeMenu = NodePath("Tower Upgrade Menu")
 towerUpgradeMenuGrid = NodePath("Tower Upgrade Menu/Background/Button Grid")
+nextWaveButton = NodePath("Right Panel/Waves/HBoxContainer/Next Wave Button")
+autoplayOnIcon = NodePath("Right Panel/Waves/HBoxContainer/Autoplay Button/Icon On")
+autoplayOffIcon = NodePath("Right Panel/Waves/HBoxContainer/Autoplay Button/Icon Off")
+waveNumberLabel = NodePath("Right Panel/Waves/Wave Number Label")
 
 [node name="Tower Upgrade Menu" type="Control" parent="UI Manager" unique_id=2130134072]
 z_index = 6
@@ -221,6 +232,70 @@ texture = ExtResource("3_ed1bf")
 layout_mode = 2
 text = "427"
 label_settings = SubResource("LabelSettings_t1yug")
+
+[node name="Waves" type="Control" parent="UI Manager/Right Panel" unique_id=1974324883]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -123.83
+offset_top = -280.0
+offset_right = 101.16992
+offset_bottom = -143.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Wave Number Label" type="Label" parent="UI Manager/Right Panel/Waves" unique_id=1290172829]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -19.580002
+offset_right = 176.0
+offset_bottom = 16.420074
+grow_vertical = 0
+text = "Wave: "
+label_settings = SubResource("LabelSettings_luill")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI Manager/Right Panel/Waves" unique_id=1155500443]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/separation = 15
+
+[node name="Next Wave Button" type="Button" parent="UI Manager/Right Panel/Waves/HBoxContainer" unique_id=163252065]
+custom_minimum_size = Vector2(110, 90)
+layout_mode = 2
+
+[node name="Icon" type="TextureRect" parent="UI Manager/Right Panel/Waves/HBoxContainer/Next Wave Button" unique_id=2116270023]
+custom_maximum_size = Vector2(110, 110)
+layout_mode = 0
+offset_right = 378.0
+offset_bottom = 378.0
+texture = ExtResource("7_hav4j")
+
+[node name="Autoplay Button" type="Button" parent="UI Manager/Right Panel/Waves/HBoxContainer" unique_id=1464370005]
+custom_minimum_size = Vector2(110, 110)
+layout_mode = 2
+tooltip_text = "Wave autostart"
+script = ExtResource("9_25enu")
+
+[node name="Icon On" type="TextureRect" parent="UI Manager/Right Panel/Waves/HBoxContainer/Autoplay Button" unique_id=1983209546]
+custom_maximum_size = Vector2(110, 110)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("9_luill")
+
+[node name="Icon Off" type="TextureRect" parent="UI Manager/Right Panel/Waves/HBoxContainer/Autoplay Button" unique_id=1825877298]
+visible = false
+custom_maximum_size = Vector2(110, 110)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("10_25enu")
 
 [node name="FPS Label" type="Label" parent="UI Manager" unique_id=1953476194]
 layout_mode = 1
