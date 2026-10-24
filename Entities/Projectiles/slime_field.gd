@@ -8,6 +8,8 @@ func _ready() -> void:
 	area_entered.connect(onEnemyEntered)
 	area_exited.connect(onEnemyExited)
 	
+	$Sprite2D.rotation_degrees = randf_range(0.0, 360.0)
+	
 	await get_tree().create_timer(fieldDuration).timeout
 	destroyField()
 	queue_free()

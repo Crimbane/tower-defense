@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://do21bu4h2565b"]
 
 [ext_resource type="Script" uid="uid://bhxdlo2y248n2" path="res://Entities/Projectiles/slime_field.gd" id="1_qcfwk"]
+[ext_resource type="Texture2D" uid="uid://dgon23yfqivul" path="res://Entities/Projectiles/Art/Slime Ground Splatter.svg" id="2_hpf31"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_t1yug"]
 radius = 45.01111
@@ -10,12 +11,10 @@ collision_layer = 0
 collision_mask = 4
 script = ExtResource("1_qcfwk")
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=210783446]
-modulate = Color(0.41568628, 0.92941177, 0, 0.44313726)
-offset_left = -45.0
-offset_top = -45.0
-offset_right = 45.0
-offset_bottom = 45.0
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1065716014]
+z_index = -1
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("2_hpf31")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1300026696]
 shape = SubResource("CircleShape2D_t1yug")
