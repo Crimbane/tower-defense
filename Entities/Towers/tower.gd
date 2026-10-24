@@ -6,6 +6,7 @@ extends Node2D
 @export var projectileScene: PackedScene
 var projectileSpawnPosition: Vector2 = Vector2.ZERO
 @export var towerTop: AnimatedSprite2D
+@export var towerBase: AnimatedSprite2D
 @export var fireRateTimer: Timer
 @export var mouseDetectionArea: Area2D
 @export var attackRangeNode: Node2D
@@ -29,6 +30,7 @@ var slimeSlowPercent: float = 0.7
 #Upgrades
 var currentTier: int = 0
 const MAX_TIER: int = 4
+var towerMaxed: bool = false
 
 var leftTierCosts: Array[int] = GameManager.leftTierCosts
 var middleTierCosts: Array[int] = GameManager.middleTierCosts
@@ -79,6 +81,9 @@ func shoot() -> void:
 	projectile.projectileType = towerType
 	projectile.damage = damage
 	projectile.speed = projectileSpeed
+	if towerMaxed:
+		projectile.towerMaxed = true
+	
 	
 	projectile.global_position = spawnPosition
 	projectile.direction = direction
@@ -181,6 +186,10 @@ func upgradeTower(upgradePath: String, upgradeTier: int) -> void:
 		applyTowerUpgrades(upgradePath, upgradeTier)
 		
 		GameManager.UIManager.updateTowerUpgradeMenuColors()
+		
+		if currentTier == MAX_TIER:
+			updateTowerSprite()
+			towerMaxed = true
 	else:
 		print("You are poor")
 
@@ -267,3 +276,7 @@ func applyTowerUpgrades(upgradePath: String, upgradeTier: int) -> void:
 					else:
 						attackRange *= upgradeData["rangeIncreaseMultiplier"]
 					attackRangeNode.updateAttackRange()
+
+func updateTowerSprite() -> void:
+	towerBase.animation = "tier4"
+	towerTop.animation = "tier4"

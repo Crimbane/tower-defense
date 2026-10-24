@@ -4,7 +4,28 @@
 [ext_resource type="PackedScene" uid="uid://buqy3xwut4xhr" path="res://Entities/Projectiles/projectile.tscn" id="2_0mj8a"]
 [ext_resource type="Texture2D" uid="uid://dsnn26r711x8h" path="res://Entities/Towers/Art/Arrow Tower Base.svg" id="3_au2ll"]
 [ext_resource type="Texture2D" uid="uid://bcx1m15rts1j" path="res://Entities/Towers/Art/Arrow Tower Turret.svg" id="4_0mj8a"]
+[ext_resource type="Texture2D" uid="uid://dugox44vh0py1" path="res://Entities/Towers/Art/Tier 4 Arrow Tower Base.svg" id="4_kklsr"]
 [ext_resource type="Script" uid="uid://bcokocxaptaxb" path="res://Entities/Towers/attack_range.gd" id="5_1xniw"]
+[ext_resource type="Texture2D" uid="uid://dinb0dbmp7j47" path="res://Entities/Towers/Art/Tier 4 Arrow Tower Turret.svg" id="6_ba8tc"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fyjvv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_au2ll")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_kklsr")
+}],
+"loop": 1,
+"name": &"tier4",
+"speed": 5.0
+}]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_t1yug"]
 animations = [{
@@ -15,6 +36,14 @@ animations = [{
 "loop": 1,
 "name": &"default",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_ba8tc")
+}],
+"loop": 1,
+"name": &"tier4",
+"speed": 5.0
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_t1yug"]
@@ -23,11 +52,12 @@ radius = 192.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_fyjvv"]
 radius = 190.11693
 
-[node name="Arrow Tower" type="Node2D" unique_id=664368618 node_paths=PackedStringArray("towerTop", "fireRateTimer", "mouseDetectionArea", "attackRangeNode")]
+[node name="Arrow Tower" type="Node2D" unique_id=664368618 node_paths=PackedStringArray("towerTop", "towerBase", "fireRateTimer", "mouseDetectionArea", "attackRangeNode")]
 scale = Vector2(0.25, 0.25)
 script = ExtResource("1_au2ll")
 projectileScene = ExtResource("2_0mj8a")
 towerTop = NodePath("Tower Top")
+towerBase = NodePath("Base")
 fireRateTimer = NodePath("FireRateTimer")
 mouseDetectionArea = NodePath("Mouse Detection Area")
 attackRangeNode = NodePath("Attack Range")
@@ -35,8 +65,8 @@ damage = 20
 fireRate = 1.3
 projectileSpeed = 1200
 
-[node name="Base" type="Sprite2D" parent="." unique_id=1738475557]
-texture = ExtResource("3_au2ll")
+[node name="Base" type="AnimatedSprite2D" parent="." unique_id=1410359032]
+sprite_frames = SubResource("SpriteFrames_fyjvv")
 
 [node name="Tower Top" type="AnimatedSprite2D" parent="." unique_id=1172487934]
 sprite_frames = SubResource("SpriteFrames_t1yug")

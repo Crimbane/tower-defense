@@ -1,10 +1,31 @@
 [gd_scene format=3 uid="uid://d21cd6rl6j76n"]
 
 [ext_resource type="Script" uid="uid://kvcou3aqu72g" path="res://Entities/Towers/fire_tower.gd" id="1_2hdbw"]
+[ext_resource type="Texture2D" uid="uid://cijylfg3qm36" path="res://Entities/Towers/Art/Tier 4 Fire Tower Base.svg" id="3_8o4hs"]
 [ext_resource type="Texture2D" uid="uid://b34n113x3eumc" path="res://Entities/Towers/Art/Fire Tower Base.svg" id="3_hyie5"]
 [ext_resource type="Texture2D" uid="uid://bl407vsawlcte" path="res://Entities/Towers/Art/Fire Tower Turret.svg" id="4_8o4hs"]
 [ext_resource type="Script" uid="uid://bcokocxaptaxb" path="res://Entities/Towers/attack_range.gd" id="4_jybln"]
 [ext_resource type="Texture2D" uid="uid://3a782acymsdn" path="res://Entities/Projectiles/Art/Fire Texture.png" id="4_s2g3v"]
+[ext_resource type="Texture2D" uid="uid://dfdb3eyjv5fcv" path="res://Entities/Towers/Art/Tier 4 Fire Tower Turret.svg" id="5_212l8"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_t1yug"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_hyie5")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_8o4hs")
+}],
+"loop": 1,
+"name": &"tier4",
+"speed": 5.0
+}]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_212l8"]
 animations = [{
@@ -14,6 +35,14 @@ animations = [{
 }],
 "loop": 1,
 "name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_212l8")
+}],
+"loop": 1,
+"name": &"tier4",
 "speed": 5.0
 }]
 
@@ -31,10 +60,11 @@ radius = 192.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_hyie5"]
 radius = 190.11693
 
-[node name="Fire Tower" type="Node2D" unique_id=664368618 node_paths=PackedStringArray("towerTop", "weapon", "weaponCollision", "weaponVisualPolygon", "fireRateTimer", "fireDurationTimer", "particles", "mouseDetectionArea", "attackRangeNode")]
+[node name="Fire Tower" type="Node2D" unique_id=664368618 node_paths=PackedStringArray("towerTop", "towerBase", "weapon", "weaponCollision", "weaponVisualPolygon", "fireRateTimer", "fireDurationTimer", "particles", "mouseDetectionArea", "attackRangeNode")]
 scale = Vector2(0.25, 0.25)
 script = ExtResource("1_2hdbw")
 towerTop = NodePath("Tower Top")
+towerBase = NodePath("Base")
 weapon = NodePath("Fire")
 weaponCollision = NodePath("Fire/CollisionPolygon2D")
 weaponVisualPolygon = NodePath("Fire/Polygon2D")
@@ -46,8 +76,8 @@ attackRangeNode = NodePath("Attack Range")
 fireRate = 5.0
 fireDuration = 2.5
 
-[node name="Base" type="Sprite2D" parent="." unique_id=1738475557]
-texture = ExtResource("3_hyie5")
+[node name="Base" type="AnimatedSprite2D" parent="." unique_id=11320250]
+sprite_frames = SubResource("SpriteFrames_t1yug")
 
 [node name="Tower Top" type="AnimatedSprite2D" parent="." unique_id=1172487934]
 sprite_frames = SubResource("SpriteFrames_212l8")

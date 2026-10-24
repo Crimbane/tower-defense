@@ -10,6 +10,7 @@ extends Control
 @export var autoplayOnIcon: TextureRect
 @export var autoplayOffIcon: TextureRect
 @export var waveNumberLabel: Label
+@export var nexusHealthLabel: Label
 
 var hideCooldown: bool = false
 
@@ -72,3 +73,6 @@ func updateTowerUpgradeMenuColors() -> void:
 func updateWaveNumberLabel() -> void:
 	print(GameManager.waveManager.currentWave)
 	waveNumberLabel.text = "Wave: " + str(GameManager.waveManager.currentWave)
+
+func updateNexusHealthLabel(health: int) -> void:
+	nexusHealthLabel.text = str(health)

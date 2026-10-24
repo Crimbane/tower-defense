@@ -9,10 +9,12 @@
 script = ExtResource("1_3np3v")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1698545554]
+visible = false
 modulate = Color(0.7647059, 0.21176471, 1, 1)
 texture = ExtResource("1_u7x0y")
 
 [node name="Health Bar" type="TextureProgressBar" parent="." unique_id=1589720766]
+visible = false
 offset_right = 40.0
 offset_bottom = 40.0
 value = 100.0

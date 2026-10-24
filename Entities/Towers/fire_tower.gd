@@ -5,6 +5,7 @@ var towerType = "Fire"
 @export var projectileScene: PackedScene
 var projectileSpawnPosition: Vector2 = Vector2.ZERO
 @export var towerTop: AnimatedSprite2D
+@export var towerBase: AnimatedSprite2D
 @export var weapon: Area2D
 @export var weaponCollision: CollisionPolygon2D
 @export var weaponVisualPolygon: Polygon2D
@@ -184,6 +185,9 @@ func upgradeTower(upgradePath: String, upgradeTier: int) -> void:
 		applyTowerUpgrades(upgradePath, upgradeTier)
 		
 		GameManager.UIManager.updateTowerUpgradeMenuColors()
+		
+		if currentTier == MAX_TIER:
+			updateTowerSprite()
 	else:
 		print("You are poor")
 
@@ -214,6 +218,10 @@ func applyTowerUpgrades(upgradePath: String, upgradeTier: int) -> void:
 					attackRangeNode.updateAttackRange()
 					adjustFireCollision()
 
+func updateTowerSprite() -> void:
+	towerBase.animation = "tier4"
+	towerTop.animation = "tier4"
+
 
 func adjustFireCollision() -> void:
 	var yOffset = -163.333 #weapon.position.y
@@ -222,16 +230,16 @@ func adjustFireCollision() -> void:
 	var width: float = length * 0.375
 	var polygonArray: PackedVector2Array = [
 		Vector2.ZERO, 
-		Vector2(width, -length ), 
+		Vector2(width, -length), 
 		Vector2(-width, -length)
 		]
 	
 	weaponCollision.polygon = polygonArray
-	weaponVisualPolygon.polygon = polygonArray
-	
-	var uvArray: PackedVector2Array = [
-		Vector2(0.5, 1.0),
-		Vector2(1.0, 0.0),
-		Vector2(0.0, 0.0)
-	]
-	weaponVisualPolygon.uv = uvArray
+	#weaponVisualPolygon.polygon = polygonArray
+	#
+	#var uvArray: PackedVector2Array = [
+		#Vector2(0.5, 1.0),
+		#Vector2(1.0, 0.0),
+		#Vector2(0.0, 0.0)
+	#]
+	#weaponVisualPolygon.uv = uvArray

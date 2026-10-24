@@ -2,6 +2,26 @@
 
 [ext_resource type="Script" uid="uid://bhxdlo2y248n2" path="res://Entities/Projectiles/slime_field.gd" id="1_qcfwk"]
 [ext_resource type="Texture2D" uid="uid://dgon23yfqivul" path="res://Entities/Projectiles/Art/Slime Ground Splatter.svg" id="2_hpf31"]
+[ext_resource type="Texture2D" uid="uid://d0ateasukydjm" path="res://Entities/Projectiles/Art/Purple Slime Ground Splatter.svg" id="3_tcgrs"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_t1yug"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_hpf31")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_tcgrs")
+}],
+"loop": 1,
+"name": &"tier4",
+"speed": 5.0
+}]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_t1yug"]
 radius = 45.01111
@@ -11,10 +31,11 @@ collision_layer = 0
 collision_mask = 4
 script = ExtResource("1_qcfwk")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1065716014]
+[node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=1479483113]
 z_index = -1
 scale = Vector2(0.3, 0.3)
-texture = ExtResource("2_hpf31")
+sprite_frames = SubResource("SpriteFrames_t1yug")
+animation = &"tier4"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1300026696]
 shape = SubResource("CircleShape2D_t1yug")

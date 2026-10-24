@@ -6,6 +6,9 @@
 [ext_resource type="PackedScene" uid="uid://b3jy8j487acsq" path="res://Entities/Projectiles/cannon_explosion.tscn" id="3_vpfrp"]
 [ext_resource type="Texture2D" uid="uid://cnnybmtupfnsh" path="res://Entities/Projectiles/Art/Basic Cannonball.svg" id="5_o7t25"]
 [ext_resource type="Texture2D" uid="uid://cdie7brcctus6" path="res://Entities/Projectiles/Art/Slime Projectile.svg" id="6_vpfrp"]
+[ext_resource type="Texture2D" uid="uid://cyios0acqkyj5" path="res://Entities/Projectiles/Art/Tier 4 Arrow.svg" id="7_h4xqo"]
+[ext_resource type="Texture2D" uid="uid://d1pwy3qdjxwrh" path="res://Entities/Projectiles/Art/Tier 4 Cannonball.svg" id="8_2ydm2"]
+[ext_resource type="Texture2D" uid="uid://ddcqygq8u5pe0" path="res://Entities/Projectiles/Art/Tier 4 Slime Projectile.svg" id="9_p60cp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t1yug"]
 size = Vector2(156.66666, 20)
@@ -35,6 +38,30 @@ animations = [{
 "loop": 1,
 "name": &"slime",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_h4xqo")
+}],
+"loop": 1,
+"name": &"tier4 arrow",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_2ydm2")
+}],
+"loop": 1,
+"name": &"tier4 cannon",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_p60cp")
+}],
+"loop": 1,
+"name": &"tier4 slime",
+"speed": 5.0
 }]
 
 [node name="Projectile" type="Area2D" unique_id=807208911]
@@ -52,4 +79,4 @@ shape = SubResource("RectangleShape2D_t1yug")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=292606929]
 rotation = 1.5707964
 sprite_frames = SubResource("SpriteFrames_t1yug")
-animation = &"slime"
+animation = &"tier4 slime"

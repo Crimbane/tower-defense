@@ -19,6 +19,9 @@ func _process(_delta: float) -> void:
 func takeDamage(damage: int) -> void:
 	currentHealth -= damage
 	#print("damaged: ", damage)
+	
+	GameManager.UIManager.updateNexusHealthLabel(currentHealth)
+	
 	if currentHealth < 1:
 		print("Game over")
 		queue_free()

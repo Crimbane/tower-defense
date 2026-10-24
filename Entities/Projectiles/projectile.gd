@@ -5,6 +5,7 @@ extends Area2D
 var projectileType: String = "Arrow"
 
 var direction = Vector2.ZERO
+var towerMaxed = false
 
 @export var speed: int = 500
 var damage: int = 0
@@ -79,6 +80,17 @@ func updateSprite() -> void:
 	
 	if animatedSprite == null:
 		return
+	
+	if towerMaxed == true:
+		match projectileType:
+			"Arrow":
+				animatedSprite.animation = "tier4 arrow"
+			"Slime":
+				animatedSprite.animation = "tier4 slime"
+			"Cannon":
+				animatedSprite.animation = "tier4 cannon"
+		return
+	
 	
 	match projectileType:
 		"Arrow":
