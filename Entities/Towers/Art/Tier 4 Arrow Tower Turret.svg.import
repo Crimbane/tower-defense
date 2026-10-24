@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cj5b7jmbtmhsk"
-path="res://.godot/imported/Ice Tower Base.svg-ac92b70c155276dfd9388f30519c7246.ctex"
+uid="uid://dinb0dbmp7j47"
+path="res://.godot/imported/Tier 4 Arrow Tower Turret.svg-42d237cd38c8b979583be127b477eab6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Entities/Towers/Art/Ice Tower Base.svg"
-dest_files=["res://.godot/imported/Ice Tower Base.svg-ac92b70c155276dfd9388f30519c7246.ctex"]
+source_file="res://Entities/Towers/Art/Tier 4 Arrow Tower Turret.svg"
+dest_files=["res://.godot/imported/Tier 4 Arrow Tower Turret.svg-42d237cd38c8b979583be127b477eab6.ctex"]
 
 [params]
 

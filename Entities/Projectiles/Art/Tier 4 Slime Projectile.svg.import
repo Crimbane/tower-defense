@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://7a0njq2nufh5"
-path="res://.godot/imported/Ice Tower Turret.svg-c60af310d34f5e2405c3237e5c0da908.ctex"
+uid="uid://ddcqygq8u5pe0"
+path="res://.godot/imported/Tier 4 Slime Projectile.svg-ed38168192aff6b77282529627fdc720.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Entities/Towers/Art/Ice Tower Turret.svg"
-dest_files=["res://.godot/imported/Ice Tower Turret.svg-c60af310d34f5e2405c3237e5c0da908.ctex"]
+source_file="res://Entities/Projectiles/Art/Tier 4 Slime Projectile.svg"
+dest_files=["res://.godot/imported/Tier 4 Slime Projectile.svg-ed38168192aff6b77282529627fdc720.ctex"]
 
 [params]
 

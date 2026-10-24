@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b5cqnc6wd1cu6"
-path="res://.godot/imported/Ice Chunk.svg-92f34f92ecb0a3fcc518b1cc82306015.ctex"
+uid="uid://chvmo355uts14"
+path="res://.godot/imported/Tier 4 Slime Tower Base.svg-c1133ded588d3a4f3d4b8746a6e61960.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Entities/Projectiles/Art/Ice Chunk.svg"
-dest_files=["res://.godot/imported/Ice Chunk.svg-92f34f92ecb0a3fcc518b1cc82306015.ctex"]
+source_file="res://Entities/Towers/Art/Tier 4 Slime Tower Base.svg"
+dest_files=["res://.godot/imported/Tier 4 Slime Tower Base.svg-c1133ded588d3a4f3d4b8746a6e61960.ctex"]
 
 [params]
 
