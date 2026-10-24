@@ -13,6 +13,8 @@ func _ready() -> void:
 		if enemy.is_in_group("Enemy"):
 			enemy.get_parent().takeDamage(damage)
 	
-	$AnimatedSprite2D.play("explosion")
+	$GPUParticles2D.emitting = true
+	$GPUParticles2D2.emitting = true
+	$GPUParticles2D3.emitting = true
 	await get_tree().create_timer(1.8).timeout
 	queue_free()

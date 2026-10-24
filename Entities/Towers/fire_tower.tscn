@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://b34n113x3eumc" path="res://Entities/Towers/Art/Fire Tower Base.svg" id="3_hyie5"]
 [ext_resource type="Texture2D" uid="uid://bl407vsawlcte" path="res://Entities/Towers/Art/Fire Tower Turret.svg" id="4_8o4hs"]
 [ext_resource type="Script" uid="uid://bcokocxaptaxb" path="res://Entities/Towers/attack_range.gd" id="4_jybln"]
+[ext_resource type="Texture2D" uid="uid://3a782acymsdn" path="res://Entities/Projectiles/Art/Fire Texture.png" id="4_s2g3v"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_212l8"]
 animations = [{
@@ -16,9 +17,13 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="Curve" id="Curve_gank0"]
+_data = [Vector2(0, 0.3146068), 0.0, 0.0, 0, 0, Vector2(0.5339367, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
 [sub_resource type="Gradient" id="Gradient_jybln"]
-offsets = PackedFloat32Array(0, 0.35185185, 1)
-colors = PackedColorArray(1, 1, 1, 1, 1, 0.09019608, 0, 1, 0, 0, 0, 0.48235294)
+offsets = PackedFloat32Array(0, 0.44615385, 0.64615387, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 0.31666666, 0, 1, 0.78, 0.247, 0, 1, 0, 0, 0, 0.48235294)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_s2g3v"]
 radius = 192.0
@@ -62,17 +67,25 @@ position = Vector2(0, -163.333)
 polygon = PackedVector2Array(0, 0, 300, -836.667, -300, -836.667)
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="Fire" unique_id=434801212]
-position = Vector2(0, -163.333)
+position = Vector2(0, -176)
 rotation = -1.5707964
 amount = 100
+texture = ExtResource("4_s2g3v")
 lifetime = 1.4
 lifetime_randomness = 0.15
+emission_shape = 1
+emission_sphere_radius = 2.0
 spread = 20.0
 gravity = Vector2(0, 0)
 initial_velocity_min = 637.62
 initial_velocity_max = 637.62
-scale_amount_max = 10.0
-color = Color(1, 0.09019608, 0, 1)
+angular_velocity_max = 100.0
+angle_min = -180.0
+angle_max = 180.0
+scale_amount_min = 0.1
+scale_amount_max = 0.3
+scale_amount_curve = SubResource("Curve_gank0")
+color = Color(1.6847857, 1.5578061, 0.41498953, 0.49411765)
 color_ramp = SubResource("Gradient_jybln")
 
 [node name="Polygon2D" type="Polygon2D" parent="Fire" unique_id=1943084548]
