@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dddbehaw4u03"
-path="res://.godot/imported/Desert Map Without Texture.png-b90c676e07d1a34ae740dc175d4dff4d.ctex"
+uid="uid://dmedrym2sf55b"
+path="res://.godot/imported/Main Menu Background.png-3fec8809338688444d54258f654324f2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Stages/Game/Art/Desert Map Without Texture.png"
-dest_files=["res://.godot/imported/Desert Map Without Texture.png-b90c676e07d1a34ae740dc175d4dff4d.ctex"]
+source_file="res://Systems/UI/Art/Main Menu Background.png"
+dest_files=["res://.godot/imported/Main Menu Background.png-3fec8809338688444d54258f654324f2.ctex"]
 
 [params]
 
