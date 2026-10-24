@@ -1,9 +1,9 @@
-[gd_scene format=3 uid="uid://cmvxultpuuw67"]
+[gd_scene format=3 uid="uid://bxp5xbu6m5rcc"]
 
-[ext_resource type="Script" uid="uid://bn5g8idbjhtxx" path="res://Systems/UI/Tooltip/tower_tooltip.gd" id="1_adyak"]
+[ext_resource type="Script" uid="uid://dkpawcfb8lcpj" path="res://Systems/UI/Tooltip/tooltip.gd" id="1_adyak"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_adyak"]
-bg_color = Color(0.6, 0, 0.6, 0)
+bg_color = Color(1, 1, 1, 0)
 
 [sub_resource type="LabelSettings" id="LabelSettings_2h8tt"]
 font_size = 28
@@ -39,7 +39,7 @@ layout_mode = 2
 
 [node name="Description" type="Label" parent="MarginContainer/VBoxContainer" unique_id=2009269100]
 layout_mode = 2
-text = "Description Description "
+text = "Description"
 label_settings = SubResource("LabelSettings_2h8tt")
 horizontal_alignment = 1
 

@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://brqe6yc0g2u66"]
 
 [ext_resource type="Script" uid="uid://b1x4wxsk0fooi" path="res://Systems/UI/Tower Upgrade/tower_upgrade_button.gd" id="1_male1"]
-[ext_resource type="PackedScene" uid="uid://cmvxultpuuw67" path="res://Systems/UI/Tooltip/tooltip.tscn" id="2_1vhxe"]
+[ext_resource type="PackedScene" uid="uid://cmvxultpuuw67" path="res://Systems/UI/Tooltip/tower_tooltip.tscn" id="2_1vhxe"]
 [ext_resource type="Texture2D" uid="uid://6asst08vlprb" path="res://Systems/UI/Art/Damage Upgrade Icon.svg" id="2_j2uma"]
 
 [node name="Tower Upgrade Button" type="Button" unique_id=2105109026]
@@ -10,7 +10,7 @@ offset_right = 8.0
 offset_bottom = 8.0
 script = ExtResource("1_male1")
 
-[node name="Tooltip" parent="." unique_id=643292139 instance=ExtResource("2_1vhxe")]
+[node name="Tower Tooltip" parent="." unique_id=643292139 instance=ExtResource("2_1vhxe")]
 layout_mode = 0
 
 [node name="Icon" type="TextureRect" parent="." unique_id=1349943744]

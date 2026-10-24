@@ -1,12 +1,12 @@
 extends Control
 
 @export var towerBuyButton: Button
-@export var placementManager: Node2D
 @export var moneyLabel: Label
 @export var fpsLabel: Label
 @export var towerUpgradeMenu: Control
 @export var towerUpgradeMenuGrid: GridContainer
 @export var nextWaveButton: Button
+@export var autoplayButton: Button
 @export var autoplayOnIcon: TextureRect
 @export var autoplayOffIcon: TextureRect
 @export var waveNumberLabel: Label
@@ -21,9 +21,8 @@ func _ready() -> void:
 	hideTowerUpgradeMenu()
 	
 	await get_tree().create_timer(1).timeout
-	#updateWaveNumberLabel()
+	autoplayButton.pressed.connect(GameManager.waveManager.toggleAutoplay)
 	nextWaveButton.pressed.connect(GameManager.waveManager.startNextWaveEarly)
-	#towerBuyButton.pressed.connect(placementManager.startPlacement)
 
 
 func _process(_delta: float) -> void:
@@ -63,6 +62,9 @@ func placeTowerUpgradeMenu() -> void:
 	towerUpgradeMenu.show()
 
 func hideTowerUpgradeMenu() -> void:
+	if GameManager.selectedTower != null:
+		GameManager.selectedTower.hideAttackRange()
+	
 	towerUpgradeMenu.hide()
 	GameManager.selectedTower = null
 

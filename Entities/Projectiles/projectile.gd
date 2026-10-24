@@ -54,6 +54,7 @@ func projectileHit(body: Node2D) -> void:
 	set_deferred("monitoring", false)
 	queue_free()
 
+
 func spawnSlimeField(body: Node2D) -> void:
 	var slimeField = slimeFieldScene.instantiate()
 	var spawnPosition = body.global_position
@@ -90,7 +91,6 @@ func updateSprite() -> void:
 			"Cannon":
 				animatedSprite.animation = "tier4 cannon"
 		return
-	
 	
 	match projectileType:
 		"Arrow":

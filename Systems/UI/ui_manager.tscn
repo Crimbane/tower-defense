@@ -6,8 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://bhllmt0i37knn" path="res://Systems/UI/Buttons/tower_buy_button.tscn" id="2_vwuv3"]
 [ext_resource type="Texture2D" uid="uid://cl5v2lodh3v1e" path="res://Systems/UI/Art/Money Icon.svg" id="3_ed1bf"]
 [ext_resource type="Texture2D" uid="uid://dvskhor1m3a3o" path="res://Systems/UI/Art/Wooden Plank Panel.png" id="3_pnx8b"]
+[ext_resource type="PackedScene" uid="uid://bxp5xbu6m5rcc" path="res://Systems/UI/Tooltip/tooltip.tscn" id="6_25enu"]
 [ext_resource type="Texture2D" uid="uid://b5vwyki7uy2gq" path="res://Systems/UI/Art/Next Wave Button.svg" id="7_hav4j"]
-[ext_resource type="Script" uid="uid://jsel034ssnu" path="res://Systems/UI/Buttons/autoplay_button.gd" id="9_25enu"]
 [ext_resource type="Texture2D" uid="uid://o7fux5q786q7" path="res://Systems/UI/Art/Auto Play Toggle ON.svg" id="9_luill"]
 [ext_resource type="Texture2D" uid="uid://lq0nkpf10bg3" path="res://Systems/UI/Art/Auto Play Toggle OFF.svg" id="10_25enu"]
 [ext_resource type="Texture2D" uid="uid://c7otbw4dpualv" path="res://Systems/UI/Art/Health Icon.svg" id="11_25enu"]
@@ -32,7 +32,7 @@ font_size = 32
 
 [node name="UI" type="CanvasLayer" unique_id=2066053580]
 
-[node name="UI Manager" type="Control" parent="." unique_id=394273874 node_paths=PackedStringArray("towerBuyButton", "moneyLabel", "fpsLabel", "towerUpgradeMenu", "towerUpgradeMenuGrid", "nextWaveButton", "autoplayOnIcon", "autoplayOffIcon", "waveNumberLabel", "nexusHealthLabel")]
+[node name="UI Manager" type="Control" parent="." unique_id=394273874 node_paths=PackedStringArray("towerBuyButton", "moneyLabel", "fpsLabel", "towerUpgradeMenu", "towerUpgradeMenuGrid", "nextWaveButton", "autoplayButton", "autoplayOnIcon", "autoplayOffIcon", "waveNumberLabel", "nexusHealthLabel")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -47,6 +47,7 @@ fpsLabel = NodePath("FPS Label")
 towerUpgradeMenu = NodePath("Tower Upgrade Menu")
 towerUpgradeMenuGrid = NodePath("Tower Upgrade Menu/Background/Button Grid")
 nextWaveButton = NodePath("Right Panel/Waves/HBoxContainer/Next Wave Button")
+autoplayButton = NodePath("Right Panel/Waves/HBoxContainer/Autoplay Button")
 autoplayOnIcon = NodePath("Right Panel/Waves/HBoxContainer/Autoplay Button/Icon On")
 autoplayOffIcon = NodePath("Right Panel/Waves/HBoxContainer/Autoplay Button/Icon Off")
 waveNumberLabel = NodePath("Right Panel/Waves/Wave Number Label")
@@ -190,9 +191,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -112.0
-offset_top = -116.75
+offset_top = -150.0
 offset_right = 112.0
-offset_bottom = 116.75
+offset_bottom = 319.75293
 grow_horizontal = 2
 grow_vertical = 2
 columns = 2
@@ -200,17 +201,43 @@ columns = 2
 [node name="Arrow" parent="UI Manager/Right Panel/Tower Buttons" unique_id=1343717249 instance=ExtResource("2_vwuv3")]
 layout_mode = 2
 
+[node name="Tooltip" parent="UI Manager/Right Panel/Tower Buttons/Arrow" unique_id=643292139 instance=ExtResource("6_25enu")]
+visible = false
+layout_mode = 0
+offset_left = 114.0
+offset_right = 269.0
+offset_bottom = 117.0
+
 [node name="Fire" parent="UI Manager/Right Panel/Tower Buttons" unique_id=827456401 instance=ExtResource("2_vwuv3")]
 layout_mode = 2
 towerSprite = 1
 
-[node name="Ice" parent="UI Manager/Right Panel/Tower Buttons" unique_id=1233251649 instance=ExtResource("2_vwuv3")]
+[node name="Tooltip" parent="UI Manager/Right Panel/Tower Buttons/Fire" unique_id=1766360401 instance=ExtResource("6_25enu")]
+visible = false
+layout_mode = 0
+offset_left = -159.0
+offset_top = 114.0
+offset_right = -4.0
+offset_bottom = 231.0
+parentType = "Fire"
+
+[node name="Slime" parent="UI Manager/Right Panel/Tower Buttons" unique_id=1233251649 instance=ExtResource("2_vwuv3")]
 layout_mode = 2
 towerSprite = 2
+
+[node name="Tooltip" parent="UI Manager/Right Panel/Tower Buttons/Slime" unique_id=426999245 instance=ExtResource("6_25enu")]
+visible = false
+layout_mode = 0
+parentType = "Slime"
 
 [node name="Cannon" parent="UI Manager/Right Panel/Tower Buttons" unique_id=114867078 instance=ExtResource("2_vwuv3")]
 layout_mode = 2
 towerSprite = 3
+
+[node name="Tooltip" parent="UI Manager/Right Panel/Tower Buttons/Cannon" unique_id=694879358 instance=ExtResource("6_25enu")]
+visible = false
+layout_mode = 0
+parentType = "Cannon"
 
 [node name="MoneyLabelMargin" type="MarginContainer" parent="UI Manager/Right Panel" unique_id=808561988]
 layout_mode = 1
@@ -277,6 +304,11 @@ custom_minimum_size = Vector2(108, 90)
 layout_mode = 2
 flat = true
 
+[node name="Tooltip" parent="UI Manager/Right Panel/Waves/HBoxContainer/Next Wave Button" unique_id=1969318016 instance=ExtResource("6_25enu")]
+visible = false
+layout_mode = 0
+parentType = "Next Wave"
+
 [node name="Icon" type="TextureRect" parent="UI Manager/Right Panel/Waves/HBoxContainer/Next Wave Button" unique_id=2116270023]
 custom_maximum_size = Vector2(110, 110)
 layout_mode = 0
@@ -291,7 +323,11 @@ custom_minimum_size = Vector2(88, 88)
 layout_mode = 2
 tooltip_text = "Wave autostart"
 flat = true
-script = ExtResource("9_25enu")
+
+[node name="Tooltip" parent="UI Manager/Right Panel/Waves/HBoxContainer/Autoplay Button" unique_id=72030179 instance=ExtResource("6_25enu")]
+visible = false
+layout_mode = 0
+parentType = "Autoplay"
 
 [node name="Icon On" type="TextureRect" parent="UI Manager/Right Panel/Waves/HBoxContainer/Autoplay Button" unique_id=1983209546]
 custom_maximum_size = Vector2(110, 110)

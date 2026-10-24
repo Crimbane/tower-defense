@@ -140,7 +140,7 @@ func onMouseEntered() -> void:
 		attackRangeNode.show()
 
 func onMouseExited() -> void:
-	if not isGhostShape and GameManager.selectedTower == null:
+	if not isGhostShape and GameManager.selectedTower != self:
 		attackRangeNode.hide()
 
 func onTowerMouseClick(_viewport: Node, event: InputEvent, _shapeidx: int ):

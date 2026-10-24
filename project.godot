@@ -22,6 +22,7 @@ buses/default_bus_layout="uid://br4wajxtntide"
 [autoload]
 
 GameManager="*uid://jjpy7lsa75x7"
+SoundManager="*uid://dp16rukddtsj5"
 
 [display]
 

@@ -1,0 +1,60 @@
+[gd_scene format=3 uid="uid://cmvxultpuuw67"]
+
+[ext_resource type="Script" uid="uid://bn5g8idbjhtxx" path="res://Systems/UI/Tooltip/tower_tooltip.gd" id="1_adyak"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_adyak"]
+bg_color = Color(0.6, 0, 0.6, 0)
+
+[sub_resource type="LabelSettings" id="LabelSettings_2h8tt"]
+font_size = 28
+outline_size = 3
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_adyak"]
+font_size = 26
+outline_size = 3
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_c3vme"]
+font_size = 24
+outline_size = 3
+outline_color = Color(0, 0, 0, 1)
+
+[node name="Tower Tooltip" type="PanelContainer" unique_id=643292139 node_paths=PackedStringArray("costLabel", "textLabel", "functionLabel")]
+z_index = 1
+offset_right = 234.0
+offset_bottom = 162.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_adyak")
+script = ExtResource("1_adyak")
+costLabel = NodePath("MarginContainer/VBoxContainer/Cost")
+textLabel = NodePath("MarginContainer/VBoxContainer/Description")
+functionLabel = NodePath("MarginContainer/VBoxContainer/Function")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=514451463]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=925899684]
+layout_mode = 2
+
+[node name="Description" type="Label" parent="MarginContainer/VBoxContainer" unique_id=2009269100]
+layout_mode = 2
+text = "Description Description "
+label_settings = SubResource("LabelSettings_2h8tt")
+horizontal_alignment = 1
+
+[node name="Cost" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1657171175]
+modulate = Color(1, 0.37254903, 1, 1)
+layout_mode = 2
+text = "Cost: 9001"
+label_settings = SubResource("LabelSettings_adyak")
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Function" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1934571018]
+modulate = Color(0.42745098, 1, 1, 1)
+layout_mode = 2
+text = "Function"
+label_settings = SubResource("LabelSettings_c3vme")
+horizontal_alignment = 1
+autowrap_mode = 3

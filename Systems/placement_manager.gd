@@ -1,7 +1,5 @@
 extends Node2D
 
-#@export var towerScene: PackedScene
-
 var ghostTower: Node2D = null
 var isPlacing: bool = false
 var canPlace: bool = true
@@ -9,7 +7,6 @@ var canPlace: bool = true
 
 func _ready() -> void:
 	pass
-	#startPlacement()
 
 
 func _process(_delta: float) -> void:

@@ -85,6 +85,7 @@ func takeDamage(damage: int) -> void:
 		if enemyType == "Boss":
 			pass
 			# won the game logic
+		GameManager.increaseMoney(unitCost * GameManager.moneyMultiplier)
 		queue_free()
 	
 	healthBar.value = currentHealth
@@ -127,12 +128,8 @@ func placeHealthBar() -> void:
 	healthBar.value = currentHealth
 	if collisionShape.shape is RectangleShape2D:
 		var collisionSizeWidth = collisionShape.shape.size.x
-		#var collisionSizeHeight = collisionShape.shape.size.y
-		#healthBar.size = Vector2(collisionSizeWidth, healthBarSizeHeight)
 		healthBar.size.x = collisionSizeWidth
-		
-		#healthBar.position.x = -healthBar.size.x / 2
-		#healthBar.position.y = -collisionSizeHeight / 2 - healthBar.size.y - healthBarOffsetHeight
+
 
 func enemySpecificLogic() -> void:
 	match enemyType:

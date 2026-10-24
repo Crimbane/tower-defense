@@ -1,8 +1,5 @@
 extends Button
 
-#@export_enum(
-	#"Left", "Middle", "Right") var upgradePath: String = "Right"
-
 enum UpgradePath {
 	Left,
 	Middle,
@@ -40,7 +37,7 @@ func onButtonPress() -> void:
 		if purchased == false:
 			var pathString: String = UpgradePath.keys()[upgradePath]
 			GameManager.selectedTower.upgradeTower(pathString, upgradeTier)
-	
+
 
 func updateIcon() -> void:
 	if not buttonIcon:
@@ -49,6 +46,7 @@ func updateIcon() -> void:
 	var pathIndex: int = upgradePath
 	var pathName: String = UpgradePath.keys()[pathIndex]
 	buttonIcon.texture = ICON_TEXTURE[pathName.to_upper()]
+
 
 func updateColor() -> void:
 	var tower = GameManager.selectedTower
