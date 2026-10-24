@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bexwatntofbxk"
-path="res://.godot/imported/Enemy Healthbar Fill.svg-c99c1c6ec0b347bcfc7b79cb22066fa5.ctex"
+uid="uid://x0g1erjfoaxg"
+path="res://.godot/imported/Enemy Healthbar Container.png-959e49019490650709e88d5de022c300.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Entities/Enemies/Art/Enemy Healthbar Fill.svg"
-dest_files=["res://.godot/imported/Enemy Healthbar Fill.svg-c99c1c6ec0b347bcfc7b79cb22066fa5.ctex"]
+source_file="res://Entities/Enemies/Art/Enemy Healthbar Container.png"
+dest_files=["res://.godot/imported/Enemy Healthbar Container.png-959e49019490650709e88d5de022c300.ctex"]
 
 [params]
 
@@ -38,6 +38,3 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
-svg/scale=1.0
-editor/scale_with_editor_scale=false
-editor/convert_colors_with_editor_theme=false

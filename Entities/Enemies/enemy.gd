@@ -71,7 +71,7 @@ func _process(delta: float) -> void:
 		if armorBar:
 			#armorBar.rotation_degrees = 0
 			armorBar.global_position.x = healthBar.global_position.x
-			armorBar.global_position.y = healthBar.global_position.y - armorBar.size.y
+			armorBar.global_position.y = healthBar.global_position.y #- armorBar.size.y
 
 
 func takeDamage(damage: int) -> void:

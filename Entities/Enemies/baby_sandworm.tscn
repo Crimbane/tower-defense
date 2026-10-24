@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://csy1qis00i72f"]
 
 [ext_resource type="Script" uid="uid://cw0jxtdodiyv6" path="res://Entities/Enemies/enemy.gd" id="1_r7aay"]
-[ext_resource type="Texture2D" uid="uid://ccs5lw5x84rb5" path="res://Entities/Enemies/Art/Enemy Healthbar Container.svg" id="2_a0fp7"]
-[ext_resource type="Texture2D" uid="uid://bexwatntofbxk" path="res://Entities/Enemies/Art/Enemy Healthbar Fill.svg" id="3_mpjql"]
+[ext_resource type="Texture2D" uid="uid://x0g1erjfoaxg" path="res://Entities/Enemies/Art/Enemy Healthbar Container.png" id="2_a0fp7"]
+[ext_resource type="Texture2D" uid="uid://2t1rqvtx71ug" path="res://Entities/Enemies/Art/Enemy Healthbar Fill.png" id="3_mpjql"]
 [ext_resource type="Texture2D" uid="uid://cq74agjm4uhgw" path="res://Entities/Enemies/Art/Baby Sandworm/Baby Sandworm 1.svg" id="4_a0fp7"]
 [ext_resource type="Texture2D" uid="uid://cgm4hjget4ve" path="res://Entities/Enemies/Art/Baby Sandworm/Baby Sandworm 2.svg" id="5_mpjql"]
 [ext_resource type="Texture2D" uid="uid://6tfjv5m6gt0q" path="res://Entities/Enemies/Art/Baby Sandworm/Baby Sandworm 3.svg" id="6_3s7ob"]

@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://dpvqiku0f5ebp"]
 
 [ext_resource type="Script" uid="uid://cw0jxtdodiyv6" path="res://Entities/Enemies/enemy.gd" id="1_w65iq"]
-[ext_resource type="Texture2D" uid="uid://ccs5lw5x84rb5" path="res://Entities/Enemies/Art/Enemy Healthbar Container.svg" id="2_3b4yk"]
-[ext_resource type="Texture2D" uid="uid://bexwatntofbxk" path="res://Entities/Enemies/Art/Enemy Healthbar Fill.svg" id="3_hy357"]
+[ext_resource type="Texture2D" uid="uid://x0g1erjfoaxg" path="res://Entities/Enemies/Art/Enemy Healthbar Container.png" id="2_3b4yk"]
+[ext_resource type="Texture2D" uid="uid://2t1rqvtx71ug" path="res://Entities/Enemies/Art/Enemy Healthbar Fill.png" id="3_hy357"]
 [ext_resource type="Texture2D" uid="uid://nnlfsqrmdx08" path="res://Entities/Enemies/Art/Wild Boar/Wild Boar 1.svg" id="4_o3y0e"]
 [ext_resource type="Texture2D" uid="uid://rxmhbea0g3g3" path="res://Entities/Enemies/Art/Wild Boar/Wild Boar 2.svg" id="5_ccrgo"]
 [ext_resource type="Texture2D" uid="uid://b785wbx3jannt" path="res://Entities/Enemies/Art/Wild Boar/Wild Boar 3.svg" id="6_lv0g5"]

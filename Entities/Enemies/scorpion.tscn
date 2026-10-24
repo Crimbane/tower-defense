@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://kj86hcxry3x"]
 
 [ext_resource type="Script" uid="uid://cw0jxtdodiyv6" path="res://Entities/Enemies/enemy.gd" id="1_y5ltd"]
-[ext_resource type="Texture2D" uid="uid://ccs5lw5x84rb5" path="res://Entities/Enemies/Art/Enemy Healthbar Container.svg" id="2_0bn6d"]
-[ext_resource type="Texture2D" uid="uid://bexwatntofbxk" path="res://Entities/Enemies/Art/Enemy Healthbar Fill.svg" id="3_fhgcg"]
+[ext_resource type="Texture2D" uid="uid://x0g1erjfoaxg" path="res://Entities/Enemies/Art/Enemy Healthbar Container.png" id="2_fhgcg"]
+[ext_resource type="Texture2D" uid="uid://2t1rqvtx71ug" path="res://Entities/Enemies/Art/Enemy Healthbar Fill.png" id="3_110nk"]
 [ext_resource type="Texture2D" uid="uid://sxru1udovfty" path="res://Entities/Enemies/Art/Scorpion/Scorpion 1.svg" id="4_0bn6d"]
 [ext_resource type="Texture2D" uid="uid://di348o7bi8ngt" path="res://Entities/Enemies/Art/Scorpion/Scorpion 2.svg" id="5_fhgcg"]
 [ext_resource type="Texture2D" uid="uid://4vgxc58i00ly" path="res://Entities/Enemies/Art/Scorpion/Scorpion 3.svg" id="6_110nk"]
@@ -13,7 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://cu804w3dkkrne" path="res://Entities/Enemies/Art/Scorpion/Scorpion 8.svg" id="11_fa8mc"]
 [ext_resource type="Texture2D" uid="uid://bu26icvph0i7w" path="res://Entities/Enemies/Art/Scorpion/Scorpion 9.svg" id="12_6tyj1"]
 [ext_resource type="Texture2D" uid="uid://do2ro7482hqna" path="res://Entities/Enemies/Art/Scorpion/Scorpion 10.svg" id="13_cwhmh"]
-[ext_resource type="Texture2D" uid="uid://ggk8p3aitl6y" path="res://Assets/Placeholders/Shield Icon.png" id="14_fhgcg"]
+[ext_resource type="Texture2D" uid="uid://cy75rtht1rw0h" path="res://Entities/Enemies/Art/Enemy Armorbar Fill.png" id="14_fhgcg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wbf3x"]
 size = Vector2(40, 33)
@@ -81,8 +81,8 @@ offset_right = 40.0
 offset_bottom = 8.0
 value = 100.0
 nine_patch_stretch = true
-texture_under = ExtResource("2_0bn6d")
-texture_progress = ExtResource("3_fhgcg")
+texture_under = ExtResource("2_fhgcg")
+texture_progress = ExtResource("3_110nk")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2110967852]
 scale = Vector2(0.2, 0.2)
@@ -93,9 +93,9 @@ frame_progress = 0.26319778
 [node name="Armor Bar" type="TextureProgressBar" parent="." unique_id=51795518]
 visible = false
 top_level = true
-offset_right = 32.0
-offset_bottom = 32.0
+offset_right = 40.0
+offset_bottom = 8.0
 value = 100.0
-fill_mode = 3
 nine_patch_stretch = true
+texture_under = ExtResource("2_fhgcg")
 texture_progress = ExtResource("14_fhgcg")
