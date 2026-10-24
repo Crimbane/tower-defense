@@ -1,19 +1,19 @@
 [gd_scene format=3 uid="uid://brg6oyosaexti"]
 
 [ext_resource type="Script" uid="uid://cfmohum8o4alf" path="res://Systems/wave_manager.gd" id="1_pwhgv"]
-[ext_resource type="PackedScene" uid="uid://cpuuonscitnvx" path="res://Entities/Enemies/base_enemy.tscn" id="2_ar3a6"]
-[ext_resource type="PackedScene" uid="uid://0un434de8j3p" path="res://Entities/Enemies/fast_enemy.tscn" id="3_5a3ti"]
 [ext_resource type="PackedScene" uid="uid://dpvqiku0f5ebp" path="res://Entities/Enemies/boar.tscn" id="4_5a3ti"]
 [ext_resource type="PackedScene" uid="uid://kj86hcxry3x" path="res://Entities/Enemies/scorpion.tscn" id="4_6bedr"]
 [ext_resource type="PackedScene" uid="uid://csy1qis00i72f" path="res://Entities/Enemies/baby_sandworm.tscn" id="4_83lv1"]
+[ext_resource type="PackedScene" uid="uid://dkj81vbqqc3w2" path="res://Entities/Enemies/lizard.tscn" id="7_se8xw"]
+[ext_resource type="PackedScene" uid="uid://bo2x1ub166pku" path="res://Entities/Enemies/sandworm_boss.tscn" id="8_173qd"]
 
 [node name="Wave Manager" type="Node" unique_id=347742924]
 script = ExtResource("1_pwhgv")
-enemyScene = ExtResource("2_ar3a6")
-fastEnemyScene = ExtResource("3_5a3ti")
 babySandwormScene = ExtResource("4_83lv1")
 scorpionScene = ExtResource("4_6bedr")
 boarScene = ExtResource("4_5a3ti")
+lizardScene = ExtResource("7_se8xw")
+bossSandwormScene = ExtResource("8_173qd")
 
 [node name="Next Wave Timer" type="Timer" parent="." unique_id=1430764877]
 autostart = true

@@ -4,11 +4,9 @@
 [ext_resource type="PackedScene" uid="uid://v8s1l3ss70q7" path="res://Systems/UI/ui_manager.tscn" id="1_xfclo"]
 [ext_resource type="PackedScene" uid="uid://bghlwrvg8h01x" path="res://Entities/Towers/arrow_tower.tscn" id="2_d5etc"]
 [ext_resource type="Script" uid="uid://cdj54w87supeo" path="res://Testing/olem50/enemy_spawner.gd" id="4_cy7fe"]
-[ext_resource type="PackedScene" uid="uid://cpuuonscitnvx" path="res://Entities/Enemies/base_enemy.tscn" id="5_w245n"]
 [ext_resource type="PackedScene" uid="uid://kx0msk5dsok3" path="res://Entities/Towers/slime_tower.tscn" id="7_w245n"]
 [ext_resource type="PackedScene" uid="uid://dlg4dm7pcirbi" path="res://Entities/Nexus/nexus.tscn" id="8_t2ke1"]
 [ext_resource type="PackedScene" uid="uid://brg6oyosaexti" path="res://Systems/wave_manager.tscn" id="9_0rfoy"]
-[ext_resource type="PackedScene" uid="uid://0un434de8j3p" path="res://Entities/Enemies/fast_enemy.tscn" id="10_ma62e"]
 [ext_resource type="PackedScene" uid="uid://l4q5o3oih0q0" path="res://Systems/placement_manager.tscn" id="14_8tm81"]
 
 [sub_resource type="Curve2D" id="Curve2D_t2ke1"]
@@ -35,10 +33,6 @@ curve = SubResource("Curve2D_t2ke1")
 script = ExtResource("4_cy7fe")
 waveManager = NodePath("../Wave Manager")
 
-[node name="Base Enemy" parent="Path2D" unique_id=479867562 instance=ExtResource("5_w245n")]
-position = Vector2(201, 1035)
-rotation = -1.5707964
-
 [node name="Spawn Timer" type="Timer" parent="Path2D" unique_id=1572588186]
 wait_time = 0.5
 one_shot = true
@@ -49,12 +43,9 @@ position = Vector2(1242, 973)
 [node name="Base" parent="." unique_id=1619217758 instance=ExtResource("8_t2ke1")]
 position = Vector2(313, -4)
 
-[node name="Wave Manager" parent="." unique_id=347742924 node_paths=PackedStringArray("enemySpawner") instance=ExtResource("9_0rfoy")]
-enemySpawner = NodePath("../Path2D")
-enemyScene = ExtResource("5_w245n")
-fastEnemyScene = ExtResource("10_ma62e")
+[node name="Wave Manager" parent="." unique_id=347742924 instance=ExtResource("9_0rfoy")]
 
-[node name="Next Wave Timer" type="Timer" parent="Wave Manager" unique_id=552329530]
+[node name="Next Wave Timer2" type="Timer" parent="Wave Manager" unique_id=552329530]
 wait_time = 8.0
 one_shot = true
 

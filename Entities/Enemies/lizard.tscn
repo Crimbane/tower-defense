@@ -1,0 +1,102 @@
+[gd_scene format=3 uid="uid://dkj81vbqqc3w2"]
+
+[ext_resource type="Script" uid="uid://cw0jxtdodiyv6" path="res://Entities/Enemies/enemy.gd" id="1_amyjq"]
+[ext_resource type="Texture2D" uid="uid://x0g1erjfoaxg" path="res://Entities/Enemies/Art/Enemy Healthbar Container.png" id="2_j3mfr"]
+[ext_resource type="Texture2D" uid="uid://2t1rqvtx71ug" path="res://Entities/Enemies/Art/Enemy Healthbar Fill.png" id="3_iwug5"]
+[ext_resource type="Texture2D" uid="uid://le723pp735uu" path="res://Entities/Enemies/Art/Lizard/Lizard 1.svg" id="4_amyjq"]
+[ext_resource type="Texture2D" uid="uid://cdcyfmga3c8y6" path="res://Entities/Enemies/Art/Lizard/Lizard 2.svg" id="5_j3mfr"]
+[ext_resource type="Texture2D" uid="uid://c0dx3foecsa63" path="res://Entities/Enemies/Art/Lizard/Lizard 3.svg" id="6_iwug5"]
+[ext_resource type="Texture2D" uid="uid://cmmp53b33tt64" path="res://Entities/Enemies/Art/Lizard/Lizard 4.svg" id="7_osoqu"]
+[ext_resource type="Texture2D" uid="uid://dnx1l06u118oj" path="res://Entities/Enemies/Art/Lizard/Lizard 5.svg" id="8_1huio"]
+[ext_resource type="Texture2D" uid="uid://bk3s625fi25g6" path="res://Entities/Enemies/Art/Lizard/Lizard 6.svg" id="9_tii0s"]
+[ext_resource type="Texture2D" uid="uid://dfasnlu22dlo5" path="res://Entities/Enemies/Art/Lizard/Lizard 7.svg" id="10_tnpjq"]
+[ext_resource type="Texture2D" uid="uid://dyd2gydecn2ri" path="res://Entities/Enemies/Art/Lizard/Lizard 8.svg" id="11_o0ct6"]
+[ext_resource type="Texture2D" uid="uid://pgwns3rpebit" path="res://Entities/Enemies/Art/Lizard/Lizard 9.svg" id="12_clccm"]
+[ext_resource type="Texture2D" uid="uid://lk8fmsikx2ul" path="res://Entities/Enemies/Art/Lizard/Lizard 10.svg" id="13_t0grc"]
+[ext_resource type="Texture2D" uid="uid://cy75rtht1rw0h" path="res://Entities/Enemies/Art/Enemy Armorbar Fill.png" id="14_2ex8e"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wbf3x"]
+size = Vector2(40, 33)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_t1yug"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_amyjq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_j3mfr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_iwug5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_osoqu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_1huio")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_tii0s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_tnpjq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_o0ct6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_clccm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_t0grc")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 20.0
+}]
+
+[node name="Lizard" type="PathFollow2D" unique_id=479867562 node_paths=PackedStringArray("armorBar", "sprite", "burnTimer")]
+script = ExtResource("1_amyjq")
+enemyType = "Scorpion"
+armorBar = NodePath("Armor Bar")
+sprite = NodePath("AnimatedSprite2D")
+burnTimer = NodePath("BurnTimer")
+unitCost = 3
+armor = 50
+
+[node name="Hitbox" type="Area2D" parent="." unique_id=2000332408 groups=["Enemy"]]
+collision_layer = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=483616725]
+position = Vector2(3, 0.5)
+shape = SubResource("RectangleShape2D_wbf3x")
+
+[node name="BurnTimer" type="Timer" parent="." unique_id=1596100805]
+one_shot = true
+
+[node name="Health Bar" type="TextureProgressBar" parent="." unique_id=1401385791]
+visible = false
+top_level = true
+offset_right = 40.0
+offset_bottom = 8.0
+value = 100.0
+nine_patch_stretch = true
+texture_under = ExtResource("2_j3mfr")
+texture_progress = ExtResource("3_iwug5")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2110967852]
+scale = Vector2(0.2, 0.2)
+sprite_frames = SubResource("SpriteFrames_t1yug")
+autoplay = "default"
+frame_progress = 0.3559586
+
+[node name="Armor Bar" type="TextureProgressBar" parent="." unique_id=51795518]
+visible = false
+top_level = true
+offset_right = 40.0
+offset_bottom = 8.0
+value = 100.0
+nine_patch_stretch = true
+texture_under = ExtResource("2_j3mfr")
+texture_progress = ExtResource("14_2ex8e")

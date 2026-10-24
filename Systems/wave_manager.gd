@@ -6,8 +6,6 @@ extends Node
 
 var spawnQueue: Array[PackedScene] = []
 
-@export var enemyScene: PackedScene
-@export var fastEnemyScene: PackedScene
 @export var babySandwormScene: PackedScene
 @export var scorpionScene: PackedScene
 @export var boarScene: PackedScene
@@ -16,7 +14,7 @@ var spawnQueue: Array[PackedScene] = []
 
 
 @onready var enemyScenesArray: Array[PackedScene] = [
-	babySandwormScene, scorpionScene, boarScene
+	babySandwormScene, scorpionScene, boarScene, lizardScene
 	]
 
 var enemyUnits: Dictionary = {}

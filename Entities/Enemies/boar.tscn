@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://nvseach4imok" path="res://Entities/Enemies/Art/Wild Boar/Wild Boar 8.svg" id="11_qrq5o"]
 [ext_resource type="Texture2D" uid="uid://bumj65lrsu0wm" path="res://Entities/Enemies/Art/Wild Boar/Wild Boar 9.svg" id="12_t4inf"]
 [ext_resource type="Texture2D" uid="uid://r6ibs6kqpccx" path="res://Entities/Enemies/Art/Wild Boar/Wild Boar 10.svg" id="13_gcbuo"]
+[ext_resource type="Texture2D" uid="uid://cy75rtht1rw0h" path="res://Entities/Enemies/Art/Enemy Armorbar Fill.png" id="14_hy357"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wbf3x"]
 size = Vector2(53, 38)
@@ -59,10 +60,6 @@ animations = [{
 script = ExtResource("1_w65iq")
 sprite = NodePath("AnimatedSprite2D")
 burnTimer = NodePath("BurnTimer")
-unitCost = 2
-minSpawnableWave = 3
-maxHealth = 20
-baseSpeed = 200
 
 [node name="Hitbox" type="Area2D" parent="." unique_id=2000332408 groups=["Enemy"]]
 collision_layer = 4
@@ -75,6 +72,7 @@ shape = SubResource("RectangleShape2D_wbf3x")
 one_shot = true
 
 [node name="Health Bar" type="TextureProgressBar" parent="." unique_id=1401385791]
+visible = false
 top_level = true
 offset_right = 40.0
 offset_bottom = 8.0
@@ -88,3 +86,13 @@ scale = Vector2(0.2, 0.2)
 sprite_frames = SubResource("SpriteFrames_t1yug")
 autoplay = "default"
 frame_progress = 0.84358376
+
+[node name="Armor Bar" type="TextureProgressBar" parent="." unique_id=477497704]
+visible = false
+top_level = true
+offset_right = 40.0
+offset_bottom = 8.0
+value = 100.0
+nine_patch_stretch = true
+texture_under = ExtResource("2_3b4yk")
+texture_progress = ExtResource("14_hy357")

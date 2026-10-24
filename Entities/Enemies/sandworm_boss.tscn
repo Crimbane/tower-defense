@@ -1,0 +1,102 @@
+[gd_scene format=3 uid="uid://bo2x1ub166pku"]
+
+[ext_resource type="Script" uid="uid://cw0jxtdodiyv6" path="res://Entities/Enemies/enemy.gd" id="1_le7mi"]
+[ext_resource type="Texture2D" uid="uid://x0g1erjfoaxg" path="res://Entities/Enemies/Art/Enemy Healthbar Container.png" id="2_s5kqq"]
+[ext_resource type="Texture2D" uid="uid://2t1rqvtx71ug" path="res://Entities/Enemies/Art/Enemy Healthbar Fill.png" id="3_04dly"]
+[ext_resource type="Texture2D" uid="uid://drwrvbrletujb" path="res://Entities/Enemies/Art/Sandworm Boss/Sandworm Boss 1.svg" id="4_le7mi"]
+[ext_resource type="Texture2D" uid="uid://bskrmdxlqttts" path="res://Entities/Enemies/Art/Sandworm Boss/Sandworm Boss 2.svg" id="5_s5kqq"]
+[ext_resource type="Texture2D" uid="uid://2wq8ulwh4b5p" path="res://Entities/Enemies/Art/Sandworm Boss/Sandworm Boss 3.svg" id="6_04dly"]
+[ext_resource type="Texture2D" uid="uid://cyu2mkgfl4nov" path="res://Entities/Enemies/Art/Sandworm Boss/Sandworm Boss 4.svg" id="7_6l01e"]
+[ext_resource type="Texture2D" uid="uid://cdsr0suexonkx" path="res://Entities/Enemies/Art/Sandworm Boss/Sandworm Boss 5.svg" id="8_im34i"]
+[ext_resource type="Texture2D" uid="uid://ko6phkj4nvn4" path="res://Entities/Enemies/Art/Sandworm Boss/Sandworm Boss 6.svg" id="9_sk03d"]
+[ext_resource type="Texture2D" uid="uid://bi7e4ka7um3eg" path="res://Entities/Enemies/Art/Sandworm Boss/Sandworm Boss 7.svg" id="10_43iki"]
+[ext_resource type="Texture2D" uid="uid://clj3urf68w87f" path="res://Entities/Enemies/Art/Sandworm Boss/Sandworm Boss 8.svg" id="11_gnk6n"]
+[ext_resource type="Texture2D" uid="uid://co8wprvqexmd4" path="res://Entities/Enemies/Art/Sandworm Boss/Sandworm Boss 9.svg" id="12_soblh"]
+[ext_resource type="Texture2D" uid="uid://c38hnh3xkdj8o" path="res://Entities/Enemies/Art/Sandworm Boss/Sandworm Boss 10.svg" id="13_idwk8"]
+[ext_resource type="Texture2D" uid="uid://cy75rtht1rw0h" path="res://Entities/Enemies/Art/Enemy Armorbar Fill.png" id="14_y8g6o"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wbf3x"]
+size = Vector2(40, 33)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_t1yug"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_le7mi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_s5kqq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_04dly")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_6l01e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_im34i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_sk03d")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_43iki")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_gnk6n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_soblh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_idwk8")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 10.0
+}]
+
+[node name="Sandworm Boss" type="PathFollow2D" unique_id=479867562 node_paths=PackedStringArray("armorBar", "sprite", "burnTimer")]
+script = ExtResource("1_le7mi")
+enemyType = "Scorpion"
+armorBar = NodePath("Armor Bar")
+sprite = NodePath("AnimatedSprite2D")
+burnTimer = NodePath("BurnTimer")
+maxHealth = 2000
+baseSpeed = 25
+
+[node name="Hitbox" type="Area2D" parent="." unique_id=2000332408 groups=["Enemy"]]
+collision_layer = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=483616725]
+position = Vector2(3, 0.5)
+shape = SubResource("RectangleShape2D_wbf3x")
+
+[node name="BurnTimer" type="Timer" parent="." unique_id=1596100805]
+one_shot = true
+
+[node name="Health Bar" type="TextureProgressBar" parent="." unique_id=1401385791]
+visible = false
+top_level = true
+offset_right = 40.0
+offset_bottom = 8.0
+value = 100.0
+nine_patch_stretch = true
+texture_under = ExtResource("2_s5kqq")
+texture_progress = ExtResource("3_04dly")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2110967852]
+scale = Vector2(0.2, 0.2)
+sprite_frames = SubResource("SpriteFrames_t1yug")
+autoplay = "default"
+frame_progress = 0.24086145
+
+[node name="Armor Bar" type="TextureProgressBar" parent="." unique_id=51795518]
+visible = false
+top_level = true
+offset_right = 40.0
+offset_bottom = 8.0
+value = 100.0
+nine_patch_stretch = true
+texture_under = ExtResource("2_s5kqq")
+texture_progress = ExtResource("14_y8g6o")
