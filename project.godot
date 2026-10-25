@@ -10,8 +10,8 @@ config_version=5
 
 [application]
 
-config/name="Tower Defense"
-run/main_scene="uid://cpml1qr8qustr"
+config/name="Desert Defense"
+run/main_scene="uid://cdvot8oh4lcls"
 config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="res://icon.svg"
 

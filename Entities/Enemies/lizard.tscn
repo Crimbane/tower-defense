@@ -62,8 +62,8 @@ enemyType = "Scorpion"
 armorBar = NodePath("Armor Bar")
 sprite = NodePath("AnimatedSprite2D")
 burnTimer = NodePath("BurnTimer")
-unitCost = 4
-minSpawnableWave = 7
+unitCost = 5
+minSpawnableWave = 25
 armor = 50
 
 [node name="Hitbox" type="Area2D" parent="." unique_id=2000332408 groups=["Enemy"]]
