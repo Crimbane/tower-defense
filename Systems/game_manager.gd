@@ -1,5 +1,9 @@
 extends Node
 
+
+const GAME: String = "res://Stages/Game/desert_map.tscn"
+const MAIN_MENU: String = "res://Stages/Main Menu/main_menu.tscn"
+
 var nexus: Node = null
 var UIManager: Node = null
 var waveManager: Node = null
