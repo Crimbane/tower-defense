@@ -61,6 +61,8 @@ func spawnSlimeField(body: Node2D) -> void:
 	
 	slimeField.global_position = spawnPosition
 	slimeField.slowPercent = slowPercent
+	if towerMaxed:
+		slimeField.get_node("AnimatedSprite2D").animation = "tier4"
 	
 	get_tree().current_scene.call_deferred("add_child", slimeField)
 

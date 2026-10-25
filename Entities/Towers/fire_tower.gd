@@ -12,6 +12,7 @@ var projectileSpawnPosition: Vector2 = Vector2.ZERO
 @export var fireRateTimer: Timer
 @export var fireDurationTimer: Timer
 @export var particles: CPUParticles2D
+@export var particlesTier4: CPUParticles2D
 @export var mouseDetectionArea: Area2D
 @export var attackRangeNode: Node2D
 var currentTarget = null
@@ -55,6 +56,7 @@ func _ready() -> void:
 	weapon.monitoring = false
 	weapon.visible = false
 	particles.emitting = false
+	particlesTier4.emitting = false
 	
 	if mouseDetectionArea:
 		mouseDetectionArea.mouse_entered.connect(onMouseEntered)
@@ -84,7 +86,10 @@ func shoot() -> void:
 	canFire = false
 	fireDurationTimer.start()
 	weapon.show()
-	particles.emitting = true
+	if currentTier == MAX_TIER:
+		particlesTier4.emitting = true
+	else:
+		particles.emitting = true
 	weapon.set_deferred("monitoring", true)
 	
 
@@ -100,6 +105,7 @@ func onStopShooting() -> void:
 	
 	weapon.set_deferred("monitoring", false)
 	particles.emitting = false
+	particlesTier4.emitting = false
 	fireRateTimer.start()
 
 
@@ -224,7 +230,7 @@ func updateTowerSprite() -> void:
 
 
 func adjustFireCollision() -> void:
-	var yOffset = -163.333 #weapon.position.y
+	var yOffset = -176 #weapon.position.y
 	var length: float = attackRange * 4 + yOffset
 	#var width: float = 300.0
 	var width: float = length * 0.375
@@ -235,6 +241,12 @@ func adjustFireCollision() -> void:
 		]
 	
 	weaponCollision.polygon = polygonArray
+	
+	particles.initial_velocity_min = length / 1.3
+	particles.amount = int(length / 8.24)
+	particlesTier4.initial_velocity_min = length / 1.3
+	particlesTier4.amount = int(length / 8.24)
+	
 	#weaponVisualPolygon.polygon = polygonArray
 	#
 	#var uvArray: PackedVector2Array = [

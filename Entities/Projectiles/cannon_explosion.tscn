@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://3a782acymsdn" path="res://Entities/Projectiles/Art/Fire Texture.png" id="2_noka1"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_jirgs"]
-radius = 75.00667
+radius = 75.0
 
 [sub_resource type="Curve" id="Curve_6hbcl"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.5138122, 0.7415731), -0.9878007, -0.9878007, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
@@ -89,10 +89,14 @@ color = Color(1.6197081, 1.1863476, 0.6196454, 1)
 color_ramp = SubResource("GradientTexture1D_6pas7")
 alpha_curve = SubResource("CurveTexture_txu8q")
 
-[node name="Cannon Explosion" type="Area2D" unique_id=1226056163]
+[node name="Cannon Explosion" type="Area2D" unique_id=1226056163 node_paths=PackedStringArray("collisionShape", "particles1", "particles2", "particles3")]
 collision_layer = 0
 collision_mask = 4
 script = ExtResource("1_noka1")
+collisionShape = NodePath("CollisionShape2D")
+particles1 = NodePath("GPUParticles2D")
+particles2 = NodePath("GPUParticles2D2")
+particles3 = NodePath("GPUParticles2D3")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1300026696]
 shape = SubResource("CircleShape2D_jirgs")
@@ -101,8 +105,9 @@ shape = SubResource("CircleShape2D_jirgs")
 emitting = false
 amount = 50
 texture = ExtResource("2_1bwec")
-lifetime = 0.5
+lifetime = 0.25
 one_shot = true
+speed_scale = 0.7
 explosiveness = 0.5
 process_material = SubResource("ParticleProcessMaterial_yd10e")
 
@@ -110,8 +115,9 @@ process_material = SubResource("ParticleProcessMaterial_yd10e")
 emitting = false
 amount = 100
 texture = ExtResource("2_noka1")
-lifetime = 0.5
+lifetime = 0.25
 one_shot = true
+speed_scale = 0.7
 explosiveness = 0.5
 process_material = SubResource("ParticleProcessMaterial_dp07f")
 
@@ -119,7 +125,8 @@ process_material = SubResource("ParticleProcessMaterial_dp07f")
 emitting = false
 amount = 100
 texture = ExtResource("2_noka1")
-lifetime = 0.5
+lifetime = 0.25
 one_shot = true
+speed_scale = 0.7
 explosiveness = 0.5
 process_material = SubResource("ParticleProcessMaterial_fjc7g")

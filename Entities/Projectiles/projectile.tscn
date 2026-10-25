@@ -10,8 +10,8 @@
 [ext_resource type="Texture2D" uid="uid://d1pwy3qdjxwrh" path="res://Entities/Projectiles/Art/Tier 4 Cannonball.svg" id="8_2ydm2"]
 [ext_resource type="Texture2D" uid="uid://ddcqygq8u5pe0" path="res://Entities/Projectiles/Art/Tier 4 Slime Projectile.svg" id="9_p60cp"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_t1yug"]
-size = Vector2(156.66666, 20)
+[sub_resource type="CircleShape2D" id="CircleShape2D_8o4hs"]
+radius = 60.0
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_t1yug"]
 animations = [{
@@ -73,10 +73,9 @@ slimeFieldScene = ExtResource("2_6kijj")
 explosionScene = ExtResource("3_vpfrp")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=705034017]
-position = Vector2(35, 0)
-shape = SubResource("RectangleShape2D_t1yug")
+shape = SubResource("CircleShape2D_8o4hs")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=292606929]
 rotation = 1.5707964
 sprite_frames = SubResource("SpriteFrames_t1yug")
-animation = &"tier4 slime"
+animation = &"arrow"
