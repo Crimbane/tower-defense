@@ -83,6 +83,7 @@ func _process(_delta: float) -> void:
 
 
 func shoot() -> void:
+	SoundManager.playFlamethrowerSound()
 	canFire = false
 	fireDurationTimer.start()
 	weapon.show()
@@ -99,6 +100,7 @@ func applyFire(body: Area2D) -> void:
 		enemy.applyFireDebuff(fireDamage, fireBurnTime)
 
 func onStopShooting() -> void:
+	SoundManager.stopFlamethrowerSound()
 	var enemiesInside = weapon.get_overlapping_areas()
 	for body in enemiesInside:
 		applyFire(body)

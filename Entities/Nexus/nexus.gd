@@ -19,5 +19,6 @@ func takeDamage(damage: int) -> void:
 	GameManager.UIManager.updateNexusHealthLabel(currentHealth)
 	
 	if currentHealth < 1:
+		SoundManager.playGameOverSound()
 		print("Game over")
 		queue_free()

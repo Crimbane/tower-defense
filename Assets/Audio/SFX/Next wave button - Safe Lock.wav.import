@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://d3t1mxrbpkly5"
+path="res://.godot/imported/Next wave button - Safe Lock.wav-0f6ca5f291d7e7c3100418e3858de781.sample"
+
+[deps]
+
+source_file="res://Assets/Audio/SFX/Next wave button - Safe Lock.wav"
+dest_files=["res://.godot/imported/Next wave button - Safe Lock.wav-0f6ca5f291d7e7c3100418e3858de781.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

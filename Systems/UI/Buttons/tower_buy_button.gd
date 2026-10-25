@@ -37,7 +37,7 @@ enum TowerSprite {
 
 
 func _ready() -> void:
-	pressed.connect(_on_shape_button_press)
+	pressed.connect(checkIfCanAfford)
 	updateIcon()
 	#if not Engine.is_editor_hint():
 		#updateVisibility()
@@ -59,7 +59,7 @@ func updateVisibility() -> void:
 	
 
 func _on_shape_button_press() -> void:
-	print("button pressed")
+	SoundManager.playButtonClickSound()
 	
 	var keyName = TowerSprite.find_key(towerSprite).to_upper()
 	var towerScene = TOWER_SCENES[keyName]
@@ -67,3 +67,25 @@ func _on_shape_button_press() -> void:
 	var placementScript = get_tree().get_first_node_in_group("Placement Manager")
 	
 	placementScript.startPlacement(towerScene)
+
+func checkIfCanAfford() -> void:
+	
+	match towerSprite:
+		0:
+			if GameManager.money >= GameManager.arrowTowerCost:
+				_on_shape_button_press()
+				return
+		1:
+			if GameManager.money >= GameManager.fireTowerCost:
+				_on_shape_button_press()
+				return
+		2:
+			if GameManager.money >= GameManager.slimeTowerCost:
+				_on_shape_button_press()
+				return
+		3:
+			if GameManager.money >= GameManager.cannonTowerCost:
+				_on_shape_button_press()
+				return
+	
+	SoundManager.playnoMoneySound()

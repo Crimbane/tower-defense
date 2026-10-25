@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://b8eyiggklhpox"
+path="res://.godot/imported/Eastern Sahara Intensity 2.wav-b5fa0ca71b8da605e46851035a696b67.sample"
+
+[deps]
+
+source_file="res://Assets/Audio/Music/Eastern Sahara Intensity 2.wav"
+dest_files=["res://.godot/imported/Eastern Sahara Intensity 2.wav-b5fa0ca71b8da605e46851035a696b67.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

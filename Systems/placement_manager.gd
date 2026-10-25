@@ -53,6 +53,7 @@ func checkValidPlacement() -> void:
 		ghostTower.modulate = Color(0.3, 1, 0.3, 0.6)
 
 func placeTower() -> void:
+	SoundManager.playbuildSound()
 	ghostTower.modulate = Color(1, 1, 1, 1)
 	
 	ghostTower.isGhostShape = false

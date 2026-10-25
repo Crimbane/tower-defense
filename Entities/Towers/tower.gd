@@ -96,6 +96,7 @@ func shoot() -> void:
 		projectile.slowPercent = slimeSlowPercent
 	
 	get_tree().current_scene.add_child(projectile)
+	playShootSounds()
 
 
 func onFireRateTimerTimeout() -> void:
@@ -191,6 +192,7 @@ func upgradeTower(upgradePath: String, upgradeTier: int) -> void:
 			updateTowerSprite()
 			towerMaxed = true
 	else:
+		SoundManager.playnoMoneySound()
 		print("You are poor")
 
 func applyTowerUpgrades(upgradePath: String, upgradeTier: int) -> void:
@@ -280,3 +282,12 @@ func applyTowerUpgrades(upgradePath: String, upgradeTier: int) -> void:
 func updateTowerSprite() -> void:
 	towerBase.animation = "tier4"
 	towerTop.animation = "tier4"
+
+func playShootSounds() -> void:
+	match towerType:
+		"Arrow":
+			SoundManager.playArrowShootSound()
+		"Slime":
+			SoundManager.playSlimeShootSound()
+		"Cannon":
+			SoundManager.playCannonShootSound()

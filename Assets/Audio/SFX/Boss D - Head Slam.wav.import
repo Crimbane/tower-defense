@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dscce7yuql6qv"
+path="res://.godot/imported/Boss D - Head Slam.wav-44c99d95652124b15f269ab4706c8ac9.sample"
+
+[deps]
+
+source_file="res://Assets/Audio/SFX/Boss D - Head Slam.wav"
+dest_files=["res://.godot/imported/Boss D - Head Slam.wav-44c99d95652124b15f269ab4706c8ac9.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

@@ -85,6 +85,14 @@ func takeDamage(damage: int) -> void:
 		if enemyType == "Boss":
 			pass
 			# won the game logic
+		if enemyType == "Baby Sandworm":
+			SoundManager.playSandwormDeathSound()
+		if enemyType == "Scorpion":
+			SoundManager.playScorpionDeathSound()
+		if enemyType == "Boar":
+			SoundManager.playBoarDeathSound()
+		if enemyType == "Lizard":
+			SoundManager.playLizardDeathSound()
 		GameManager.increaseMoney(unitCost * GameManager.moneyMultiplier)
 		queue_free()
 	

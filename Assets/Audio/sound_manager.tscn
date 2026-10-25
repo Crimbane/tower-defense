@@ -1,46 +1,142 @@
 [gd_scene format=3 uid="uid://dp16rukddtsj5"]
 
 [ext_resource type="Script" uid="uid://c340x5c34xgox" path="res://Assets/Audio/sound_manager.gd" id="1_0qc5e"]
+[ext_resource type="AudioStream" uid="uid://ctoux4kymj3iq" path="res://Assets/Audio/SFX/Tower build - Metal Hit E.wav" id="2_6t8d7"]
+[ext_resource type="AudioStream" uid="uid://cuxvynaubclvw" path="res://Assets/Audio/Music/Main Menu - Eastern Burning Sun Cut 30.wav" id="2_rfhmp"]
+[ext_resource type="AudioStream" uid="uid://b4tcj275tugtl" path="res://Assets/Audio/SFX/Arrow shoot - Open Container Metal A.wav" id="3_0s17l"]
+[ext_resource type="AudioStream" uid="uid://d2ibcbgoe2ay7" path="res://Assets/Audio/Music/Eastern Burning Sun Intensity 2.wav" id="3_dp1aj"]
+[ext_resource type="AudioStream" uid="uid://4kqxyxyju7av" path="res://Assets/Audio/Music/Eastern Field Main.wav" id="4_h4itv"]
+[ext_resource type="AudioStream" uid="uid://bqx3jpy244btr" path="res://Assets/Audio/SFX/Arrow impact - Leather Tooling B.wav" id="4_ma1uu"]
+[ext_resource type="AudioStream" uid="uid://b8eyiggklhpox" path="res://Assets/Audio/Music/Eastern Sahara Intensity 2.wav" id="5_5cwae"]
+[ext_resource type="AudioStream" uid="uid://cjijq8axmnar5" path="res://Assets/Audio/SFX/Fire - Blowtorch on Flesh B.wav" id="5_gtfnx"]
+[ext_resource type="AudioStream" uid="uid://ygmxeq3x74mw" path="res://Assets/Audio/Music/Eastern Sun Intensity 2.wav" id="6_dp1aj"]
+[ext_resource type="AudioStream" uid="uid://ce1qe1mv38u21" path="res://Assets/Audio/SFX/Slime shoot - Air Glyph 001.wav" id="6_rfhmp"]
+[ext_resource type="AudioStream" uid="uid://djsml345t1s2p" path="res://Assets/Audio/SFX/Slime splatter - Blood Whoosh A.wav" id="7_dp1aj"]
+[ext_resource type="AudioStream" uid="uid://b8yxlfipdto37" path="res://Assets/Audio/SFX/Button Click - Ball Kick Normal.wav" id="8_08j55"]
+[ext_resource type="AudioStream" uid="uid://cvda2poc20fgc" path="res://Assets/Audio/SFX/Cannon shoot - Fire Bomb Far 004.wav" id="8_h4itv"]
+[ext_resource type="AudioStream" uid="uid://dyq46fmd33efg" path="res://Assets/Audio/SFX/Cannon impact - Mortar Far 004.wav" id="9_5cwae"]
+[ext_resource type="AudioStream" uid="uid://iw8e3p6n43p5" path="res://Assets/Audio/SFX/Button Hover - Binder Clip Opening.wav" id="9_7ntex"]
+[ext_resource type="AudioStream" uid="uid://d3t1mxrbpkly5" path="res://Assets/Audio/SFX/Next wave button - Safe Lock.wav" id="10_lut7a"]
+[ext_resource type="AudioStream" uid="uid://dpt2o6uvss0pn" path="res://Assets/Audio/SFX/New wave - Bottle Blow High Long A.wav" id="11_08j55"]
+[ext_resource type="AudioStream" uid="uid://cawr2rbgwc5bs" path="res://Assets/Audio/SFX/Lose health - Guitar String Impacts B.wav" id="12_7ntex"]
+[ext_resource type="AudioStream" uid="uid://covoue60bcbgg" path="res://Assets/Audio/SFX/Upgrade - Coin Bag Drop Ground A.wav" id="13_t1svr"]
+[ext_resource type="AudioStream" uid="uid://ba5rh8wjde642" path="res://Assets/Audio/SFX/Sandworm D - Delicious A.wav" id="14_xng1w"]
+[ext_resource type="AudioStream" uid="uid://ck3c6g1lo06u8" path="res://Assets/Audio/SFX/Scorpion D -Quick Gore C.wav" id="15_v30wq"]
+[ext_resource type="AudioStream" uid="uid://c3kvlw1p02pvf" path="res://Assets/Audio/SFX/Boar D - Impailed.wav" id="16_4nsr5"]
+[ext_resource type="AudioStream" uid="uid://df7n3bychyuqi" path="res://Assets/Audio/SFX/Lizard D - Little Squelch C.wav" id="17_4qyc0"]
+[ext_resource type="AudioStream" uid="uid://bg4ju80kqeldk" path="res://Assets/Audio/SFX/No money - Buzzer.wav" id="19_h4itv"]
+[ext_resource type="AudioStream" uid="uid://da23ckt03f6fb" path="res://Assets/Audio/SFX/Game over - Siren Sound.wav" id="20_5cwae"]
 
-[node name="Sound Manager" type="Node" unique_id=797328693 node_paths=PackedStringArray("musicPlayer", "oneSound", "twoSound", "threeSound", "fourSound", "fiveSound", "sixSound", "sevenSound", "eightSound", "nineSound")]
+[node name="Sound Manager" type="Node" unique_id=797328693 node_paths=PackedStringArray("musicPlayer", "buttonClickSound", "buttonHoverSound", "buildSound", "arrowShootSound", "arrowImpactSound", "flamethrowerSound", "slimeShootSound", "slimeImpactSound", "cannonShootSound", "cannonImpactSound", "nextWaveButtonSound", "startWaveSound", "loseHealthSound", "purchaseUpgradeSound", "noMoneySound", "gameOverSound", "sandwormDeathSound", "scorpionDeathSound", "boarDeathSound", "lizardDeathSound")]
 script = ExtResource("1_0qc5e")
 musicPlayer = NodePath("Music Player")
-oneSound = NodePath("AudioStreamPlayer2D")
-twoSound = NodePath("AudioStreamPlayer2D2")
-threeSound = NodePath("AudioStreamPlayer2D3")
-fourSound = NodePath("AudioStreamPlayer2D4")
-fiveSound = NodePath("AudioStreamPlayer2D5")
-sixSound = NodePath("AudioStreamPlayer2D6")
-sevenSound = NodePath("AudioStreamPlayer2D7")
-eightSound = NodePath("AudioStreamPlayer2D8")
-nineSound = NodePath("AudioStreamPlayer2D9")
+buttonClickSound = NodePath("Button Click Sound")
+buttonHoverSound = NodePath("Button Hover Sound")
+buildSound = NodePath("Build Sound")
+arrowShootSound = NodePath("Arrow Shoot Sound")
+arrowImpactSound = NodePath("Arrow Impact Sound")
+flamethrowerSound = NodePath("Flamethrower Sound")
+slimeShootSound = NodePath("Slime Shoot Sound")
+slimeImpactSound = NodePath("Slime Impact Sound")
+cannonShootSound = NodePath("Cannon Shoot Sound")
+cannonImpactSound = NodePath("Cannon Impact Sound")
+nextWaveButtonSound = NodePath("Next Wave Button Sound")
+startWaveSound = NodePath("Start Wave Sound")
+loseHealthSound = NodePath("Lost Health Sound")
+purchaseUpgradeSound = NodePath("Purchase Upgrade Sound")
+noMoneySound = NodePath("No Money Sound")
+gameOverSound = NodePath("Game Over Sound")
+sandwormDeathSound = NodePath("Sandworm Death Sound")
+scorpionDeathSound = NodePath("Scorpion Death Sound")
+boarDeathSound = NodePath("Boar Death Sound")
+lizardDeathSound = NodePath("Lizard Death Sound")
+menuMusic = ExtResource("2_rfhmp")
+gameMusic1 = ExtResource("3_dp1aj")
+gameMusic2 = ExtResource("4_h4itv")
+gameMusic3 = ExtResource("5_5cwae")
+gameMusic4 = ExtResource("6_dp1aj")
+creditsMusic = ExtResource("2_rfhmp")
 
 [node name="Music Player" type="AudioStreamPlayer" parent="." unique_id=228177755]
+volume_db = -15.0
 bus = &"Music"
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=2054297682]
+[node name="Build Sound" type="AudioStreamPlayer2D" parent="." unique_id=2054297682]
+stream = ExtResource("2_6t8d7")
 bus = &"SFX"
 
-[node name="AudioStreamPlayer2D2" type="AudioStreamPlayer2D" parent="." unique_id=1179506790]
+[node name="Button Click Sound" type="AudioStreamPlayer2D" parent="." unique_id=1454481625]
+stream = ExtResource("8_08j55")
 bus = &"SFX"
 
-[node name="AudioStreamPlayer2D3" type="AudioStreamPlayer2D" parent="." unique_id=1221822549]
+[node name="Button Hover Sound" type="AudioStreamPlayer2D" parent="." unique_id=1123028332]
+stream = ExtResource("9_7ntex")
 bus = &"SFX"
 
-[node name="AudioStreamPlayer2D4" type="AudioStreamPlayer2D" parent="." unique_id=1805393126]
+[node name="Arrow Shoot Sound" type="AudioStreamPlayer2D" parent="." unique_id=1179506790]
+stream = ExtResource("3_0s17l")
 bus = &"SFX"
 
-[node name="AudioStreamPlayer2D5" type="AudioStreamPlayer2D" parent="." unique_id=1987278775]
+[node name="Arrow Impact Sound" type="AudioStreamPlayer2D" parent="." unique_id=1221822549]
+stream = ExtResource("4_ma1uu")
 bus = &"SFX"
 
-[node name="AudioStreamPlayer2D6" type="AudioStreamPlayer2D" parent="." unique_id=1493011061]
+[node name="Flamethrower Sound" type="AudioStreamPlayer2D" parent="." unique_id=1805393126]
+stream = ExtResource("5_gtfnx")
 bus = &"SFX"
 
-[node name="AudioStreamPlayer2D7" type="AudioStreamPlayer2D" parent="." unique_id=843816867]
+[node name="Slime Shoot Sound" type="AudioStreamPlayer2D" parent="." unique_id=1987278775]
+stream = ExtResource("6_rfhmp")
 bus = &"SFX"
 
-[node name="AudioStreamPlayer2D8" type="AudioStreamPlayer2D" parent="." unique_id=1126890569]
+[node name="Slime Impact Sound" type="AudioStreamPlayer2D" parent="." unique_id=1493011061]
+stream = ExtResource("7_dp1aj")
 bus = &"SFX"
 
-[node name="AudioStreamPlayer2D9" type="AudioStreamPlayer2D" parent="." unique_id=1765612660]
+[node name="Cannon Shoot Sound" type="AudioStreamPlayer2D" parent="." unique_id=843816867]
+stream = ExtResource("8_h4itv")
+bus = &"SFX"
+
+[node name="Cannon Impact Sound" type="AudioStreamPlayer2D" parent="." unique_id=1126890569]
+stream = ExtResource("9_5cwae")
+bus = &"SFX"
+
+[node name="Next Wave Button Sound" type="AudioStreamPlayer2D" parent="." unique_id=1765612660]
+stream = ExtResource("10_lut7a")
+bus = &"SFX"
+
+[node name="Start Wave Sound" type="AudioStreamPlayer2D" parent="." unique_id=1489154534]
+stream = ExtResource("11_08j55")
+bus = &"SFX"
+
+[node name="Lost Health Sound" type="AudioStreamPlayer2D" parent="." unique_id=1612465894]
+stream = ExtResource("12_7ntex")
+bus = &"SFX"
+
+[node name="Purchase Upgrade Sound" type="AudioStreamPlayer2D" parent="." unique_id=1919582862]
+stream = ExtResource("13_t1svr")
+bus = &"SFX"
+
+[node name="No Money Sound" type="AudioStreamPlayer2D" parent="." unique_id=536885352]
+stream = ExtResource("19_h4itv")
+bus = &"SFX"
+
+[node name="Game Over Sound" type="AudioStreamPlayer2D" parent="." unique_id=1739199425]
+stream = ExtResource("20_5cwae")
+bus = &"SFX"
+
+[node name="Sandworm Death Sound" type="AudioStreamPlayer2D" parent="." unique_id=415046748]
+stream = ExtResource("14_xng1w")
+bus = &"SFX"
+
+[node name="Scorpion Death Sound" type="AudioStreamPlayer2D" parent="." unique_id=2444742]
+stream = ExtResource("15_v30wq")
+bus = &"SFX"
+
+[node name="Boar Death Sound" type="AudioStreamPlayer2D" parent="." unique_id=241334579]
+stream = ExtResource("16_4nsr5")
+bus = &"SFX"
+
+[node name="Lizard Death Sound" type="AudioStreamPlayer2D" parent="." unique_id=1643977277]
+stream = ExtResource("17_4qyc0")
 bus = &"SFX"

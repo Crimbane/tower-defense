@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://df7n3bychyuqi"
+path="res://.godot/imported/Lizard D - Little Squelch C.wav-61016382c96872f1f3112847ccf80114.sample"
+
+[deps]
+
+source_file="res://Assets/Audio/SFX/Lizard D - Little Squelch C.wav"
+dest_files=["res://.godot/imported/Lizard D - Little Squelch C.wav-61016382c96872f1f3112847ccf80114.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

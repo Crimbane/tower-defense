@@ -35,6 +35,7 @@ func _ready() -> void:
 func onButtonPress() -> void:
 	if GameManager.selectedTower != null:
 		if purchased == false:
+			SoundManager.playPurchaseUpgradeSound()
 			var pathString: String = UpgradePath.keys()[upgradePath]
 			GameManager.selectedTower.upgradeTower(pathString, upgradeTier)
 

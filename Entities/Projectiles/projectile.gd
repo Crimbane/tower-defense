@@ -38,6 +38,7 @@ func projectileHit(body: Node2D) -> void:
 		return
 	
 	if body.is_in_group("Enemy"):
+		playImpactSounds()
 		match projectileType:
 			"Arrow":
 				body.get_parent().takeDamage(damage)
@@ -101,3 +102,12 @@ func updateSprite() -> void:
 			animatedSprite.animation = "slime"
 		"Cannon":
 			animatedSprite.animation = "cannon"
+
+func playImpactSounds() -> void:
+	match projectileType:
+		"Arrow":
+			SoundManager.playArrowImpactSound()
+		"Slime":
+			SoundManager.playSlimeImpactSound()
+		"Cannon":
+			SoundManager.playCannonImpactSound()

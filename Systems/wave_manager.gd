@@ -52,18 +52,20 @@ func getEnemyData() -> void:
 		tempEnemy.free()
 
 func startWave(spawnList: Array[PackedScene]) -> void:
-	print("currentwave ", currentWave)
+	
 	spawnQueue.append_array(spawnList)
 	
 	if not spawnTimer.is_stopped():
 		return
 	
 	if not spawnQueue.is_empty():
+		SoundManager.playStartWaveSound()
 		spawnEnemy()
 		spawnTimer.start()
 
 func startNextWaveEarly() -> void:
-	print("startNextWaveEarly")
+	SoundManager.playNextWaveButtonSound()
+	
 	if currentWave >= MAX_WAVES:
 		spawnBossWave()
 		return
@@ -147,6 +149,7 @@ func checkIfEnemiesDead() -> void:
 		generateWave()
 
 func toggleAutoplay() -> void:
+	SoundManager.playButtonClickSound()
 	if autoplay == true:
 		autoplay = false
 		GameManager.UIManager.autoplayOnIcon.hide()
