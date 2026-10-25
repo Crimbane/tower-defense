@@ -4,18 +4,63 @@
 [ext_resource type="PackedScene" uid="uid://cmvxultpuuw67" path="res://Systems/UI/Tooltip/tower_tooltip.tscn" id="2_1vhxe"]
 [ext_resource type="Texture2D" uid="uid://6asst08vlprb" path="res://Systems/UI/Art/Damage Upgrade Icon.svg" id="2_j2uma"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y61my"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0of36"]
+bg_color = Color(0, 0, 0, 0.23529412)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qfaln"]
+bg_color = Color(1, 1, 1, 0.23529412)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
 [node name="Tower Upgrade Button" type="Button" unique_id=2105109026]
-custom_minimum_size = Vector2(70, 70)
-offset_right = 8.0
-offset_bottom = 8.0
+custom_minimum_size = Vector2(66, 66)
+custom_maximum_size = Vector2(66, 66)
+offset_left = 2.0
+offset_top = 2.0
+offset_right = 68.0
+offset_bottom = 68.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_y61my")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_0of36")
+theme_override_styles/hover = SubResource("StyleBoxFlat_qfaln")
 script = ExtResource("1_male1")
 
 [node name="Tower Tooltip" parent="." unique_id=643292139 instance=ExtResource("2_1vhxe")]
 layout_mode = 0
+anchors_preset = 0
+anchor_left = 0.0
+anchor_right = 0.0
+offset_left = 0.0
+offset_right = 444.0
+grow_horizontal = 1
 
 [node name="Icon" type="TextureRect" parent="." unique_id=1349943744]
+show_behind_parent = true
+custom_minimum_size = Vector2(70, 70)
 custom_maximum_size = Vector2(70, 70)
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = -2.0
+offset_top = -2.0
+offset_right = 68.0
+offset_bottom = 68.0
+texture = ExtResource("2_j2uma")
+
+[node name="Shadow" type="TextureRect" parent="Icon" unique_id=466395599]
+modulate = Color(0, 0, 0, 0.3137255)
+show_behind_parent = true
+custom_maximum_size = Vector2(70, 70)
+layout_mode = 0
+offset_left = 3.0
+offset_top = 3.0
+offset_right = 73.0
+offset_bottom = 73.0
+mouse_filter = 2
 texture = ExtResource("2_j2uma")

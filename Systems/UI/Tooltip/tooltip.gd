@@ -18,7 +18,7 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	if visible:
 		var positionParent = GameManager.UIManager.nexusHealthLabel
-		global_position = positionParent.global_position + Vector2(-100,340)
+		#global_position = positionParent.global_position + Vector2(-100,340)
 		
 		updateTooltip()
 
@@ -39,19 +39,19 @@ func updateTooltip() -> void:
 	
 	match parentType:
 		"Arrow":
-			title = "Buy Ballista"
+			title = "Ballista"
 			cost = GameManager.arrowTowerCost
 			function = "Shoots arrows"
 		"Fire":
-			title = "Buy Flamethrower"
+			title = "Flamethrower"
 			cost = GameManager.fireTowerCost
 			function = "Burns armor"
 		"Slime":
-			title = "Buy Slime Tower"
+			title = "Slime Cannon"
 			cost = GameManager.slimeTowerCost
 			function = "Slows enemies"
 		"Cannon":
-			title = "Buy Cannon"
+			title = "Cannon"
 			cost = GameManager.cannonTowerCost
 			function = "Shoots exploding cannonballs"
 		"Next Wave":

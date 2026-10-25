@@ -55,21 +55,21 @@ func updateTooltip() -> void:
 		"Arrow":
 			match pathName:
 				"Left":
-					title = "Damage Upgrade"
+					title = "Damage"
 					currentValue = tower.damage
 					if tier == 4:
 						nextValue = tower.damage + upgradeData["tier4"]
 					else:
 						nextValue = tower.damage + upgradeData["damageIncrease"]
 				"Middle":
-					title = "Fire Rate Upgrade"
+					title = "Fire Rate"
 					currentValue = tower.fireRate
 					if tier == 4:
 						nextValue = tower.fireRate * upgradeData["tier4"]
 					else:
 						nextValue = tower.fireRate * upgradeData["fireRateIncreaseMultiplier"]
 				"Right":
-					title = "Range Upgrade"
+					title = "Range"
 					currentValue = tower.attackRange
 					if tier == 4:
 						nextValue = tower.attackRange * upgradeData["tier4"]
@@ -78,7 +78,7 @@ func updateTooltip() -> void:
 		"Fire":
 			match pathName:
 				"Left":
-					title = "Damage Upgrade"
+					title = "Damage"
 					var fireDamageCalculation = 2 * tower.fireBurnTime
 					currentValue = tower.fireDamage * fireDamageCalculation
 					if tier == 4:
@@ -86,14 +86,14 @@ func updateTooltip() -> void:
 					else:
 						nextValue = (tower.fireDamage + upgradeData["damageIncrease"]) * fireDamageCalculation
 				"Middle":
-					title = "Fire Rate Upgrade"
+					title = "Fire Rate"
 					currentValue = tower.fireRate
 					if tier == 4:
 						nextValue = tower.fireRate * upgradeData["tier4"]
 					else:
 						nextValue = tower.fireRate * upgradeData["fireRateIncreaseMultiplier"]
 				"Right":
-					title = "Range Upgrade"
+					title = "Range"
 					currentValue = tower.attackRange
 					if tier == 4:
 						nextValue = tower.attackRange * upgradeData["tier4"]
@@ -102,21 +102,21 @@ func updateTooltip() -> void:
 		"Slime":
 			match pathName:
 				"Left":
-					title = "Slow Strength Upgrade"
+					title = "Slow Strength"
 					currentValue = (1.0 - tower.slimeSlowPercent) * 100
 					if tier == 4:
 						nextValue = currentValue + upgradeData["tier4Tooltip"]
 					else:
 						nextValue = currentValue + upgradeData["slowIncreasePercentTooltip"]
 				"Middle":
-					title = "Fire Rate Upgrade"
+					title = "Fire Rate"
 					currentValue = tower.fireRate
 					if tier == 4:
 						nextValue = tower.fireRate * upgradeData["tier4"]
 					else:
 						nextValue = tower.fireRate * upgradeData["fireRateIncreaseMultiplier"]
 				"Right":
-					title = "Range Upgrade"
+					title = "Range"
 					currentValue = tower.attackRange
 					if tier == 4:
 						nextValue = tower.attackRange * upgradeData["tier4"]
@@ -125,21 +125,21 @@ func updateTooltip() -> void:
 		"Cannon":
 			match pathName:
 				"Left":
-					title = "Explosion Size Upgrade"
+					title = "Explosion Radius"
 					currentValue = tower.cannonExplosionSize.x
 					if tier == 4:
 						nextValue = tower.cannonExplosionSize.x + upgradeData["tier4Tooltip"]
 					else:
 						nextValue = tower.cannonExplosionSize.x + upgradeData["explosionSizeIncreaseTooltip"]
 				"Middle":
-					title = "Fire Rate Upgrade"
+					title = "Fire Rate"
 					currentValue = tower.fireRate
 					if tier == 4:
 						nextValue = tower.fireRate * upgradeData["tier4"]
 					else:
 						nextValue = tower.fireRate * upgradeData["fireRateIncreaseMultiplier"]
 				"Right":
-					title = "Range Upgrade"
+					title = "Range"
 					currentValue = tower.attackRange
 					if tier == 4:
 						nextValue = tower.attackRange * upgradeData["tier4"]

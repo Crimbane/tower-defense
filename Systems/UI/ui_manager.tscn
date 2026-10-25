@@ -18,14 +18,36 @@ font_size = 22
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t1yug"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fjc7g"]
+bg_color = Color(0, 0, 0, 0.3137255)
+corner_radius_top_left = 24
+corner_radius_top_right = 24
+corner_radius_bottom_right = 24
+corner_radius_bottom_left = 24
+
 [sub_resource type="LabelSettings" id="LabelSettings_t1yug"]
 font_size = 46
+outline_size = 11
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 15
+shadow_color = Color(0, 0, 0, 0.3137255)
+shadow_offset = Vector2(2, 2)
 
 [sub_resource type="LabelSettings" id="LabelSettings_luill"]
-font_size = 26
+font_size = 46
+outline_size = 11
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 15
+shadow_color = Color(0, 0, 0, 0.3137255)
+shadow_offset = Vector2(2, 2)
 
 [sub_resource type="LabelSettings" id="LabelSettings_onxlf"]
-font_size = 35
+font_size = 46
+outline_size = 11
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 15
+shadow_color = Color(0, 0, 0, 0.3137255)
+shadow_offset = Vector2(2, 2)
 
 [sub_resource type="LabelSettings" id="LabelSettings_fyjvv"]
 font_size = 32
@@ -42,16 +64,16 @@ grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("1_efl0l")
 towerBuyButton = NodePath("Right Panel/Tower Buttons/Arrow")
-moneyLabel = NodePath("Right Panel/MoneyLabelMargin/GridContainer/Money Label")
+moneyLabel = NodePath("Right Panel/Money/CenterContainer/HBoxContainer/Money Label")
 fpsLabel = NodePath("FPS Label")
 towerUpgradeMenu = NodePath("Tower Upgrade Menu")
 towerUpgradeMenuGrid = NodePath("Tower Upgrade Menu/Background/Button Grid")
-nextWaveButton = NodePath("Right Panel/Waves/HBoxContainer/Next Wave Button")
-autoplayButton = NodePath("Right Panel/Waves/HBoxContainer/Autoplay Button")
-autoplayOnIcon = NodePath("Right Panel/Waves/HBoxContainer/Autoplay Button/Icon On")
-autoplayOffIcon = NodePath("Right Panel/Waves/HBoxContainer/Autoplay Button/Icon Off")
-waveNumberLabel = NodePath("Right Panel/Waves/Wave Number Label")
-nexusHealthLabel = NodePath("Right Panel/Health/HBoxContainer/Health Label")
+nextWaveButton = NodePath("Right Panel/Waves/CenterContainer/VBoxContainer/HBoxContainer/Next Wave Button")
+autoplayButton = NodePath("Right Panel/Waves/CenterContainer/VBoxContainer/HBoxContainer/Autoplay Button")
+autoplayOnIcon = NodePath("Right Panel/Waves/CenterContainer/VBoxContainer/HBoxContainer/Autoplay Button/Icon On")
+autoplayOffIcon = NodePath("Right Panel/Waves/CenterContainer/VBoxContainer/HBoxContainer/Autoplay Button/Icon Off")
+waveNumberLabel = NodePath("Right Panel/Waves/CenterContainer/VBoxContainer/Wave Number Label")
+nexusHealthLabel = NodePath("Right Panel/Health/CenterContainer/HBoxContainer/Health Label")
 
 [node name="Tower Upgrade Menu" type="Control" parent="UI Manager" unique_id=2130134072]
 z_index = 6
@@ -190,12 +212,13 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -112.0
-offset_top = -150.0
-offset_right = 112.0
-offset_bottom = 319.75293
+offset_left = -120.0
+offset_top = -200.0
+offset_right = 104.0
+offset_bottom = 24.0
 grow_horizontal = 2
 grow_vertical = 2
+offset_transform_position = Vector2(-8, 0)
 columns = 2
 
 [node name="Arrow" parent="UI Manager/Right Panel/Tower Buttons" unique_id=1343717249 instance=ExtResource("2_vwuv3")]
@@ -204,9 +227,32 @@ layout_mode = 2
 [node name="Tooltip" parent="UI Manager/Right Panel/Tower Buttons/Arrow" unique_id=643292139 instance=ExtResource("6_25enu")]
 visible = false
 layout_mode = 0
-offset_left = 114.0
-offset_right = 269.0
-offset_bottom = 117.0
+anchors_preset = 0
+anchor_left = 0.0
+anchor_right = 0.0
+offset_left = -4.0
+offset_top = 240.0
+offset_right = 230.00012
+offset_bottom = 402.0
+grow_horizontal = 1
+
+[node name="Shadow" type="Panel" parent="UI Manager/Right Panel/Tower Buttons/Arrow" unique_id=496084991]
+show_behind_parent = true
+custom_minimum_size = Vector2(104, 104)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -49.0
+offset_top = -49.0
+offset_right = 55.0
+offset_bottom = 55.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_fjc7g")
 
 [node name="Fire" parent="UI Manager/Right Panel/Tower Buttons" unique_id=827456401 instance=ExtResource("2_vwuv3")]
 layout_mode = 2
@@ -215,11 +261,33 @@ towerSprite = 1
 [node name="Tooltip" parent="UI Manager/Right Panel/Tower Buttons/Fire" unique_id=1766360401 instance=ExtResource("6_25enu")]
 visible = false
 layout_mode = 0
-offset_left = -159.0
-offset_top = 114.0
-offset_right = -4.0
-offset_bottom = 231.0
+anchors_preset = 0
+anchor_left = 0.0
+anchor_right = 0.0
+offset_left = -118.0
+offset_top = 240.0
+offset_right = 116.0
+offset_bottom = 402.0
+grow_horizontal = 1
 parentType = "Fire"
+
+[node name="Shadow" type="Panel" parent="UI Manager/Right Panel/Tower Buttons/Fire" unique_id=432475818]
+show_behind_parent = true
+custom_minimum_size = Vector2(104, 104)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -49.0
+offset_top = -49.0
+offset_right = 55.0
+offset_bottom = 55.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_fjc7g")
 
 [node name="Slime" parent="UI Manager/Right Panel/Tower Buttons" unique_id=1233251649 instance=ExtResource("2_vwuv3")]
 layout_mode = 2
@@ -228,7 +296,33 @@ towerSprite = 2
 [node name="Tooltip" parent="UI Manager/Right Panel/Tower Buttons/Slime" unique_id=426999245 instance=ExtResource("6_25enu")]
 visible = false
 layout_mode = 0
+anchors_preset = 0
+anchor_left = 0.0
+anchor_right = 0.0
+offset_left = -4.0
+offset_top = 126.0
+offset_right = 230.0
+offset_bottom = 288.00006
+grow_horizontal = 1
 parentType = "Slime"
+
+[node name="Shadow" type="Panel" parent="UI Manager/Right Panel/Tower Buttons/Slime" unique_id=911728239]
+show_behind_parent = true
+custom_minimum_size = Vector2(104, 104)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -49.0
+offset_top = -49.0
+offset_right = 55.0
+offset_bottom = 55.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_fjc7g")
 
 [node name="Cannon" parent="UI Manager/Right Panel/Tower Buttons" unique_id=114867078 instance=ExtResource("2_vwuv3")]
 layout_mode = 2
@@ -237,30 +331,90 @@ towerSprite = 3
 [node name="Tooltip" parent="UI Manager/Right Panel/Tower Buttons/Cannon" unique_id=694879358 instance=ExtResource("6_25enu")]
 visible = false
 layout_mode = 0
+anchors_preset = 0
+anchor_left = 0.0
+anchor_right = 0.0
+offset_left = -118.0
+offset_top = 126.0
+offset_right = 116.0
+offset_bottom = 288.0
+grow_horizontal = 1
 parentType = "Cannon"
 
-[node name="MoneyLabelMargin" type="MarginContainer" parent="UI Manager/Right Panel" unique_id=808561988]
+[node name="Shadow" type="Panel" parent="UI Manager/Right Panel/Tower Buttons/Cannon" unique_id=2026983843]
+show_behind_parent = true
+custom_minimum_size = Vector2(104, 104)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -49.0
+offset_top = -49.0
+offset_right = 55.0
+offset_bottom = 55.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_fjc7g")
+
+[node name="Money" type="Control" parent="UI Manager/Right Panel" unique_id=1596676889]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -79.0
-offset_right = 79.0
-offset_bottom = 205.0
+offset_top = 230.0
+offset_bottom = 230.0
 grow_horizontal = 2
-theme_override_constants/margin_top = 130
-theme_override_constants/margin_right = 50
 
-[node name="GridContainer" type="GridContainer" parent="UI Manager/Right Panel/MoneyLabelMargin" unique_id=836141136]
-layout_mode = 2
-columns = 2
+[node name="CenterContainer" type="CenterContainer" parent="UI Manager/Right Panel/Money" unique_id=1521957160]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -147.0
+offset_right = 128.0
+offset_bottom = 100.0
+grow_horizontal = 2
 
-[node name="Dollar Sign" type="TextureRect" parent="UI Manager/Right Panel/MoneyLabelMargin/GridContainer" unique_id=216623624]
-custom_maximum_size = Vector2(75, 75)
+[node name="HBoxContainer" type="HBoxContainer" parent="UI Manager/Right Panel/Money/CenterContainer" unique_id=629952661]
 layout_mode = 2
+offset_transform_enabled = true
+offset_transform_position = Vector2(-15, 0)
+theme_override_constants/separation = -10
+
+[node name="Icon" type="Control" parent="UI Manager/Right Panel/Money/CenterContainer/HBoxContainer" unique_id=1880168952]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+
+[node name="Dollar Sign Shadow" type="TextureRect" parent="UI Manager/Right Panel/Money/CenterContainer/HBoxContainer/Icon" unique_id=1329182022]
+modulate = Color(0, 0, 0, 0.3137255)
+custom_maximum_size = Vector2(100, 100)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -47.0
+offset_top = 3.0
+offset_right = 53.0
+offset_bottom = 103.0
+grow_horizontal = 2
 texture = ExtResource("3_ed1bf")
 
-[node name="Money Label" type="Label" parent="UI Manager/Right Panel/MoneyLabelMargin/GridContainer" unique_id=1440121273]
+[node name="Dollar Sign" type="TextureRect" parent="UI Manager/Right Panel/Money/CenterContainer/HBoxContainer/Icon" unique_id=216623624]
+custom_maximum_size = Vector2(100, 100)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -50.0
+offset_right = 50.0
+offset_bottom = 100.0
+grow_horizontal = 2
+texture = ExtResource("3_ed1bf")
+
+[node name="Money Label" type="Label" parent="UI Manager/Right Panel/Money/CenterContainer/HBoxContainer" unique_id=1440121273]
 layout_mode = 2
 text = "427"
 label_settings = SubResource("LabelSettings_t1yug")
@@ -279,37 +433,45 @@ offset_bottom = -143.0
 grow_horizontal = 2
 grow_vertical = 0
 
-[node name="Wave Number Label" type="Label" parent="UI Manager/Right Panel/Waves" unique_id=1290172829]
+[node name="CenterContainer" type="CenterContainer" parent="UI Manager/Right Panel/Waves" unique_id=2101248477]
 layout_mode = 1
-anchors_preset = 2
+anchors_preset = 7
+anchor_left = 0.5
 anchor_top = 1.0
+anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = 30.0
-offset_top = -19.580002
-offset_right = 206.0
-offset_bottom = 16.420074
+offset_left = -137.5
+offset_top = -158.0
+offset_right = 137.5
+grow_horizontal = 2
 grow_vertical = 0
-text = "Wave: "
-label_settings = SubResource("LabelSettings_luill")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="UI Manager/Right Panel/Waves" unique_id=1155500443]
-layout_mode = 0
-offset_left = 21.21
-offset_right = 232.20999
-offset_bottom = 90.0
+[node name="VBoxContainer" type="VBoxContainer" parent="UI Manager/Right Panel/Waves/CenterContainer" unique_id=1242367398]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI Manager/Right Panel/Waves/CenterContainer/VBoxContainer" unique_id=1155500443]
+layout_mode = 2
 theme_override_constants/separation = 15
 
-[node name="Next Wave Button" type="Button" parent="UI Manager/Right Panel/Waves/HBoxContainer" unique_id=163252065]
+[node name="Next Wave Button" type="Button" parent="UI Manager/Right Panel/Waves/CenterContainer/VBoxContainer/HBoxContainer" unique_id=163252065]
 custom_minimum_size = Vector2(108, 90)
 layout_mode = 2
 flat = true
 
-[node name="Tooltip" parent="UI Manager/Right Panel/Waves/HBoxContainer/Next Wave Button" unique_id=1969318016 instance=ExtResource("6_25enu")]
+[node name="Tooltip" parent="UI Manager/Right Panel/Waves/CenterContainer/VBoxContainer/HBoxContainer/Next Wave Button" unique_id=1969318016 instance=ExtResource("6_25enu")]
 visible = false
 layout_mode = 0
+anchors_preset = 0
+anchor_left = 0.0
+anchor_right = 0.0
+offset_left = 0.0
+offset_top = -100.0
+offset_right = 234.0
+offset_bottom = 62.0
+grow_horizontal = 1
 parentType = "Next Wave"
 
-[node name="Icon" type="TextureRect" parent="UI Manager/Right Panel/Waves/HBoxContainer/Next Wave Button" unique_id=2116270023]
+[node name="Icon" type="TextureRect" parent="UI Manager/Right Panel/Waves/CenterContainer/VBoxContainer/HBoxContainer/Next Wave Button" unique_id=2116270023]
 custom_maximum_size = Vector2(110, 110)
 layout_mode = 0
 offset_left = -1.0
@@ -318,18 +480,47 @@ offset_right = 109.0
 offset_bottom = 100.0
 texture = ExtResource("7_hav4j")
 
-[node name="Autoplay Button" type="Button" parent="UI Manager/Right Panel/Waves/HBoxContainer" unique_id=1464370005]
+[node name="Icon Shadow" type="TextureRect" parent="UI Manager/Right Panel/Waves/CenterContainer/VBoxContainer/HBoxContainer/Next Wave Button/Icon" unique_id=230932578]
+modulate = Color(0, 0, 0, 0.3137255)
+show_behind_parent = true
+custom_maximum_size = Vector2(110, 110)
+layout_mode = 0
+offset_left = 3.0
+offset_top = 3.0
+offset_right = 113.0
+offset_bottom = 113.0
+texture = ExtResource("7_hav4j")
+
+[node name="Autoplay Button" type="Button" parent="UI Manager/Right Panel/Waves/CenterContainer/VBoxContainer/HBoxContainer" unique_id=1464370005]
 custom_minimum_size = Vector2(88, 88)
 layout_mode = 2
 tooltip_text = "Wave autostart"
 flat = true
 
-[node name="Tooltip" parent="UI Manager/Right Panel/Waves/HBoxContainer/Autoplay Button" unique_id=72030179 instance=ExtResource("6_25enu")]
+[node name="Tooltip" parent="UI Manager/Right Panel/Waves/CenterContainer/VBoxContainer/HBoxContainer/Autoplay Button" unique_id=72030179 instance=ExtResource("6_25enu")]
 visible = false
 layout_mode = 0
+anchors_preset = 0
+anchor_left = 0.0
+anchor_right = 0.0
+offset_left = -122.62
+offset_top = -100.0
+offset_right = 111.38
+offset_bottom = 62.0
+grow_horizontal = 1
 parentType = "Autoplay"
 
-[node name="Icon On" type="TextureRect" parent="UI Manager/Right Panel/Waves/HBoxContainer/Autoplay Button" unique_id=1983209546]
+[node name="Icon Shadow" type="TextureRect" parent="UI Manager/Right Panel/Waves/CenterContainer/VBoxContainer/HBoxContainer/Autoplay Button" unique_id=589038416]
+modulate = Color(0, 0, 0, 0.3137255)
+custom_maximum_size = Vector2(110, 110)
+layout_mode = 0
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 102.0
+offset_bottom = 102.0
+texture = ExtResource("9_luill")
+
+[node name="Icon On" type="TextureRect" parent="UI Manager/Right Panel/Waves/CenterContainer/VBoxContainer/HBoxContainer/Autoplay Button" unique_id=1983209546]
 custom_maximum_size = Vector2(110, 110)
 layout_mode = 0
 offset_left = -11.0
@@ -338,7 +529,7 @@ offset_right = 99.0
 offset_bottom = 99.0
 texture = ExtResource("9_luill")
 
-[node name="Icon Off" type="TextureRect" parent="UI Manager/Right Panel/Waves/HBoxContainer/Autoplay Button" unique_id=1825877298]
+[node name="Icon Off" type="TextureRect" parent="UI Manager/Right Panel/Waves/CenterContainer/VBoxContainer/HBoxContainer/Autoplay Button" unique_id=1825877298]
 visible = false
 custom_maximum_size = Vector2(110, 110)
 layout_mode = 0
@@ -348,53 +539,78 @@ offset_right = 99.0
 offset_bottom = 99.0
 texture = ExtResource("10_25enu")
 
+[node name="Wave Number Label" type="Label" parent="UI Manager/Right Panel/Waves/CenterContainer/VBoxContainer" unique_id=1290172829]
+layout_mode = 2
+text = "Wave:"
+label_settings = SubResource("LabelSettings_luill")
+horizontal_alignment = 1
+
 [node name="Health" type="Control" parent="UI Manager/Right Panel" unique_id=1004996435]
 layout_mode = 1
-anchors_preset = 8
+anchors_preset = 5
 anchor_left = 0.5
-anchor_top = 0.5
 anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -162.0
-offset_top = -265.0
-offset_right = 162.0
-offset_bottom = -181.0
 grow_horizontal = 2
-grow_vertical = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="UI Manager/Right Panel/Health" unique_id=1953966566]
+[node name="CenterContainer" type="CenterContainer" parent="UI Manager/Right Panel/Health" unique_id=2131069677]
 layout_mode = 1
-anchors_preset = 8
+anchors_preset = 5
 anchor_left = 0.5
-anchor_top = 0.5
 anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -72.0
-offset_top = -50.0
-offset_right = 72.0
-offset_bottom = 50.0
+offset_left = -147.0
+offset_top = 48.0
+offset_right = 128.0
+offset_bottom = 148.00014
 grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/separation = -13
 
-[node name="TextureRect" type="TextureRect" parent="UI Manager/Right Panel/Health/HBoxContainer" unique_id=1892665351]
-custom_maximum_size = Vector2(100, 100)
+[node name="HBoxContainer" type="HBoxContainer" parent="UI Manager/Right Panel/Health/CenterContainer" unique_id=1953966566]
 layout_mode = 2
+offset_transform_enabled = true
+offset_transform_position = Vector2(-15, 0)
+theme_override_constants/separation = -10
+
+[node name="Icon" type="Control" parent="UI Manager/Right Panel/Health/CenterContainer/HBoxContainer" unique_id=1361629914]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+
+[node name="Heart Shadow" type="TextureRect" parent="UI Manager/Right Panel/Health/CenterContainer/HBoxContainer/Icon" unique_id=1320749701]
+modulate = Color(0, 0, 0, 0.3137255)
+custom_maximum_size = Vector2(100, 100)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -47.0
+offset_top = 3.0
+offset_right = 53.0
+offset_bottom = 103.0
+grow_horizontal = 2
 texture = ExtResource("11_25enu")
 
-[node name="Health Label" type="Label" parent="UI Manager/Right Panel/Health/HBoxContainer" unique_id=81478171]
+[node name="Heart" type="TextureRect" parent="UI Manager/Right Panel/Health/CenterContainer/HBoxContainer/Icon" unique_id=1892665351]
+custom_maximum_size = Vector2(100, 100)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -50.0
+offset_right = 50.0
+offset_bottom = 100.0
+grow_horizontal = 2
+texture = ExtResource("11_25enu")
+
+[node name="Health Label" type="Label" parent="UI Manager/Right Panel/Health/CenterContainer/HBoxContainer" unique_id=81478171]
 layout_mode = 2
 text = "10"
 label_settings = SubResource("LabelSettings_onxlf")
 
 [node name="FPS Label" type="Label" parent="UI Manager" unique_id=1953476194]
 layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -26.5
-offset_right = 26.5
-offset_bottom = 34.0
-grow_horizontal = 2
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -45.0
+offset_right = 71.0
+grow_vertical = 0
 text = "FPS: "
 label_settings = SubResource("LabelSettings_fyjvv")
