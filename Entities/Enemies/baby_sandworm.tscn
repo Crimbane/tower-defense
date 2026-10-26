@@ -60,6 +60,7 @@ script = ExtResource("1_r7aay")
 enemyType = "Baby Sandworm"
 sprite = NodePath("AnimatedSprite2D")
 burnTimer = NodePath("BurnTimer")
+maxHealth = 25
 
 [node name="Hitbox" type="Area2D" parent="." unique_id=2000332408 groups=["Enemy"]]
 collision_layer = 4

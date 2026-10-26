@@ -20,13 +20,6 @@ font_size = 22
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t1yug"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fjc7g"]
-bg_color = Color(0, 0, 0, 0.3137255)
-corner_radius_top_left = 24
-corner_radius_top_right = 24
-corner_radius_bottom_right = 24
-corner_radius_bottom_left = 24
-
 [sub_resource type="LabelSettings" id="LabelSettings_t1yug"]
 font_size = 46
 outline_size = 11
@@ -34,6 +27,48 @@ outline_color = Color(0, 0, 0, 1)
 shadow_size = 15
 shadow_color = Color(0, 0, 0, 0.3137255)
 shadow_offset = Vector2(2, 2)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nx7d0"]
+bg_color = Color(0, 0, 0, 0)
+corner_radius_top_left = 36
+corner_radius_top_right = 36
+corner_radius_bottom_right = 36
+corner_radius_bottom_left = 36
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3hns8"]
+bg_color = Color(0, 0, 0, 0.23529412)
+corner_radius_top_left = 36
+corner_radius_top_right = 36
+corner_radius_bottom_right = 36
+corner_radius_bottom_left = 36
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pp6t5"]
+bg_color = Color(1, 1, 1, 0.23529412)
+corner_radius_top_left = 36
+corner_radius_top_right = 36
+corner_radius_bottom_right = 36
+corner_radius_bottom_left = 36
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hk520"]
+bg_color = Color(1, 1, 1, 0)
+corner_radius_top_left = 44
+corner_radius_top_right = 44
+corner_radius_bottom_right = 44
+corner_radius_bottom_left = 44
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dgt5i"]
+bg_color = Color(0, 0, 0, 0.23529412)
+corner_radius_top_left = 44
+corner_radius_top_right = 44
+corner_radius_bottom_right = 44
+corner_radius_bottom_left = 44
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eixvb"]
+bg_color = Color(1, 1, 1, 0.23529412)
+corner_radius_top_left = 44
+corner_radius_top_right = 44
+corner_radius_bottom_right = 44
+corner_radius_bottom_left = 44
 
 [sub_resource type="LabelSettings" id="LabelSettings_luill"]
 font_size = 46
@@ -263,24 +298,6 @@ offset_right = 230.00012
 offset_bottom = 402.0
 grow_horizontal = 1
 
-[node name="Shadow" type="Panel" parent="UI Manager/Right Panel/Tower Buttons/Arrow" unique_id=496084991]
-show_behind_parent = true
-custom_minimum_size = Vector2(104, 104)
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -49.0
-offset_top = -49.0
-offset_right = 55.0
-offset_bottom = 55.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_fjc7g")
-
 [node name="Fire" parent="UI Manager/Right Panel/Tower Buttons" unique_id=827456401 instance=ExtResource("2_vwuv3")]
 layout_mode = 2
 towerSprite = 1
@@ -297,24 +314,6 @@ offset_right = 116.0
 offset_bottom = 402.0
 grow_horizontal = 1
 parentType = "Fire"
-
-[node name="Shadow" type="Panel" parent="UI Manager/Right Panel/Tower Buttons/Fire" unique_id=432475818]
-show_behind_parent = true
-custom_minimum_size = Vector2(104, 104)
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -49.0
-offset_top = -49.0
-offset_right = 55.0
-offset_bottom = 55.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_fjc7g")
 
 [node name="Slime" parent="UI Manager/Right Panel/Tower Buttons" unique_id=1233251649 instance=ExtResource("2_vwuv3")]
 layout_mode = 2
@@ -333,24 +332,6 @@ offset_bottom = 288.00006
 grow_horizontal = 1
 parentType = "Slime"
 
-[node name="Shadow" type="Panel" parent="UI Manager/Right Panel/Tower Buttons/Slime" unique_id=911728239]
-show_behind_parent = true
-custom_minimum_size = Vector2(104, 104)
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -49.0
-offset_top = -49.0
-offset_right = 55.0
-offset_bottom = 55.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_fjc7g")
-
 [node name="Cannon" parent="UI Manager/Right Panel/Tower Buttons" unique_id=114867078 instance=ExtResource("2_vwuv3")]
 layout_mode = 2
 towerSprite = 3
@@ -367,24 +348,6 @@ offset_right = 116.0
 offset_bottom = 288.0
 grow_horizontal = 1
 parentType = "Cannon"
-
-[node name="Shadow" type="Panel" parent="UI Manager/Right Panel/Tower Buttons/Cannon" unique_id=2026983843]
-show_behind_parent = true
-custom_minimum_size = Vector2(104, 104)
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -49.0
-offset_top = -49.0
-offset_right = 55.0
-offset_bottom = 55.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_fjc7g")
 
 [node name="Money" type="Control" parent="UI Manager/Right Panel" unique_id=1596676889]
 layout_mode = 1
@@ -454,9 +417,9 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -123.83
-offset_top = -280.0
+offset_top = -216.0
 offset_right = 101.16992
-offset_bottom = -143.0
+offset_bottom = -79.0
 grow_horizontal = 2
 grow_vertical = 0
 
@@ -468,7 +431,7 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -137.5
-offset_top = -158.0
+offset_top = -225.0
 offset_right = 137.5
 grow_horizontal = 2
 grow_vertical = 0
@@ -483,7 +446,9 @@ theme_override_constants/separation = 15
 [node name="Next Wave Button" type="Button" parent="UI Manager/Right Panel/Waves/CenterContainer/VBoxContainer/HBoxContainer" unique_id=163252065]
 custom_minimum_size = Vector2(108, 90)
 layout_mode = 2
-flat = true
+theme_override_styles/normal = SubResource("StyleBoxFlat_nx7d0")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_3hns8")
+theme_override_styles/hover = SubResource("StyleBoxFlat_pp6t5")
 
 [node name="Tooltip" parent="UI Manager/Right Panel/Waves/CenterContainer/VBoxContainer/HBoxContainer/Next Wave Button" unique_id=1969318016 instance=ExtResource("6_25enu")]
 visible = false
@@ -499,6 +464,7 @@ grow_horizontal = 1
 parentType = "Next Wave"
 
 [node name="Icon" type="TextureRect" parent="UI Manager/Right Panel/Waves/CenterContainer/VBoxContainer/HBoxContainer/Next Wave Button" unique_id=2116270023]
+show_behind_parent = true
 custom_maximum_size = Vector2(110, 110)
 layout_mode = 0
 offset_left = -1.0
@@ -521,8 +487,9 @@ texture = ExtResource("7_hav4j")
 [node name="Autoplay Button" type="Button" parent="UI Manager/Right Panel/Waves/CenterContainer/VBoxContainer/HBoxContainer" unique_id=1464370005]
 custom_minimum_size = Vector2(88, 88)
 layout_mode = 2
-tooltip_text = "Wave autostart"
-flat = true
+theme_override_styles/normal = SubResource("StyleBoxFlat_hk520")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_dgt5i")
+theme_override_styles/hover = SubResource("StyleBoxFlat_eixvb")
 
 [node name="Tooltip" parent="UI Manager/Right Panel/Waves/CenterContainer/VBoxContainer/HBoxContainer/Autoplay Button" unique_id=72030179 instance=ExtResource("6_25enu")]
 visible = false
@@ -539,6 +506,7 @@ parentType = "Autoplay"
 
 [node name="Icon Shadow" type="TextureRect" parent="UI Manager/Right Panel/Waves/CenterContainer/VBoxContainer/HBoxContainer/Autoplay Button" unique_id=589038416]
 modulate = Color(0, 0, 0, 0.3137255)
+show_behind_parent = true
 custom_maximum_size = Vector2(110, 110)
 layout_mode = 0
 offset_left = -8.0
@@ -548,6 +516,8 @@ offset_bottom = 102.0
 texture = ExtResource("9_luill")
 
 [node name="Icon On" type="TextureRect" parent="UI Manager/Right Panel/Waves/CenterContainer/VBoxContainer/HBoxContainer/Autoplay Button" unique_id=1983209546]
+visible = false
+show_behind_parent = true
 custom_maximum_size = Vector2(110, 110)
 layout_mode = 0
 offset_left = -11.0
@@ -557,7 +527,7 @@ offset_bottom = 99.0
 texture = ExtResource("9_luill")
 
 [node name="Icon Off" type="TextureRect" parent="UI Manager/Right Panel/Waves/CenterContainer/VBoxContainer/HBoxContainer/Autoplay Button" unique_id=1825877298]
-visible = false
+show_behind_parent = true
 custom_maximum_size = Vector2(110, 110)
 layout_mode = 0
 offset_left = -11.0
@@ -567,6 +537,7 @@ offset_bottom = 99.0
 texture = ExtResource("10_25enu")
 
 [node name="Wave Number Label" type="Label" parent="UI Manager/Right Panel/Waves/CenterContainer/VBoxContainer" unique_id=1290172829]
+custom_minimum_size = Vector2(0, 128)
 layout_mode = 2
 text = "Wave:"
 label_settings = SubResource("LabelSettings_luill")
@@ -645,6 +616,7 @@ label_settings = SubResource("LabelSettings_fyjvv")
 [node name="Escape Menu" type="Control" parent="UI Manager" unique_id=1082499403]
 process_mode = 3
 visible = false
+z_index = 1000
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5

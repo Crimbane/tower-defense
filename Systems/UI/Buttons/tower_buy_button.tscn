@@ -4,15 +4,67 @@
 [ext_resource type="Texture2D" uid="uid://ycypt7ywptfh" path="res://Systems/UI/Art/Arrow Tower Icon.svg" id="1_md6kl"]
 [ext_resource type="Texture2D" uid="uid://bcx1m15rts1j" path="res://Entities/Towers/Art/Arrow Tower Turret.svg" id="2_md6kl"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_umyhd"]
+bg_color = Color(1, 1, 1, 0)
+corner_radius_top_left = 24
+corner_radius_top_right = 24
+corner_radius_bottom_right = 24
+corner_radius_bottom_left = 24
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_730hi"]
+bg_color = Color(0, 0, 0, 0.23529412)
+corner_radius_top_left = 24
+corner_radius_top_right = 24
+corner_radius_bottom_right = 24
+corner_radius_bottom_left = 24
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ul2wb"]
+bg_color = Color(1, 1, 1, 0.23529412)
+corner_radius_top_left = 24
+corner_radius_top_right = 24
+corner_radius_bottom_right = 24
+corner_radius_bottom_left = 24
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pj6fi"]
+bg_color = Color(0, 0, 0, 0.3137255)
+corner_radius_top_left = 24
+corner_radius_top_right = 24
+corner_radius_bottom_right = 24
+corner_radius_bottom_left = 24
+
 [node name="Button" type="Button" unique_id=1343717249]
 z_index = 1
-custom_minimum_size = Vector2(110, 110)
-offset_right = 48.0
-offset_bottom = 48.0
-flat = true
+custom_minimum_size = Vector2(104, 104)
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 108.0
+offset_bottom = 108.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_umyhd")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_730hi")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ul2wb")
 script = ExtResource("1_1rjhe")
 
+[node name="Shadow" type="Panel" parent="." unique_id=560724580]
+show_behind_parent = true
+custom_minimum_size = Vector2(104, 104)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -49.0
+offset_top = -49.0
+offset_right = 55.0
+offset_bottom = 55.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_pj6fi")
+
 [node name="Icon" type="TextureRect" parent="." unique_id=1423745173]
+show_behind_parent = true
+custom_minimum_size = Vector2(110, 110)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0

@@ -19,13 +19,13 @@ var spawnQueue: Array[PackedScene] = []
 
 var enemyUnits: Dictionary = {}
 
-var currentWave: int = 0
+var currentWave: int = 1
 const MAX_WAVES: int = 100
 
 @export var startingBudget: int = -1
 @onready var budget: int = startingBudget
 
-var autoplay: bool = true
+var autoplay: bool = false
 
 func _ready() -> void:
 	GameManager.waveManager = self

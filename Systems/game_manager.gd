@@ -10,7 +10,7 @@ var UIManager: Node = null
 var waveManager: Node = null
 var selectedTower: Node2D = null
 
-const START_MONEY = 10000
+const START_MONEY = 50
 var moneyMultiplier: int = 2
 
 var money: int = START_MONEY

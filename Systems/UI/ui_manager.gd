@@ -74,7 +74,7 @@ func updateTowerUpgradeMenuColors() -> void:
 		button.updateColor()
 
 func updateWaveNumberLabel() -> void:
-	waveNumberLabel.text = "Wave: " + str(GameManager.waveManager.currentWave)
+	waveNumberLabel.text = "Wave:\n" + str(GameManager.waveManager.currentWave) + " / " + str(GameManager.waveManager.MAX_WAVES)
 
 func updateNexusHealthLabel(health: int) -> void:
 	nexusHealthLabel.text = str(health)
