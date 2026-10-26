@@ -83,8 +83,7 @@ func takeDamage(damage: int) -> void:
 	#print("damaged: ", damage)
 	if currentHealth < 1:
 		if enemyType == "Boss":
-			pass
-			# won the game logic
+			get_tree().change_scene_to_file(GameManager.CREDITS)
 		if enemyType == "Baby Sandworm":
 			SoundManager.playSandwormDeathSound()
 		if enemyType == "Scorpion":

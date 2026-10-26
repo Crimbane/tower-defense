@@ -3,6 +3,7 @@ extends Node
 
 const GAME: String = "res://Stages/Game/desert_map.tscn"
 const MAIN_MENU: String = "res://Stages/Main Menu/main_menu.tscn"
+const CREDITS: String = "uid://due6j6nn50umk"
 
 var nexus: Node = null
 var UIManager: Node = null

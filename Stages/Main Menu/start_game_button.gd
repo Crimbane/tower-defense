@@ -14,3 +14,4 @@ func toMainMenu() -> void:
 	SoundManager.playRandomTrack()
 	
 	get_tree().change_scene_to_file(GameManager.GAME)
+	

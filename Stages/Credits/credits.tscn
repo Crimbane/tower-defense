@@ -1,0 +1,78 @@
+[gd_scene format=3 uid="uid://due6j6nn50umk"]
+
+[ext_resource type="Script" uid="uid://ocjexw1c5aej" path="res://Stages/Credits/credits.gd" id="1_3oqmu"]
+[ext_resource type="Texture2D" uid="uid://dmedrym2sf55b" path="res://Systems/UI/Art/Main Menu Background.png" id="2_wlynr"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_3oqmu"]
+font_size = 40
+font_color = Color(0.3254902, 0.34901962, 0.32941177, 1)
+outline_size = 6
+outline_color = Color(1, 0.80784315, 0.39215687, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_wlynr"]
+font_size = 50
+font_color = Color(1, 0.80784315, 0.39215687, 1)
+outline_size = 6
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_qd21q"]
+font_size = 20
+outline_size = 2
+outline_color = Color(0, 0, 0, 1)
+
+[node name="Credits" type="Control" unique_id=241014952]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_3oqmu")
+
+[node name="Background" type="Sprite2D" parent="." unique_id=2070013390]
+texture = ExtResource("2_wlynr")
+
+[node name="Made By" type="Label" parent="." unique_id=529711241]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Made by"
+label_settings = SubResource("LabelSettings_3oqmu")
+metadata/_edit_group_ = true
+
+[node name="Names" type="Label" parent="Made By" unique_id=1320450559]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -260.0
+offset_top = 72.0
+offset_right = 260.0
+offset_bottom = 141.0
+grow_horizontal = 2
+text = "olem50 and Crimtane"
+label_settings = SubResource("LabelSettings_wlynr")
+
+[node name="Audio" type="Label" parent="Made By" unique_id=161672105]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -118.0
+offset_top = 273.0
+offset_right = 118.0
+offset_bottom = 296.0
+grow_horizontal = 2
+text = "With audio from Ovani Sounds"
+label_settings = SubResource("LabelSettings_qd21q")
