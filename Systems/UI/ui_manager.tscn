@@ -11,6 +11,8 @@
 [ext_resource type="Texture2D" uid="uid://o7fux5q786q7" path="res://Systems/UI/Art/Auto Play Toggle ON.svg" id="9_luill"]
 [ext_resource type="Texture2D" uid="uid://lq0nkpf10bg3" path="res://Systems/UI/Art/Auto Play Toggle OFF.svg" id="10_25enu"]
 [ext_resource type="Texture2D" uid="uid://c7otbw4dpualv" path="res://Systems/UI/Art/Health Icon.svg" id="11_25enu"]
+[ext_resource type="Script" uid="uid://b34mac5myuhuw" path="res://Stages/Main Menu/volume_slider.gd" id="12_psbio"]
+[ext_resource type="Script" uid="uid://bomwd32vywsqi" path="res://Stages/Main Menu/quit_game_button.gd" id="13_dgt5i"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_sa4aq"]
 font_size = 22
@@ -52,9 +54,33 @@ shadow_offset = Vector2(2, 2)
 [sub_resource type="LabelSettings" id="LabelSettings_fyjvv"]
 font_size = 32
 
+[sub_resource type="DPITexture" id="DPITexture_dgt5i"]
+_source = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\"><circle cx=\"8\" cy=\"8\" r=\"7\" fill=\"#fefefe\" fill-opacity=\".75\"/></svg>
+"
+base_scale = 2.0
+
+[sub_resource type="DPITexture" id="DPITexture_eixvb"]
+_source = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\"><circle cx=\"8\" cy=\"8\" r=\"7\" fill=\"#fefefe\"/></svg>
+"
+base_scale = 2.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mhgge"]
+bg_color = Color(0, 0, 0, 0.35686275)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+expand_margin_top = 10.0
+expand_margin_bottom = 10.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_64m3x"]
+font_size = 40
+outline_size = 6
+outline_color = Color(0, 0, 0, 1)
+
 [node name="UI" type="CanvasLayer" unique_id=2066053580]
 
-[node name="UI Manager" type="Control" parent="." unique_id=394273874 node_paths=PackedStringArray("towerBuyButton", "moneyLabel", "fpsLabel", "towerUpgradeMenu", "towerUpgradeMenuGrid", "nextWaveButton", "autoplayButton", "autoplayOnIcon", "autoplayOffIcon", "waveNumberLabel", "nexusHealthLabel")]
+[node name="UI Manager" type="Control" parent="." unique_id=394273874 node_paths=PackedStringArray("towerBuyButton", "moneyLabel", "fpsLabel", "towerUpgradeMenu", "towerUpgradeMenuGrid", "nextWaveButton", "autoplayButton", "autoplayOnIcon", "autoplayOffIcon", "waveNumberLabel", "nexusHealthLabel", "escapeMenu")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -74,6 +100,7 @@ autoplayOnIcon = NodePath("Right Panel/Waves/CenterContainer/VBoxContainer/HBoxC
 autoplayOffIcon = NodePath("Right Panel/Waves/CenterContainer/VBoxContainer/HBoxContainer/Autoplay Button/Icon Off")
 waveNumberLabel = NodePath("Right Panel/Waves/CenterContainer/VBoxContainer/Wave Number Label")
 nexusHealthLabel = NodePath("Right Panel/Health/CenterContainer/HBoxContainer/Health Label")
+escapeMenu = NodePath("Escape Menu")
 
 [node name="Tower Upgrade Menu" type="Control" parent="UI Manager" unique_id=2130134072]
 z_index = 6
@@ -614,3 +641,152 @@ offset_right = 71.0
 grow_vertical = 0
 text = "FPS: "
 label_settings = SubResource("LabelSettings_fyjvv")
+
+[node name="Escape Menu" type="Control" parent="UI Manager" unique_id=1082499403]
+process_mode = 3
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -189.0
+offset_top = -302.5
+offset_right = 402.0
+offset_bottom = 429.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="TextureRect" parent="UI Manager/Escape Menu" unique_id=39494197]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -295.5
+offset_top = -365.75
+offset_right = 295.5
+offset_bottom = 365.75
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_sa4aq")
+
+[node name="VolumePanel" type="Control" parent="UI Manager/Escape Menu" unique_id=1112775272]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 28.5
+offset_top = -20.0
+offset_right = 68.49988
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GridContainer" type="GridContainer" parent="UI Manager/Escape Menu/VolumePanel" unique_id=529359987]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -274.5
+offset_top = -71.5
+offset_right = 274.5
+offset_bottom = 71.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/h_separation = 14
+columns = 2
+
+[node name="MasterSlider" type="HSlider" parent="UI Manager/Escape Menu/VolumePanel/GridContainer" unique_id=1574316335]
+custom_minimum_size = Vector2(300, 45)
+layout_mode = 2
+theme_override_icons/grabber = SubResource("DPITexture_dgt5i")
+theme_override_icons/grabber_highlight = SubResource("DPITexture_eixvb")
+theme_override_styles/slider = SubResource("StyleBoxFlat_mhgge")
+max_value = 1.0
+step = 0.001
+script = ExtResource("12_psbio")
+busName = "Master"
+
+[node name="MasterLabel" type="Label" parent="UI Manager/Escape Menu/VolumePanel/GridContainer" unique_id=1945506649]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.21176471)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_font_sizes/font_size = 32
+text = "Master"
+
+[node name="MusicSlider" type="HSlider" parent="UI Manager/Escape Menu/VolumePanel/GridContainer" unique_id=35161424]
+custom_minimum_size = Vector2(300, 45)
+layout_mode = 2
+theme_override_icons/grabber = SubResource("DPITexture_dgt5i")
+theme_override_icons/grabber_highlight = SubResource("DPITexture_eixvb")
+theme_override_styles/slider = SubResource("StyleBoxFlat_mhgge")
+max_value = 1.0
+step = 0.001
+script = ExtResource("12_psbio")
+busName = "Music"
+
+[node name="MusicLabel" type="Label" parent="UI Manager/Escape Menu/VolumePanel/GridContainer" unique_id=239831691]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.21176471)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_font_sizes/font_size = 32
+text = "Music"
+
+[node name="SFXSlider" type="HSlider" parent="UI Manager/Escape Menu/VolumePanel/GridContainer" unique_id=1587964173]
+custom_minimum_size = Vector2(300, 45)
+layout_mode = 2
+theme_override_icons/grabber = SubResource("DPITexture_dgt5i")
+theme_override_icons/grabber_highlight = SubResource("DPITexture_eixvb")
+theme_override_styles/slider = SubResource("StyleBoxFlat_mhgge")
+max_value = 1.0
+step = 0.001
+script = ExtResource("12_psbio")
+busName = "SFX"
+
+[node name="SFXLabel" type="Label" parent="UI Manager/Escape Menu/VolumePanel/GridContainer" unique_id=430804234]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.21176471)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_font_sizes/font_size = 32
+text = "SFX"
+
+[node name="Game Paused Label" type="Label" parent="UI Manager/Escape Menu" unique_id=1654448279]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -132.0
+offset_top = 99.96
+offset_right = 132.0
+offset_bottom = 154.96002
+grow_horizontal = 2
+text = "Game paused"
+label_settings = SubResource("LabelSettings_64m3x")
+horizontal_alignment = 1
+
+[node name="Quit Game Button" type="Button" parent="UI Manager/Escape Menu" unique_id=386973749]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -112.354996
+offset_top = -185.995
+offset_right = 103.64514
+offset_bottom = -122.99481
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 40
+text = "Quit Game"
+script = ExtResource("13_dgt5i")

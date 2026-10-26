@@ -2,6 +2,7 @@ extends Node
 
 @export var musicPlayer: AudioStreamPlayer
 
+@export_group("Sounds")
 @export var buttonClickSound: AudioStreamPlayer2D
 @export var buttonHoverSound: AudioStreamPlayer2D
 @export var buildSound: AudioStreamPlayer2D
@@ -23,6 +24,7 @@ extends Node
 @export var boarDeathSound: AudioStreamPlayer2D
 @export var lizardDeathSound: AudioStreamPlayer2D
 
+@export_category("Music")
 @export var menuMusic: AudioStream
 @export var gameMusic1: AudioStream
 @export var gameMusic2: AudioStream

@@ -28,6 +28,7 @@
 [ext_resource type="AudioStream" uid="uid://da23ckt03f6fb" path="res://Assets/Audio/SFX/Game over - Siren Sound.wav" id="20_5cwae"]
 
 [node name="Sound Manager" type="Node" unique_id=797328693 node_paths=PackedStringArray("musicPlayer", "buttonClickSound", "buttonHoverSound", "buildSound", "arrowShootSound", "arrowImpactSound", "flamethrowerSound", "slimeShootSound", "slimeImpactSound", "cannonShootSound", "cannonImpactSound", "nextWaveButtonSound", "startWaveSound", "loseHealthSound", "purchaseUpgradeSound", "noMoneySound", "gameOverSound", "sandwormDeathSound", "scorpionDeathSound", "boarDeathSound", "lizardDeathSound")]
+process_mode = 3
 script = ExtResource("1_0qc5e")
 musicPlayer = NodePath("Music Player")
 buttonClickSound = NodePath("Button Click Sound")

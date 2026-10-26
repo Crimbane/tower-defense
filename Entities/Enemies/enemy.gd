@@ -12,7 +12,7 @@ extends PathFollow2D
 @export var sprite: AnimatedSprite2D
 @export var burnTimer: Timer
 var time: float = 0.0
-
+@export_category("Stats")
 @export var unitCost: int = 1
 @export var minSpawnableWave: int = 1
 @export var attackDamage: int = 1
@@ -77,7 +77,7 @@ func _process(delta: float) -> void:
 func takeDamage(damage: int) -> void:
 	if armor > 0:
 		armorBar.show()
-		print("armored, take no damage")
+		#print("armored, take no damage")
 		return
 	currentHealth -= damage
 	#print("damaged: ", damage)

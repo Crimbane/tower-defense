@@ -58,12 +58,11 @@ animations = [{
 
 [node name="Lizard" type="PathFollow2D" unique_id=479867562 node_paths=PackedStringArray("armorBar", "sprite", "burnTimer")]
 script = ExtResource("1_amyjq")
-enemyType = "Scorpion"
+enemyType = "Lizard"
 armorBar = NodePath("Armor Bar")
 sprite = NodePath("AnimatedSprite2D")
 burnTimer = NodePath("BurnTimer")
 unitCost = 5
-minSpawnableWave = 25
 armor = 50
 
 [node name="Hitbox" type="Area2D" parent="." unique_id=2000332408 groups=["Enemy"]]

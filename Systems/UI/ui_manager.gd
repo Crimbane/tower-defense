@@ -11,6 +11,7 @@ extends Control
 @export var autoplayOffIcon: TextureRect
 @export var waveNumberLabel: Label
 @export var nexusHealthLabel: Label
+@export var escapeMenu: Control
 
 var hideCooldown: bool = false
 
@@ -73,8 +74,15 @@ func updateTowerUpgradeMenuColors() -> void:
 		button.updateColor()
 
 func updateWaveNumberLabel() -> void:
-	print(GameManager.waveManager.currentWave)
 	waveNumberLabel.text = "Wave: " + str(GameManager.waveManager.currentWave)
 
 func updateNexusHealthLabel(health: int) -> void:
 	nexusHealthLabel.text = str(health)
+
+func toggleEscapeMenu() -> void:
+	if escapeMenu.visible:
+		escapeMenu.hide()
+		get_tree().paused = false
+	else:
+		escapeMenu.show()
+		get_tree().paused = true

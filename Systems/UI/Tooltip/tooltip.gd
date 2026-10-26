@@ -17,7 +17,7 @@ func _ready() -> void:
 
 func _process(_delta: float) -> void:
 	if visible:
-		var positionParent = GameManager.UIManager.nexusHealthLabel
+		#var positionParent = GameManager.UIManager.nexusHealthLabel
 		#global_position = positionParent.global_position + Vector2(-100,340)
 		
 		updateTooltip()

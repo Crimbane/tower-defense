@@ -16,8 +16,3 @@ func _ready() -> void:
 	tween.tween_property(creditsText, "position:y", target + -140, 5.0)
 	await tween.finished
 	await get_tree().create_timer(8).timeout
-	
-
-func _process(_delta) -> void:
-	if Input.is_action_just_pressed("Escape"):
-			get_tree().quit()

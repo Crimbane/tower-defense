@@ -68,7 +68,8 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	if isGhostShape:
 		return
-	currentTarget = findPriorityEnemy()
+	#currentTarget = findPriorityEnemy()
+	currentTarget = findClosestEnemy()
 	
 	if currentTarget != null:
 		var distance = position.distance_to(currentTarget.global_position)
@@ -118,29 +119,49 @@ func onFireRateTimerTimeout() -> void:
 func findPriorityEnemy() -> Node2D:
 	var enemies = get_tree().get_nodes_in_group("Enemy")
 	var priorityEnemy: Node2D = null
-	var highestProgress = 0
+	var priorityLizard: Node2D = null
+	var highestProgress: float = 0
+	var highestLizardProgress: float = 0
 	
 	for enemy in enemies:
 		var enemyDistance = global_position.distance_to(enemy.global_position)
 		if enemyDistance < attackRange:
 			var progress = enemy.get_parent().progress
-			if progress > highestProgress:
-				highestProgress = progress
-				priorityEnemy = enemy
+			if enemy.get_parent().enemyType == "Lizard":
+				print("enemy lizard detected")
+				if progress > highestLizardProgress:
+					highestLizardProgress = progress
+					priorityLizard = enemy
+			else:
+				if progress > highestProgress:
+					highestProgress = progress
+					priorityEnemy = enemy
 	
+	if priorityLizard != null:
+		print("return lizard enemy")
+		return priorityLizard
 	return priorityEnemy
 
 func findClosestEnemy() -> Node2D:
 	var enemies = get_tree().get_nodes_in_group("Enemy")
 	var closestEnemy: Node2D = null
 	var closestDistance = attackRange
+	var priorityLizard: Node2D = null
+	var highestLizardProgress: float = 0
 	
 	for enemy in enemies:
 		var enemyDistance = global_position.distance_to(enemy.global_position)
-		if enemyDistance < closestDistance:
+		if enemyDistance < attackRange and enemy.get_parent().enemyType == "Lizard":
+			var progress = enemy.get_parent().progress
+			if progress > highestLizardProgress:
+				highestLizardProgress = progress
+				priorityLizard = enemy
+		elif enemyDistance < closestDistance:
 			closestDistance = enemyDistance
 			closestEnemy = enemy
 	
+	if priorityLizard != null:
+		return priorityLizard
 	return closestEnemy
 
 func showAttackRange() -> void:
@@ -197,7 +218,7 @@ func upgradeTower(upgradePath: String, upgradeTier: int) -> void:
 		if currentTier == MAX_TIER:
 			updateTowerSprite()
 	else:
-		print("You are poor")
+		SoundManager.playnoMoneySound()
 
 
 func applyTowerUpgrades(upgradePath: String, upgradeTier: int) -> void:
