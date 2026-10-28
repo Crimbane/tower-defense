@@ -20,18 +20,27 @@ font_size = 20
 outline_size = 2
 outline_color = Color(0, 0, 0, 1)
 
+[sub_resource type="LabelSettings" id="LabelSettings_fjc7g"]
+font_size = 30
+outline_size = 6
+outline_color = Color(0, 0, 0, 1)
+
 [node name="Credits" type="Control" unique_id=241014952]
 layout_mode = 3
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_3oqmu")
 
-[node name="Background" type="Sprite2D" parent="." unique_id=2070013390]
+[node name="Background" type="TextureRect" parent="." unique_id=382058886]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 texture = ExtResource("2_wlynr")
 
 [node name="Made By" type="Label" parent="." unique_id=529711241]
@@ -76,3 +85,14 @@ offset_bottom = 296.0
 grow_horizontal = 2
 text = "With audio from Ovani Sounds"
 label_settings = SubResource("LabelSettings_qd21q")
+
+[node name="AnyKeyLabel" type="Label" parent="." unique_id=2051582150]
+unique_name_in_owner = true
+visible = false
+layout_mode = 0
+offset_left = 10.0
+offset_top = 5.0
+offset_right = 388.0
+offset_bottom = 47.0
+text = "Press any key to continue."
+label_settings = SubResource("LabelSettings_fjc7g")

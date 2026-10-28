@@ -13,7 +13,7 @@ config_version=5
 config/name="Desert Defense"
 run/main_scene="uid://cdvot8oh4lcls"
 config/features=PackedStringArray("4.7", "Forward Plus")
-config/icon="res://icon.svg"
+config/icon="uid://bfwodhdhl0g5j"
 
 [audio]
 
@@ -28,6 +28,7 @@ SoundManager="*uid://dp16rukddtsj5"
 
 window/size/viewport_width=1920
 window/size/viewport_height=1080
+window/size/mode=3
 window/size/window_width_override=1152
 window/size/window_height_override=648
 window/stretch/mode="canvas_items"
